@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    TRANSITION 
+
+    This mixin will calculate a transition property.
+
+    Add and modify the property arrays in /project/vars/_transition.scss
+
+\*------------------------------------*/
+@mixin transition($property: "all", $speed: "default", $easing: "default") {
+
+	$result-speed: "";
+	$result-easing: "";
+
+	@each $transition-speed in $transition-speeds {
+
+		@if(nth($transition-speed, 1) == $speed) {
+			$result-speed: nth($transition-speed, 2);
+		}
+	}
+
+	@each $transition-easing in $transition-easings {
+
+		@if(nth($transition-easing, 1) == $easing) {
+			$result-easing: nth($transition-easing, 2);
+		}
+	}
+
+	@if($result-speed != "" and $result-easing != "") {
+		transition: #{$property + " " + $result-speed + " " + $result-easing};
+	}
+}

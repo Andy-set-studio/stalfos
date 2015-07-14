@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    GENERIC
+\*------------------------------------*/
+$gutter: 20px;
+$gutter--mini: ($gutter / 2);
+$gutter--midi: ($gutter  + ($gutter / 2));
+$gutter--double: ($gutter * 2);
+$gutter--treble: ($gutter * 3);
+$site-max-width: 1000px;
+$site-min-width: 320px;
+
+
+/*------------------------------------*\
+    BREAKPOINTS
+\*------------------------------------*/
+$breakpoint--palm: "(max-width: 683px)";
+$breakpoint--portable: "(max-width: 999px)";
+$breakpoint--lap: "(min-width: 684px) and (max-width: 999px)";
+$breakpoint--desk: "(min-width: 1000px)";
+$breakpoint--desk--wide: "(min-width: 1300px)";
+$breakpoint--lap-and-up: "(min-width: 684px)";
+
+/*------------------------------------*\
+    GRID SYSTEM
+\*------------------------------------*/
+$grid--responsive: true;
+$grid--mobile-first: true;
+$grid--gutter: $gutter;
+$grid--use-silent-classes: true;
+$grid--push: false;
+$grid--pull: false;

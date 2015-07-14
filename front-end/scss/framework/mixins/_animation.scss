@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    ANIMATION
+    
+    A simple prefixer for defining animations 
+\*------------------------------------*/ 
+
+@mixin animation($name) {
+	
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	
+	@keyframes #{$name} {
+		@content;
+	}
+}

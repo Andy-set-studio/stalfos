@@ -1,0 +1,15 @@
+%flex-wrapper {
+	display: flex;
+}
+
+%flex-wrapper--column {
+	@extend %flex-wrapper;
+
+	flex-direction: column;
+}
+
+%flex-wrapper--row {
+	@extend %flex-wrapper;
+	
+	flex-direction: row;
+}

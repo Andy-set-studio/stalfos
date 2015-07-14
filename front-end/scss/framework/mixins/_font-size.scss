@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    FONT SIZE
+    
+    This mixin will generate a REM unit for your chosen font size. It will also add
+    the usual pixel unit for a fallback for browsers that don't support REMS. 
+    
+    This can also caluculate a line height for you based on your base line-height ratio.
+    
+    You can append an !important too.
+    
+    You can override the base line-height ratio if needed too. 
+    
+    Usage example: 
+    
+    With line-height: 
+    
+    body {
+    
+    	@include font-size(16px, true);
+    }
+    
+    Without line-height: 
+    
+    body {
+    	
+    	@include font-size(16px);
+    }
+    
+\*------------------------------------*/
+
+@mixin font-size($size, $calculate-line-height:false, $important: false, $line-height-ratio: $base-line-height-ratio) {
+	
+	@if($important == true) {
+		
+		font-size: $size !important;
+		font-size: ($size / $base-font-size)#{"rem"} !important;
+		
+		@if($calculate-line-height == true) {
+			line-height: ($size * $line-height-ratio) !important;
+			line-height: (($size / $base-font-size) * $line-height-ratio)#{"rem"} !important;
+		}
+	}
+	@else {
+		
+		font-size: $size;
+		font-size: ($size / $base-font-size)#{"rem"};
+		
+		@if($calculate-line-height == true) {
+			line-height: ($size * $line-height-ratio);
+			line-height: (($size / $base-font-size) * $line-height-ratio)#{"rem"};
+		}
+	}
+
+}

@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    ANIMATE
+    
+    A simple prefixer for running animations 
+\*------------------------------------*/  
+
+@mixin animate($name, $properties) {
+  -webkit-animation: unquote($name) $properties;
+     -moz-animation: unquote($name) $properties;
+          animation: unquote($name) $properties;
+}

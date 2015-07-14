@@ -1,0 +1,22 @@
+{
+  "name": "front-end-resources",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": { },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  	"gulp": "^3.8.11",
+    "gulp-files-to-json": "^0.1.1",
+    "gulp-plumber": "^1.0.0",
+    "gulp-wrap": "^0.11.0",
+    "gulp-svgmin": "^1.1.1",
+    "gulp-watch": "^4.1.1",
+    "gulp-nunjucks-render": "^0.2.1",
+    "gulp-sass": "2.0.3"
+  }
+}

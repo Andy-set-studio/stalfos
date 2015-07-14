@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    PRINT
+    
+    A very simply "wrapper" that allows you to add print specific styles within your css. 
+    This is mainly in a mixin so that if anything changes in the future, we can just update this 
+    mixin rather than refactoring our whole project.
+    
+    Usage example: 
+    
+    body {
+    	color: #f3f3f3;
+    
+		@include print {
+			color: #000000;
+		}
+    }
+\*------------------------------------*/
+@mixin print {
+
+	@media print {
+		@content;
+	}
+	
+}

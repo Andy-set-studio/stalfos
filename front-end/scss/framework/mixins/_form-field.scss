@@ -1,0 +1,10 @@
+@mixin form-field() {
+	-webkit-appearance: none;
+	display: inline-block;
+
+	&:focus, 
+	&:valid, 
+	&.is-filled {
+		outline: none;
+	}
+}

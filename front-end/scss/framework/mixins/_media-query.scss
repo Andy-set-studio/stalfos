@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    MEDIA QUERY
+    
+    This mixin will wrap your code in the appropriate media query of your choosing.
+    
+    For example. If you want to make the body background magenta on mobile only:
+    
+    body {
+	    @include media-query(palm) {
+	    	background: magenta;
+	    }
+    }
+\*------------------------------------*/
+@mixin media-query($alias, $screen-only:true) {
+	
+	$calculated-breakpoint: "";
+	
+	@if($alias == "palm") {
+		$calculated-breakpoint: $breakpoint--palm;
+	}
+	
+	@if($alias == "lap") {
+		$calculated-breakpoint: $breakpoint--lap;
+	}
+	
+	@if($alias == "desk") {
+		$calculated-breakpoint: $breakpoint--desk;
+	}
+	
+	@if($alias == "lap-and-up") {
+		$calculated-breakpoint: $breakpoint--lap-and-up;
+	}
+
+	@if($alias == "desk-wide") {
+		$calculated-breakpoint: $breakpoint--desk--wide;
+	}
+	
+	@if($calculated-breakpoint != "") {
+		
+		@if($screen-only == true) {
+			@media screen and #{$calculated-breakpoint} {
+				@content;
+			}
+		}
+		@else {
+			@media all and #{$calculated-breakpoint} {
+				@content;
+			}
+		}
+
+		
+	}
+	
+}

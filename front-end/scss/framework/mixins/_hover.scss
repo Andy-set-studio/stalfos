@@ -1,0 +1,18 @@
+@mixin hover($include-active: false) {
+	
+	@if($include-active) {
+		&:target,
+		&:active,
+		&:hover,
+		&.is-active {
+			@content;
+		}
+	}
+	@else {
+		&:target,
+		&:active,
+		&:hover {
+			@content;
+		}
+	}
+} 

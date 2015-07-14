@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    OPACITY
+    
+    Cross browser opacity! 
+    
+    body {
+	    @include opacity(0.9);
+    }
+\*------------------------------------*/
+@mixin opacity($number) {
+	$number--whole: (100 * $number);
+
+	-ms-filter: #{"progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $number--whole + ")"};
+	-moz-opacity:  $number;
+	-khtml-opacity:  $number;
+	opacity:  $number;
+
+}

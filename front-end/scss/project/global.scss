@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    IMPORT FRAMEWORK
+\*------------------------------------*/
+@import "../framework/build";
+
+
+/*------------------------------------*\
+    ADD SOME GLOBAL STYLES
+\*------------------------------------*/
+
+body {
+	font-size: $base-font-size;
+	font-family: $base-font-family;
+	min-width: $site-min-width;
+}
+
+.wrapper {
+	min-width: $site-min-width;
+	max-width: $site-max-width;
+	margin: 0 auto;
+	padding: 0 $gutter;
+	position: relative;
+}
+
+.clear {
+	
+	&:after,
+	&:before {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+
+.is-hidden {
+	display: none;
+}
+
+.is-visible {
+	display: block !important;
+}
+
+.is-muted {
+	@include opacity(0.5);
+}
+
+.is-hidden--text {
+  position: absolute !important;
+  height: 1px; 
+  width: 1px; 
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.no-print {
+	@include print() {
+		display: none;
+	}
+}
+
+/*------------------------------------*\
+    MIXINS
+\*------------------------------------*/
+
+//@import "mixins/mixin-name"; // Add a line for each mixin
+
+
+/*------------------------------------*\
+    HELPERS
+\*------------------------------------*/
+
+@import "helpers/z-index"; 
+@import "helpers/flex-wrapper"; 
+
+
+/*------------------------------------*\
+    COMPONENTS
+\*------------------------------------*/
+
+@import "components/icon";
+
+
+/*------------------------------------*\
+    LAYOUTS
+\*------------------------------------*/
+
+@import "layouts/site-head"; 
+@import "layouts/site-foot"; 
+
+/*------------------------------------*\
+    ANIMATIONS
+\*------------------------------------*/
+
+//@import "animations/animation-name"; // Add a line for animation
+
+
+// Import the shame
+@import "shame";
