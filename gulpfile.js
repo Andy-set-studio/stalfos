@@ -8,7 +8,9 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	svgmin = require('gulp-svgmin'),
 	nunjucksRender = require('gulp-nunjucks-render'),
-	del = require('del');
+	del = require('del'),
+	sass = require('gulp-sass'),
+	notify = require("gulp-notify");
 
 
 
@@ -20,6 +22,7 @@ var FRONT_END_PATH = 'front-end',
 	SVG_PATH = FRONT_END_PATH + '/svg',
 	TEMPLATE_PATH = FRONT_END_PATH + '/templates',
 	SCRIPT_PATH = FRONT_END_PATH + '/scripts',
+	SCSS_PATH = FRONT_END_PATH + '/scss/project',
 	WEB_PATH = '.web';
 
 
@@ -55,16 +58,31 @@ gulp.task('process-templates', function() {
 				.pipe(gulp.dest(WEB_PATH));
 });
 
+// Process sass 
+gulp.task('process-sass', function () {
+	notify('sass');
+	return gulp.src(SCSS_PATH + '/*.scss')
+				.pipe(sass().on('error', function() {
+						notify("Sass error");
+					}))
+				.pipe(gulp.dest(WEB_PATH + '/css'))
+				.pipe(notify("Sass Compiled :)"));
+});
+
 
 // Global serve task. This task basically does everything and should be 
 // called to run your webserver
-gulp.task('serve', ['clean-web', 'process-svg', 'process-templates'], function() {
+gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass'], function() {
 
 	// Watch for changes with SVG
 	watch([SVG_PATH + '/**/*.svg'], function() { gulp.start('process-svg'); });
 
 	// Watch for changes with templates
 	watch([TEMPLATE_PATH + '/**/*.html'], function() { gulp.start('process-templates'); });
+
+	// Watch for changes with sass
+	watch([SCSS_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
+
 });
 
 
