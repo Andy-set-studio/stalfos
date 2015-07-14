@@ -26,6 +26,13 @@ var SVG_PATH = 'svg',
     TASKS
 \*------------------------------------*/
 
+// Clean the web path out
+gulp.task('clean-web', function(cb) {
+	del([ WEB_PATH + '/*' ], function() {
+		cb();
+	});
+});
+
 // Find all SVG and smash into a js file
 gulp.task('process-svg', function() {
 
