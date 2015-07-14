@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 	filesToJson = require('gulp-files-to-json'),
 	watch = require('gulp-watch'),
 	svgmin = require('gulp-svgmin'),
-	nunjucksRender = require('gulp-nunjucks-render');
+	nunjucksRender = require('gulp-nunjucks-render'),
+	del = require('del');
 
 
 
@@ -15,9 +16,10 @@ var gulp = require('gulp'),
     GLOBAL VARS
 \*------------------------------------*/
 
-var SVG_PATH = 'svg',
-	TEMPLATE_PATH = 'templates',
-	SCRIPT_PATH = 'scripts',
+var FRONT_END_PATH = 'front-end',
+	SVG_PATH = FRONT_END_PATH + '/svg',
+	TEMPLATE_PATH = FRONT_END_PATH + '/templates',
+	SCRIPT_PATH = FRONT_END_PATH + '/scripts',
 	WEB_PATH = '.web';
 
 
@@ -56,7 +58,7 @@ gulp.task('process-templates', function() {
 
 // Global serve task. This task basically does everything and should be 
 // called to run your webserver
-gulp.task('serve', ['process-svg', 'process-templates'], function() {
+gulp.task('serve', ['clean-web', 'process-svg', 'process-templates'], function() {
 
 	// Watch for changes with SVG
 	watch([SVG_PATH + '/**/*.svg'], function() { gulp.start('process-svg'); });
