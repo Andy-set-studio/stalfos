@@ -117,7 +117,7 @@ gulp.task('livereload', function () {
 
 // Global serve task. This task basically does everything and should be 
 // called to run your webserver
-gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass'], function() {
+gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts'], function() {
 
 	// Watch for changes with SVG
 	watch([SVG_PATH + '/**/*.svg'], function() { gulp.start('process-svg'); });
@@ -127,6 +127,9 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 
 	// Watch for changes with sass
 	watch([SCSS_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
+
+	// Watch for changes with scripts
+	watch([SCRIPT_PATH + '/**/*.js'], function() { gulp.start('process-scripts'); });
 
 	// Watch any file changes in the web path and reload
 	watch([ WEB_PATH + '/**/*' ], function() { gulp.start('livereload'); });

@@ -62,6 +62,5 @@ var app = (function($) {
 	
 }(window.$));
 
-$(document).ready(function() {
-	app.init();
-});
+// RUN!!
+app.init();
