@@ -39,7 +39,7 @@ var SVG_PATH = 'svg',
 
 // Clean the web path out
 gulp.task('clean-web', function(cb) {
-	del([ WEB_PATH + '/*' ], function() {
+	del([ WEB_PATH + '/*' ], {force: true}, function() {
 		cb();
 	});
 });
@@ -50,7 +50,7 @@ gulp.task('process-svg', function() {
 	return gulp.src(SVG_PATH + '/*.svg')
 				.pipe(svgmin())
 				.pipe(filesToJson('_site-icons.js'))
-				.pipe(wrap('var site_icons = <%= (contents) %>'))
+				.pipe(wrap('var site_icons = <%= (contents) %>' + ';'))
 				.pipe(gulp.dest(SCRIPT_PATH));
 });
 
@@ -78,15 +78,34 @@ gulp.task('process-sass', function () {
 				.pipe(notify("Sass Compiled :)"));
 });
 
+// Process JavaScript libs
+gulp.task('process-script-libs', function() {
 
-// Process Javascript
+	var sources = [
+		SCRIPT_PATH + '/lib/*.js'
+	];
+
+	return gulp.src(sources)
+				.pipe(plumber())
+				.pipe(sourcemaps.init())
+				.pipe(concat('lib.js'))
+				.pipe(uglify())
+				.pipe(sourcemaps.write('.'))
+				.pipe(gulp.dest(WEB_PATH + '/scripts'));
+});
+
+// Process JavaScript
 gulp.task('process-scripts', function() {
+
 	var sources = [
 		SCRIPT_PATH + '/_site-icons.js',
 		SCRIPT_PATH + '/_helpers.js',
 		SCRIPT_PATH + '/modules/*.js',
 		SCRIPT_PATH + '/app.js'
 	];
+
+	// Process libs first
+	gulp.start('process-script-libs');
 
 	return gulp.src(sources)
 				.pipe(plumber())
@@ -120,7 +139,7 @@ gulp.task('livereload', function () {
 gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts'], function() {
 
 	// Watch for changes with SVG
-	watch([SVG_PATH + '/**/*.svg'], function() { gulp.start('process-svg'); });
+	watch([SVG_PATH + '/*.svg'], function() { gulp.start('process-svg'); });
 
 	// Watch for changes with templates
 	watch([TEMPLATE_PATH + '/**/*.html'], function() { gulp.start('process-templates'); });
