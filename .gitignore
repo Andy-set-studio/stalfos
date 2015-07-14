@@ -1,5 +1,5 @@
 *.scssc
 .DS_Store
 front-end/scss/project/.sass-cache/*
-node_modules
+front-end/node_modules
 .public

@@ -25,12 +25,11 @@ var gulp = require('gulp'),
     GLOBAL VARS
 \*------------------------------------*/
 
-var FRONT_END_PATH = 'front-end',
-	SVG_PATH = FRONT_END_PATH + '/svg',
-	TEMPLATE_PATH = FRONT_END_PATH + '/templates',
-	SCRIPT_PATH = FRONT_END_PATH + '/scripts',
-	SCSS_PATH = FRONT_END_PATH + '/scss/project',
-	WEB_PATH = '.public';
+var SVG_PATH = 'svg',
+	TEMPLATE_PATH = 'templates',
+	SCRIPT_PATH = 'scripts',
+	SCSS_PATH = 'scss/project',
+	WEB_PATH = '../.public';
 
 
 
