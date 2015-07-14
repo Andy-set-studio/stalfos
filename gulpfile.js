@@ -11,7 +11,11 @@ var gulp = require('gulp'),
 	del = require('del'),
 	sass = require('gulp-sass'),
 	notify = require("gulp-notify"),
-	connect = require('gulp-connect');
+	connect = require('gulp-connect'),
+	plumber = require('gulp-plumber'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	sourcemaps = require('gulp-sourcemaps');
 
 
 
@@ -68,6 +72,25 @@ gulp.task('process-sass', function () {
 				.pipe(notify("Sass Compiled :)"));
 });
 
+
+// Process Javascript
+gulp.task('process-scripts', function() {
+	var sources = [
+		SCRIPT_PATH + '/_site-icons.js',
+		SCRIPT_PATH + '/_helpers.js',
+		SCRIPT_PATH + '/modules/*.js',
+		SCRIPT_PATH + '/app.js'
+	];
+
+	return gulp.src(sources)
+				.pipe(plumber())
+				.pipe(sourcemaps.init())
+				.pipe(concat('app.js'))
+				.pipe(uglify())
+				.pipe(sourcemaps.write('.'))
+				.pipe(gulp.dest(WEB_PATH + '/scripts'));
+});
+
 // Webserver 
 gulp.task('webserver', function() {
 
@@ -81,7 +104,7 @@ gulp.task('webserver', function() {
 
 // Live reload 
 gulp.task('livereload', function () {
-	
+
 	return gulp.src( WEB_PATH + '/**/*' )
 		.pipe(connect.reload());
 });

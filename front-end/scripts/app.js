@@ -1,17 +1,3 @@
-//@prepros-prepend _helpers.js
-
-/*------------------------------------*\
-    APP MODULES 
-
-    Import app modules as partials within the 'modules' directory.
-
-    Simply add a new prepros line like the example below.
-\*------------------------------------*/
-
-//@prepros-prepend modules/_dummy.js
-
-
-
 /*------------------------------------*\
     CENTRAL APP MASTER 
     
