@@ -79,6 +79,12 @@ gulp.task('webserver', function() {
 
 });
 
+// Live reload 
+gulp.task('livereload', function () {
+	
+	return gulp.src( WEB_PATH + '/**/*' )
+		.pipe(connect.reload());
+});
 
 // Global serve task. This task basically does everything and should be 
 // called to run your webserver
@@ -92,6 +98,9 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 
 	// Watch for changes with sass
 	watch([SCSS_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
+
+	// Watch any file changes in the web path and reload
+	watch([ WEB_PATH + '/**/*' ], function() { gulp.start('livereload'); });
 
 	// Run the webserver 
 	gulp.start('webserver');
