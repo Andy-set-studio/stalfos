@@ -15,7 +15,9 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	minifyCss = require('gulp-minify-css'),
+	autoprefixer = require('gulp-autoprefixer');
 
 
 
@@ -67,7 +69,12 @@ gulp.task('process-templates', function() {
 gulp.task('process-sass', function () {
 
 	return gulp.src(SCSS_PATH + '/*.scss')
+				.pipe(plumber())
+				.pipe(sourcemaps.init())
 				.pipe(sass().on('error', sass.logError))
+				.pipe(autoprefixer())
+				.pipe(minifyCss())
+				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
 });
