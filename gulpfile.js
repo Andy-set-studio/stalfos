@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 	nunjucksRender = require('gulp-nunjucks-render'),
 	del = require('del'),
 	sass = require('gulp-sass'),
-	notify = require("gulp-notify");
+	notify = require("gulp-notify"),
+	connect = require('gulp-connect');
 
 
 
@@ -23,7 +24,7 @@ var FRONT_END_PATH = 'front-end',
 	TEMPLATE_PATH = FRONT_END_PATH + '/templates',
 	SCRIPT_PATH = FRONT_END_PATH + '/scripts',
 	SCSS_PATH = FRONT_END_PATH + '/scss/project',
-	WEB_PATH = '.web';
+	WEB_PATH = '.public';
 
 
 
@@ -60,13 +61,22 @@ gulp.task('process-templates', function() {
 
 // Process sass 
 gulp.task('process-sass', function () {
-	notify('sass');
+
 	return gulp.src(SCSS_PATH + '/*.scss')
-				.pipe(sass().on('error', function() {
-						notify("Sass error");
-					}))
+				.pipe(sass().on('error', sass.logError))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
+});
+
+// Webserver 
+gulp.task('webserver', function() {
+
+	connect.server({
+	    root: WEB_PATH,
+	    port: 8003,
+	    livereload: true
+	});
+
 });
 
 
@@ -82,6 +92,9 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 
 	// Watch for changes with sass
 	watch([SCSS_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
+
+	// Run the webserver 
+	gulp.start('webserver');
 
 });
 

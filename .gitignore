@@ -2,4 +2,4 @@
 .DS_Store
 front-end/scss/project/.sass-cache/*
 node_modules
-.web
+.public
