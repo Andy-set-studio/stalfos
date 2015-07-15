@@ -28,7 +28,8 @@ var gulp = require('gulp'),
 var SVG_PATH = 'svg',
 	TEMPLATE_PATH = 'templates',
 	SCRIPT_PATH = 'scripts',
-	SCSS_PATH = 'scss/project',
+	SCSS_ROOT_PATH = 'scss',
+	SCSS_PATH = SCSS_ROOT_PATH + '/project',
 	IMAGE_PATH = 'images',
 	WEB_PATH = '../.public';
 
@@ -151,7 +152,7 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 	watch([TEMPLATE_PATH + '/**/*.html'], function() { gulp.start('process-templates'); });
 
 	// Watch for changes with sass
-	watch([SCSS_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
+	watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
 
 	// Watch for changes with scripts
 	watch([IMAGE_PATH + '/**/*'], function() { gulp.start('process-images'); });
@@ -160,7 +161,7 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 	watch([SCRIPT_PATH + '/**/*.js'], function() { gulp.start('process-scripts'); });
 
 	// Watch any file changes in the web path and reload
-	watch([ WEB_PATH + '/**/*' ], function() { gulp.start('livereload'); });
+	watch([WEB_PATH + '/**/*'], function() { gulp.start('livereload'); });
 
 	// Run the webserver 
 	gulp.start('webserver');
