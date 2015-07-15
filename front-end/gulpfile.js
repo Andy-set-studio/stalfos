@@ -113,7 +113,8 @@ gulp.task('process-scripts', function() {
 				.pipe(concat('app.js'))
 				.pipe(uglify())
 				.pipe(sourcemaps.write('.'))
-				.pipe(gulp.dest(WEB_PATH + '/scripts'));
+				.pipe(gulp.dest(WEB_PATH + '/scripts'))
+				.pipe(notify("Scripts Compiled :)"));
 });
 
 // Process images
