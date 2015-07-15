@@ -87,10 +87,8 @@ gulp.task('process-script-libs', function() {
 
 	return gulp.src(sources)
 				.pipe(plumber())
-				.pipe(sourcemaps.init())
 				.pipe(concat('lib.js'))
 				.pipe(uglify())
-				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/scripts'));
 });
 
