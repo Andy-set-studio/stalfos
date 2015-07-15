@@ -1,6 +1,7 @@
 @mixin form-field() {
 	-webkit-appearance: none;
 	display: inline-block;
+	font-family: $base-font-family;
 
 	&:focus, 
 	&:valid, 
