@@ -29,6 +29,7 @@ var SVG_PATH = 'svg',
 	TEMPLATE_PATH = 'templates',
 	SCRIPT_PATH = 'scripts',
 	SCSS_PATH = 'scss/project',
+	IMAGE_PATH = 'images',
 	WEB_PATH = '../.public';
 
 
@@ -114,6 +115,13 @@ gulp.task('process-scripts', function() {
 				.pipe(gulp.dest(WEB_PATH + '/scripts'));
 });
 
+// Process images
+gulp.task('process-images', function() {
+
+	return gulp.src([IMAGE_PATH + '/**/*'])
+				.pipe(gulp.dest(WEB_PATH + '/images'));
+});
+
 // Webserver 
 gulp.task('webserver', function() {
 
@@ -134,7 +142,7 @@ gulp.task('livereload', function () {
 
 // Global serve task. This task basically does everything and should be 
 // called to run your webserver
-gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts'], function() {
+gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images'], function() {
 
 	// Watch for changes with SVG
 	watch([SVG_PATH + '/*.svg'], function() { gulp.start('process-svg'); });
@@ -146,6 +154,9 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 	watch([SCSS_PATH + '/**/*.scss'], function() { gulp.start('process-sass'); });
 
 	// Watch for changes with scripts
+	watch([IMAGE_PATH + '/**/*'], function() { gulp.start('process-images'); });
+
+	// Watch for changes with images
 	watch([SCRIPT_PATH + '/**/*.js'], function() { gulp.start('process-scripts'); });
 
 	// Watch any file changes in the web path and reload
