@@ -205,12 +205,14 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * 1. Allow the grid system to be used on lists.
  * 2. Remove any margins and paddings that might affect the grid system.
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
+ * 4. Negative top margin of gutter so at mobile there will be a vertical gutter
  */
 #{$class-type}grid {
     list-style:none;                /* [1] */
     margin:0;                       /* [2] */
     padding:0;                      /* [2] */
     margin-left:-$gutter;           /* [3] */
+    margin-top:-$gutter;
     @if not $use-markup-fix {
         letter-spacing:-0.32em;
     }
@@ -227,7 +229,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 
     /**
      * 1. Cause columns to stack side-by-side.
-     * 2. Space columns apart.
+     * 2. & 2.1. Space columns apart.
      * 3. Align columns to the tops of each other.
      * 4. Full-width unless told to behave otherwise.
      * 5. Required to combine fluid widths and fixed gutters.
@@ -235,6 +237,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
     #{$class-type}grid__item {
         display:inline-block;           /* [1] */
         padding-left:$gutter;           /* [2] */
+        padding-top:$gutter;            /* [2.2] */
         vertical-align:top;             /* [3] */
         
         @if $mobile-first {
@@ -325,9 +328,11 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  */
 #{$class-type}grid--narrow {
     margin-left:-($gutter / 2);
+    margin-top:-($gutter / 2);
 
     > #{$class-type}grid__item {
         padding-left:$gutter / 2;
+        padding-top:$gutter / 2;
     }
 }
 
@@ -337,9 +342,11 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  */
 #{$class-type}grid--wide {
     margin-left:-($gutter * 2);
+    margin-top:-($gutter * 2);
 
     > #{$class-type}grid__item {
         padding-left:$gutter * 2;
+        padding-top:$gutter * 2;
     }
 }
 
