@@ -1,0 +1,37 @@
+%flex-grid {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin-left: -$gutter;
+	margin-top: -$gutter;
+
+	&__item {
+		padding-left: $gutter;
+		padding-top: $gutter;
+
+		&__inner {
+
+		}
+	}
+
+	&--center {
+		justify-content: center;
+	}
+
+	&--justified {
+		justify-content: space-between;
+	}
+
+	&--level-heights {
+		%flex-grid__item {
+			display: flex;
+			flex-direction: column;
+		}
+
+		%flex-grid__item__inner {
+			-webkit-flex: 1;
+			flex: auto;
+		}
+	}
+}
