@@ -17,7 +17,9 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	sourcemaps = require('gulp-sourcemaps'),
 	minifyCss = require('gulp-minify-css'),
-	autoprefixer = require('gulp-autoprefixer');
+	autoprefixer = require('gulp-autoprefixer'),
+	data = require('gulp-data'),
+	fs = require('fs');
 
 
 
@@ -31,7 +33,8 @@ var SVG_PATH = 'svg',
 	SCSS_ROOT_PATH = 'scss',
 	SCSS_PATH = SCSS_ROOT_PATH + '/project',
 	IMAGE_PATH = 'images',
-	WEB_PATH = '../.public';
+	WEB_PATH = '../.public',
+	DATA_FILE = 'data.json';
 
 
 
@@ -59,14 +62,19 @@ gulp.task('process-svg', function() {
 // Process all the nunjucks templates
 gulp.task('process-templates', function() {
 
+	var contents = fs.readFileSync(DATA_FILE);
+
 	nunjucksRender.nunjucks.configure([TEMPLATE_PATH + '/']);
 
 	return gulp.src(TEMPLATE_PATH + '/*.html')
+				.pipe(data(function(file) {
+					return JSON.parse(contents);
+				}))
 				.pipe(nunjucksRender())
 				.pipe(gulp.dest(WEB_PATH));
 });
 
-// Process sass 
+// Process sass
 gulp.task('process-sass', function () {
 
 	return gulp.src(SCSS_PATH + '/*.scss')
@@ -74,7 +82,7 @@ gulp.task('process-sass', function () {
 				.pipe(sourcemaps.init())
 				.pipe(sass().on('error', sass.logError))
 				.pipe(autoprefixer())
-				.pipe(minifyCss())
+				//.pipe(minifyCss())
 				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
@@ -124,7 +132,7 @@ gulp.task('process-images', function() {
 				.pipe(gulp.dest(WEB_PATH + '/images'));
 });
 
-// Webserver 
+// Webserver
 gulp.task('webserver', function() {
 
 	connect.server({
@@ -135,14 +143,14 @@ gulp.task('webserver', function() {
 
 });
 
-// Live reload 
+// Live reload
 gulp.task('livereload', function () {
 
 	return gulp.src( WEB_PATH + '/**/*' )
 		.pipe(connect.reload());
 });
 
-// Global serve task. This task basically does everything and should be 
+// Global serve task. This task basically does everything and should be
 // called to run your webserver
 gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images'], function() {
 
@@ -164,7 +172,10 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 	// Watch any file changes in the web path and reload
 	watch([WEB_PATH + '/**/*'], function() { gulp.start('livereload'); });
 
-	// Run the webserver 
+	// Watch changes to data file
+	watch([DATA_FILE], function() { gulp.start('process-templates'); gulp.start('livereload'); });
+
+	// Run the webserver
 	gulp.start('webserver');
 
 });
