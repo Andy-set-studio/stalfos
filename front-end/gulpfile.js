@@ -82,7 +82,7 @@ gulp.task('process-sass', function () {
 				.pipe(sourcemaps.init())
 				.pipe(sass().on('error', sass.logError))
 				.pipe(autoprefixer())
-				//.pipe(minifyCss())
+				.pipe(minifyCss())
 				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
