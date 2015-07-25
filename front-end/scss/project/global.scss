@@ -7,19 +7,18 @@
 /*------------------------------------*\
     ADD SOME GLOBAL STYLES
 \*------------------------------------*/
-
-body {
+html {
+	width: 100%;
+	height: 100%;
 	font-size: $base-font-size;
-	font-family: $base-font-family;
-	min-width: $site-min-width;
 }
 
-.wrapper {
+body {
+	font-family: $base-font-family;
 	min-width: $site-min-width;
-	max-width: $site-max-width;
-	margin: 0 auto;
-	padding: 0 $gutter;
-	position: relative;
+	min-height: 100%;
+
+	@include font-size($base-font-size, true);
 }
 
 .clear {
