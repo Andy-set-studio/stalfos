@@ -21,6 +21,11 @@ body {
 	@include font-size($base-font-size, true);
 }
 
+img {
+	display: block;
+	max-width: 100%;
+}
+
 .clear {
 	
 	&:after,
