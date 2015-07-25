@@ -6,6 +6,11 @@ $gutter--mini: ($gutter / 2);
 $gutter--midi: ($gutter  + ($gutter / 2));
 $gutter--double: ($gutter * 2);
 $gutter--treble: ($gutter * 3);
+$radius: 4px;
+$radius--mini: ($radius / 2);
+$radius--midi: ($radius  + ($radius / 2));
+$radius--double: ($radius * 2);
+$radius--treble: ($radius * 2);
 $site-max-width: 1000px;
 $site-min-width: (320px - $gutter--double);
 
