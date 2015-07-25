@@ -5,7 +5,7 @@
     and the mixin will do the rest!    
 \*------------------------------------*/
 
-@mixin ie($ie-version: 8) {
+@mixin ie($ie-version: "lt-ie10") {
 	
 	$class-name: "";
 	
