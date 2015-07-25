@@ -19,13 +19,3 @@ $breakpoint--lap: "(min-width: 684px) and (max-width: 999px)";
 $breakpoint--desk: "(min-width: 1000px)";
 $breakpoint--desk--wide: "(min-width: 1300px)";
 $breakpoint--lap-and-up: "(min-width: 684px)";
-
-/*------------------------------------*\
-    GRID SYSTEM
-\*------------------------------------*/
-$grid--responsive: true;
-$grid--mobile-first: true;
-$grid--gutter: $gutter;
-$grid--use-silent-classes: true;
-$grid--push: false;
-$grid--pull: false;

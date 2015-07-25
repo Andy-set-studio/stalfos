@@ -1,0 +1,331 @@
+/**
+ * Define your breakpoints. The first value is the prefix that shall be used for
+ * your classes (e.g. `.palm--one-half`), the second value is the media query
+ * that the breakpoint fires at.
+ */
+$breakpoints: (
+    'palm' $breakpoint--palm,
+    'lap' $breakpoint--lap,
+    'portable' $breakpoint--portable,
+    'desk' $breakpoint--desk
+) !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each of
+ * widths, push and pull. This is handy if you only need pull on, say, desk, or
+ * you only need a new width breakpoint at mobile sizes. It allows you to only
+ * compile as much CSS as you need. All are turned on by default, but you can
+ * add and remove breakpoints at will.
+ *
+ * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
+ * have been set to ‘true’.
+ */
+$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk') !default;
+$breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk') !default;
+$breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
+
+
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * These mixins are for the library to use only, you should not need to modify
+ * them at all.
+ *
+ * Enclose a block of code with a media query as named in `$breakpoints`.
+ */
+@mixin grid-media-query($media-query) {
+    $breakpoint-found: false;
+
+    @each $breakpoint in $breakpoints {
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
+
+        @if $media-query == $name and $declaration {
+            $breakpoint-found: true;
+
+            @media only screen and #{$declaration} {
+                @content;
+            }
+        }
+    }
+
+    @if not $breakpoint-found {
+        @warn "Breakpoint ‘#{$media-query}’ does not exist";
+    }
+}
+
+
+/*------------------------------------*\
+    GRID WRAPPER
+\*------------------------------------*/
+%grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: #{-$gutter} 0 0 #{-$gutter};
+    padding: 0; 
+
+    @include ie("lt-ie10") {
+        letter-spacing: -0.32em;
+        list-style: none; 
+    }
+}
+
+
+/*------------------------------------*\
+    GRID ITEM
+\*------------------------------------*/
+%grid__item {
+    padding: $gutter 0 0 $gutter;
+
+    @include ie("lt-ie10") {
+        display: inline-block; 
+        vertical-align: top; 
+        letter-spacing: normal;
+        word-spacing: normal;
+    }
+}
+
+
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `%grid`.
+ */
+%grid--rev {
+    flex-direction: row-reverse;
+
+    @include ie("lt-ie10") {
+        direction: rtl;
+        text-align: left;
+
+        > %grid__item {
+            direction: ltr;
+            text-align: left;
+        }
+    }
+}
+
+
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ * Extends `%grid`.
+ */
+%grid--full {
+    margin: 0;
+
+    > %grid__item {
+        padding: 0;
+    }
+}
+
+
+/**
+ * Align the entire grid to the right. Extends `%grid`.
+ */
+%grid--right {
+    justify-content: flex-end;
+
+    @include ie("lt-ie10") {
+        text-align: right;
+
+        > %grid__item {
+            text-align: left;
+        }
+    }
+}
+
+
+/**
+ * Centered grids align grid items centrally without needing to use push or pull
+ * classes. Extends `%grid`.
+ */
+%grid--center {
+    justify-content: center;
+
+    @include ie("lt-ie10") {
+        text-align: center;
+
+        > %grid__item {
+            text-align: left;
+        }
+    }
+}
+
+
+/**
+ * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
+ * `%grid`.
+ */
+%grid--middle {
+    align-items: middle;
+
+    @include ie("lt-ie10") {
+        > %grid__item {
+            vertical-align: middle;
+        }
+    }
+}
+
+%grid--bottom {
+    align-items: flex-end;
+
+    @include ie("lt-ie10") {
+        > %grid__item {
+            vertical-align: bottom;
+        }
+    }
+}
+
+
+/**
+ * Create grids with narrower gutters. Extends `%grid`.
+ */
+%grid--narrow {
+    margin: #{-($gutter / 2)} 0 0 #{-($gutter / 2)};
+
+    > %grid__item {
+        padding: #{($gutter / 2)} 0 0 #{($gutter / 2)};
+    }
+}
+
+
+/**
+ * Create grids with wider gutters. Extends `%grid`.
+ */
+%grid--wide {
+    margin: #{-($gutter * 2)} 0 0 #{-($gutter * 2)};
+
+    > %grid__item {
+        padding: #{($gutter * 2)} 0 0 #{($gutter * 2)};
+    }
+}
+
+/**
+ * Level heights, requires an `inner` element to grow into it's parent. Extends `%grid`.
+ * Modern only. LT IE 10 doesn't deserve level heights
+ */
+
+%grid--level-heights {
+    
+    > %grid__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    %grid__item__inner {
+        -webkit-flex: 1;
+        flex: auto;
+    }
+}
+
+
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Create our width classes, prefixed by the specified namespace.
+ */
+@mixin device-type($namespace:"") {
+    $prefix: #{'%' + $namespace};
+
+    /**
+     * Whole
+     */
+    #{$prefix}one-whole         { width:100%; }
+
+
+    /**
+     * Halves
+     */
+    #{$prefix}one-half          { width:50%; }
+
+
+    /**
+     * Thirds
+     */
+    #{$prefix}one-third         { width:33.333%; }
+    #{$prefix}two-thirds        { width:66.666%; }
+
+
+    /**
+     * Quarters
+     */
+    #{$prefix}one-quarter       { width:25%; }
+    #{$prefix}two-quarters      { @extend #{$prefix}one-half; }
+    #{$prefix}three-quarters    { width:75%; }
+
+
+    /**
+     * Fifths
+     */
+    #{$prefix}one-fifth         { width:20%; }
+    #{$prefix}two-fifths        { width:40%; }
+    #{$prefix}three-fifths      { width:60%; }
+    #{$prefix}four-fifths       { width:80%; }
+
+
+    /**
+     * Sixths
+     */
+    #{$prefix}one-sixth         { width:16.666%; }
+    #{$prefix}two-sixths        { @extend #{$prefix}one-third; }
+    #{$prefix}three-sixths      { @extend #{$prefix}one-half; }
+    #{$prefix}four-sixths       { @extend #{$prefix}two-thirds; }
+    #{$prefix}five-sixths       { width:83.333%; }
+
+
+    /**
+     * Eighths
+     */
+    #{$prefix}one-eighth        { width:12.5%; }
+    #{$prefix}two-eighths       { @extend #{$prefix}one-quarter; }
+    #{$prefix}three-eighths     { width:37.5%; }
+    #{$prefix}four-eighths      { @extend #{$prefix}one-half; }
+    #{$prefix}five-eighths      { width:62.5%; }
+    #{$prefix}six-eighths       { @extend #{$prefix}three-quarters; }
+    #{$prefix}seven-eighths     { width:87.5%; }
+
+
+    /**
+     * Tenths
+     */
+    #{$prefix}one-tenth         { width:10%; }
+    #{$prefix}two-tenths        { @extend #{$prefix}one-fifth; }
+    #{$prefix}three-tenths      { width:30%; }
+    #{$prefix}four-tenths       { @extend #{$prefix}two-fifths; }
+    #{$prefix}five-tenths       { @extend #{$prefix}one-half; }
+    #{$prefix}six-tenths        { @extend #{$prefix}three-fifths; }
+    #{$prefix}seven-tenths      { width:70%; }
+    #{$prefix}eight-tenths      { @extend #{$prefix}four-fifths; }
+    #{$prefix}nine-tenths       { width:90%; }
+
+
+    /**
+     * Twelfths
+     */
+    #{$prefix}one-twelfth       { width:8.333%; }
+    #{$prefix}two-twelfths      { @extend #{$prefix}one-sixth; }
+    #{$prefix}three-twelfths    { @extend #{$prefix}one-quarter; }
+    #{$prefix}four-twelfths     { @extend #{$prefix}one-third; }
+    #{$prefix}five-twelfths     { width:41.666% }
+    #{$prefix}six-twelfths      { @extend #{$prefix}one-half; }
+    #{$prefix}seven-twelfths    { width:58.333%; }
+    #{$prefix}eight-twelfths    { @extend #{$prefix}two-thirds; }
+    #{$prefix}nine-twelfths     { @extend #{$prefix}three-quarters; }
+    #{$prefix}ten-twelfths      { @extend #{$prefix}five-sixths; }
+    #{$prefix}eleven-twelfths   { width:91.666%; }
+}
+
+
+// Generate regular sizes
+@include device-type;
+
+// Generate responsive sizes
+@each $name in $breakpoint-has-widths {
+    @include grid-media-query($name) {
+       @include device-type('#{$name}--');
+    }
+}
