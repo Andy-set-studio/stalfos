@@ -21,9 +21,12 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png" />
 </head>
 <body>
-
+    {% include "partials/site-head.html" %}
+    
     {% block content %}
     {% endblock %}
+
+    {% include "partials/site-foot.html" %}
 
     <script src="/scripts/lib.js"></script>
     <script src="/scripts/app.js"></script>
