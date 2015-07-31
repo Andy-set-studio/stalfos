@@ -160,7 +160,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
  * `%grid`.
  */
 %grid--middle {
-    align-items: middle;
+    align-items: center;
 
     @include ie("lt-ie10") {
         > %grid__item {
