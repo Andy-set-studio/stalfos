@@ -4,6 +4,7 @@
 		&:target,
 		&:active,
 		&:hover,
+		&:focus,
 		&.is-active {
 			@content;
 		}
@@ -11,6 +12,7 @@
 	@else {
 		&:target,
 		&:active,
+		&:focus,
 		&:hover {
 			@content;
 		}
