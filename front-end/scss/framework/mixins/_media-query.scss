@@ -19,6 +19,10 @@
 		$calculated-breakpoint: $breakpoint--palm;
 	}
 	
+	@if($alias == "portable") {
+		$calculated-breakpoint: $breakpoint--portable;
+	}
+	
 	@if($alias == "lap") {
 		$calculated-breakpoint: $breakpoint--lap;
 	}
