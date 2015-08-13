@@ -19,7 +19,9 @@ var gulp = require('gulp'),
 	minifyCss = require('gulp-minify-css'),
 	autoprefixer = require('gulp-autoprefixer'),
 	data = require('gulp-data'),
-	fs = require('fs');
+	fs = require('fs'),
+	merge = require('merge-stream'),
+	runSequence = require('gulp-run-sequence');
 
 
 
@@ -34,7 +36,11 @@ var SVG_PATH = 'svg',
 	SCSS_PATH = SCSS_ROOT_PATH + '/project',
 	IMAGE_PATH = 'images',
 	WEB_PATH = '../.public',
-	DATA_FILE = 'data.json';
+	DATA_FILE = 'data.json',
+	WEBSITE_PATH = '../htdocs',
+	WEBSITE_CSS_PATH = WEBSITE_PATH + '/css',
+	WEBSITE_SCRIPT_PATH = WEBSITE_PATH + '/scripts',
+	WEBSITE_IMAGE_PATH = WEBSITE_PATH + '/images';
 
 
 
@@ -150,6 +156,26 @@ gulp.task('livereload', function () {
 		.pipe(connect.reload());
 });
 
+// Copy assets from the WEB_PATH to the set website asset paths
+gulp.task('website-assets', function() {
+	
+	// Image files
+	var websiteImages = gulp.src([IMAGE_PATH + '/**/*'])
+							.pipe(gulp.dest(WEBSITE_IMAGE_PATH));
+	
+	// CSS files			
+	var websiteCSS = gulp.src([WEB_PATH + '/css/**/*'])
+							.pipe(gulp.dest(WEBSITE_CSS_PATH));
+				
+	// Script files			
+	var websiteScripts = gulp.src([WEB_PATH + '/scripts/**/*'])
+							.pipe(gulp.dest(WEBSITE_SCRIPT_PATH));
+					
+	// Merge the mini tasks		
+	return merge(websiteImages, websiteCSS, websiteScripts);
+	
+});
+
 // Global serve task. This task basically does everything and should be
 // called to run your webserver
 gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images'], function() {
@@ -180,6 +206,25 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 
 });
 
+// Global website task. This task should be run once you have finished with static templates and you are moving on to implementation.
+// Set the various 'WEBSITE' paths at the top and run this task. All the watching and processing will happen much like 'gulp serve'.
+gulp.task('website', ['clean-web', 'process-svg', 'process-sass', 'process-scripts', 'process-images'], function() {
+	
+	gulp.start('website-assets');
+	
+	// Watch for changes with SVG
+	watch([SVG_PATH + '/*.svg'], function() { runSequence(['process-svg'], function() { gulp.start('website-assets'); }); });
+
+	// Watch for changes with sass
+	watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { runSequence(['process-sass'], function() { gulp.start('website-assets'); }); });
+
+	// Watch for changes with scripts
+	watch([IMAGE_PATH + '/**/*'], function() { runSequence(['process-images'], function() { gulp.start('website-assets'); }); });
+
+	// Watch for changes with images
+	watch([SCRIPT_PATH + '/**/*.js'], function() { runSequence(['process-scripts'], function() { gulp.start('website-assets'); }); });
+	
+});
 
 gulp.task('default', function() {
 
