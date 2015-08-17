@@ -196,7 +196,7 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 	watch([SCRIPT_PATH + '/**/*.js'], function() { gulp.start('process-scripts'); });
 
 	// Watch any file changes in the web path and reload
-	watch([WEB_PATH + '/*'], function() { gulp.start('livereload'); });
+	watch([WEB_PATH + '/**'], function() { gulp.start('livereload'); });
 
 	// Watch changes to data file
 	watch([DATA_FILE], function() { gulp.start('process-templates'); gulp.start('livereload'); });
