@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 	svgmin = require('gulp-svgmin'),
 	nunjucksRender = require('gulp-nunjucks-render'),
 	del = require('del'),
-	sass = require('gulp-ruby-sass'),
+	sass = require('gulp-sass'),
 	notify = require("gulp-notify"),
 	connect = require('gulp-connect'),
 	plumber = require('gulp-plumber'),
@@ -83,10 +83,10 @@ gulp.task('process-templates', function() {
 // Process sass
 gulp.task('process-sass', function () {
 
-	return sass(SCSS_PATH, { sourcemap: true })
-				.on('error', function (err) {
-					console.error('Error', err.message);
-				})
+	return gulp.src(SCSS_PATH + '/**/*.scss')
+				.pipe(plumber())
+				.pipe(sourcemaps.init())
+				.pipe(sass().on('error', sass.logError))
 				.pipe(autoprefixer())
 				.pipe(minifyCss())
 				.pipe(sourcemaps.write('.'))
