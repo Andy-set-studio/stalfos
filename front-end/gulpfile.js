@@ -35,12 +35,14 @@ var SVG_PATH = 'svg',
 	SCSS_ROOT_PATH = 'scss',
 	SCSS_PATH = SCSS_ROOT_PATH + '/project',
 	IMAGE_PATH = 'images',
+	FONT_PATH = 'fonts',
 	WEB_PATH = '../.public',
 	DATA_FILE = 'data.json',
 	WEBSITE_PATH = '../htdocs',
 	WEBSITE_CSS_PATH = WEBSITE_PATH + '/css',
 	WEBSITE_SCRIPT_PATH = WEBSITE_PATH + '/scripts',
-	WEBSITE_IMAGE_PATH = WEBSITE_PATH + '/images';
+	WEBSITE_IMAGE_PATH = WEBSITE_PATH + '/images',
+	WEBSITE_FONT_PATH = WEBSITE_PATH + '/fonts';
 
 
 
@@ -138,6 +140,13 @@ gulp.task('process-images', function() {
 				.pipe(gulp.dest(WEB_PATH + '/images'));
 });
 
+// Process fonts
+gulp.task('process-fonts', function() {
+
+	return gulp.src([FONT_PATH + '/**/*'])
+				.pipe(gulp.dest(WEB_PATH + '/fonts'));
+});
+
 // Webserver
 gulp.task('webserver', function() {
 
@@ -170,15 +179,19 @@ gulp.task('website-assets', function() {
 	// Script files			
 	var websiteScripts = gulp.src([WEB_PATH + '/scripts/**/*'])
 							.pipe(gulp.dest(WEBSITE_SCRIPT_PATH));
+							
+	// Font files			
+	var websiteFonts = gulp.src([WEB_PATH + '/fonts/**/*'])
+							.pipe(gulp.dest(WEBSITE_FONT_PATH));
 					
 	// Merge the mini tasks		
-	return merge(websiteImages, websiteCSS, websiteScripts);
+	return merge(websiteImages, websiteCSS, websiteScripts, websiteFonts);
 	
 });
 
 // Global serve task. This task basically does everything and should be
 // called to run your webserver
-gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images'], function() {
+gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts'], function() {
 
 	// Watch for changes with SVG
 	watch([SVG_PATH + '/*.svg'], function() { gulp.start('process-svg'); });
@@ -191,6 +204,9 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 
 	// Watch for changes with scripts
 	watch([IMAGE_PATH + '/**/*'], function() { gulp.start('process-images'); });
+
+	// Watch for changes with scripts
+	watch([FONT_PATH + '/**/*'], function() { gulp.start('process-fonts'); });
 
 	// Watch for changes with images
 	watch([SCRIPT_PATH + '/**/*.js'], function() { gulp.start('process-scripts'); });
@@ -208,7 +224,7 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 
 // Global website task. This task should be run once you have finished with static templates and you are moving on to implementation.
 // Set the various 'WEBSITE' paths at the top and run this task. All the watching and processing will happen much like 'gulp serve'.
-gulp.task('website', ['clean-web', 'process-svg', 'process-sass', 'process-scripts', 'process-images'], function() {
+gulp.task('website', ['clean-web', 'process-svg', 'process-sass', 'process-scripts', 'process-images', 'process-fonts'], function() {
 	
 	gulp.start('website-assets');
 	
@@ -218,10 +234,13 @@ gulp.task('website', ['clean-web', 'process-svg', 'process-sass', 'process-scrip
 	// Watch for changes with sass
 	watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { runSequence(['process-sass'], function() { gulp.start('website-assets'); }); });
 
-	// Watch for changes with scripts
-	watch([IMAGE_PATH + '/**/*'], function() { runSequence(['process-images'], function() { gulp.start('website-assets'); }); });
-
 	// Watch for changes with images
+	watch([IMAGE_PATH + '/**/*'], function() { runSequence(['process-images'], function() { gulp.start('website-assets'); }); });
+	
+	// Watch for changes with fonts
+	watch([FONT_PATH + '/**/*'], function() { runSequence(['process-fonts'], function() { gulp.start('website-assets'); }); });
+	
+	// Watch for changes with scripts
 	watch([SCRIPT_PATH + '/**/*.js'], function() { runSequence(['process-scripts'], function() { gulp.start('website-assets'); }); });
 	
 });
