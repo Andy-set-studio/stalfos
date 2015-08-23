@@ -72,6 +72,17 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
         letter-spacing: -0.32em;
         list-style: none; 
     }
+    
+    > * {
+        padding: $gutter 0 0 $gutter;
+    
+        @include ie("lt-ie10") {
+            display: inline-block; 
+            vertical-align: top; 
+            letter-spacing: normal;
+            word-spacing: normal;
+        }
+    }
 }
 
 
@@ -79,14 +90,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     GRID ITEM
 \*------------------------------------*/
 %grid__item {
-    padding: $gutter 0 0 $gutter;
-
-    @include ie("lt-ie10") {
-        display: inline-block; 
-        vertical-align: top; 
-        letter-spacing: normal;
-        word-spacing: normal;
-    }
+    // deprecated
 }
 
 
@@ -101,7 +105,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
         direction: rtl;
         text-align: left;
 
-        > %grid__item {
+        > * {
             direction: ltr;
             text-align: left;
         }
@@ -116,7 +120,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 %grid--full {
     margin: 0;
 
-    > %grid__item {
+    > * {
         padding: 0;
     }
 }
@@ -131,7 +135,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     @include ie("lt-ie10") {
         text-align: right;
 
-        > %grid__item {
+        > * {
             text-align: left;
         }
     }
@@ -148,7 +152,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     @include ie("lt-ie10") {
         text-align: center;
 
-        > %grid__item {
+        > * {
             text-align: left;
         }
     }
@@ -163,7 +167,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     align-items: center;
 
     @include ie("lt-ie10") {
-        > %grid__item {
+        > * {
             vertical-align: middle;
         }
     }
@@ -173,7 +177,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     align-items: flex-end;
 
     @include ie("lt-ie10") {
-        > %grid__item {
+        > * {
             vertical-align: bottom;
         }
     }
@@ -186,7 +190,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 %grid--narrow {
     margin: #{-($gutter / 2)} 0 0 #{-($gutter / 2)};
 
-    > %grid__item {
+    > * {
         padding: #{($gutter / 2)} 0 0 #{($gutter / 2)};
     }
 }
@@ -198,7 +202,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 %grid--wide {
     margin: #{-($gutter * 2)} 0 0 #{-($gutter * 2)};
 
-    > %grid__item {
+    > * {
         padding: #{($gutter * 2)} 0 0 #{($gutter * 2)};
     }
 }
@@ -210,14 +214,18 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 
 %grid--level-heights {
     
-    > %grid__item {
+    > * {
         display: flex;
         flex-direction: column;
+        
+        > * {
+            -webkit-flex: 1;
+            flex: auto;
+        }
     }
 
     %grid__item__inner {
-        -webkit-flex: 1;
-        flex: auto;
+        // deprecated
     }
 }
 
