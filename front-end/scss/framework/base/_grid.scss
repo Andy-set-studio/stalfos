@@ -218,14 +218,10 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
         display: flex;
         flex-direction: column;
         
-        > * {
+        %grid__inner, {
             -webkit-flex: 1;
             flex: auto;
         }
-    }
-
-    %grid__item__inner {
-        // deprecated
     }
 }
 
