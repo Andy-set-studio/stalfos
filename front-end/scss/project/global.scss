@@ -71,6 +71,12 @@ img {
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
+.is-hidden--palm {
+	@include media-query("palm") {
+		display: none !important;
+	}
+}
+
 .no-print {
 	@include print() {
 		display: none;
