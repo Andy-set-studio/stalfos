@@ -3,13 +3,7 @@
  * your classes (e.g. `.palm--one-half`), the second value is the media query
  * that the breakpoint fires at.
  */
-$breakpoints: (
-    'palm' $breakpoint--palm,
-    'lap' $breakpoint--lap,
-    'portable' $breakpoint--portable,
-    'desk' $breakpoint--desk
-) !default;
-
+$breakpoints: "palm" $breakpoint--palm, "lap" $breakpoint--lap, "portable" $breakpoint--portable, "desk" $breakpoint--desk !default;
 
 /**
  * Define which namespaced breakpoints you would like to generate for each of
@@ -21,10 +15,9 @@ $breakpoints: (
  * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
  * have been set to ‘true’.
  */
-$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk') !default;
-$breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk') !default;
-$breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
-
+$breakpoint-has-widths: "palm", "lap", "portable", "desk" !default;
+$breakpoint-has-push: "palm", "lap", "portable", "desk" !default;
+$breakpoint-has-pull: "palm", "lap", "portable", "desk" !default;
 
 /*------------------------------------*\
     $MIXINS
@@ -56,7 +49,6 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     }
 }
 
-
 /*------------------------------------*\
     GRID WRAPPER
 \*------------------------------------*/
@@ -66,25 +58,25 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: #{-$gutter} 0 0 #{-$gutter};
-    padding: 0; 
+    padding: 0;
 
     @include ie("lt-ie10") {
         letter-spacing: -0.32em;
-        list-style: none; 
+        list-style: none;
     }
-    
+
+
     > * {
         padding: $gutter 0 0 $gutter;
-    
+
         @include ie("lt-ie10") {
-            display: inline-block; 
-            vertical-align: top; 
+            display: inline-block;
+            vertical-align: top;
             letter-spacing: normal;
             word-spacing: normal;
         }
     }
 }
-
 
 /*------------------------------------*\
     GRID ITEM
@@ -92,7 +84,6 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 %grid__item {
     // deprecated
 }
-
 
 /**
  * Reversed grids allow you to structure your source in the opposite order to
@@ -112,7 +103,6 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     }
 }
 
-
 /**
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `%grid`.
@@ -124,7 +114,6 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
         padding: 0;
     }
 }
-
 
 /**
  * Align the entire grid to the right. Extends `%grid`.
@@ -140,7 +129,6 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
         }
     }
 }
-
 
 /**
  * Centered grids align grid items centrally without needing to use push or pull
@@ -158,9 +146,8 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     }
 }
 
-
 /**
- * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
+ * Align grid cells vertically (`%grid--middle` or `%grid--bottom` or `%grid--top`). Extends
  * `%grid`.
  */
 %grid--middle {
@@ -183,6 +170,15 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     }
 }
 
+%grid--top {
+    align-items: flex-start;
+
+    @include ie("lt-ie10") {
+        > * {
+            vertical-align: top;
+        }
+    }
+}
 
 /**
  * Create grids with narrower gutters. Extends `%grid`.
@@ -191,10 +187,9 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     margin: #{-($gutter / 2)} 0 0 #{-($gutter / 2)};
 
     > * {
-        padding: #{($gutter / 2)} 0 0 #{($gutter / 2)};
+        padding: #{$gutter / 2} 0 0 #{$gutter / 2};
     }
 }
-
 
 /**
  * Create grids with wider gutters. Extends `%grid`.
@@ -203,7 +198,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
     margin: #{-($gutter * 2)} 0 0 #{-($gutter * 2)};
 
     > * {
-        padding: #{($gutter * 2)} 0 0 #{($gutter * 2)};
+        padding: #{$gutter * 2} 0 0 #{$gutter * 2};
     }
 }
 
@@ -213,18 +208,18 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
  */
 
 %grid--level-heights {
-    
-    > * {
-        display: flex;
-        flex-direction: column;
-        
-        %grid__inner, {
-            -webkit-flex: 1;
-            flex: auto;
+    @include media-query("lap-and-up") {
+        > * {
+            display: flex;
+            flex-direction: column;
+
+            %grid__inner {
+                -webkit-flex: 1;
+                flex: auto;
+            }
         }
     }
 }
-
 
 /*------------------------------------*\
     $WIDTHS
@@ -232,97 +227,208 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 /**
  * Create our width classes, prefixed by the specified namespace.
  */
-@mixin device-type($namespace:"") {
-    $prefix: #{'%' + $namespace};
+@mixin device-type($namespace: "") {
+    $prefix: #{"%" + $namespace};
 
     /**
      * Whole
      */
-    #{$prefix}one-whole         { width:100%; }
-
+    #{$prefix}one-whole {
+        width: 100%;
+    }
 
     /**
      * Halves
      */
-    #{$prefix}one-half          { width:50%; }
-
+    #{$prefix}one-half {
+        width: 50%;
+    }
 
     /**
      * Thirds
      */
-    #{$prefix}one-third         { width:33.333%; }
-    #{$prefix}two-thirds        { width:66.666%; }
+    #{$prefix}one-third {
+        width: 33.333%;
+    }
 
+    #{$prefix}two-thirds {
+        width: 66.666%;
+    }
 
     /**
      * Quarters
      */
-    #{$prefix}one-quarter       { width:25%; }
-    #{$prefix}two-quarters      { @extend #{$prefix}one-half; }
-    #{$prefix}three-quarters    { width:75%; }
+    #{$prefix}one-quarter {
+        width: 25%;
+    }
 
+    #{$prefix}two-quarters {
+        @extend #{$prefix}one-half;
+    }
+
+    #{$prefix}three-quarters {
+        width: 75%;
+    }
 
     /**
      * Fifths
      */
-    #{$prefix}one-fifth         { width:20%; }
-    #{$prefix}two-fifths        { width:40%; }
-    #{$prefix}three-fifths      { width:60%; }
-    #{$prefix}four-fifths       { width:80%; }
+    #{$prefix}one-fifth {
+        width: 20%;
+    }
 
+    #{$prefix}two-fifths {
+        width: 40%;
+    }
+
+    #{$prefix}three-fifths {
+        width: 60%;
+    }
+
+    #{$prefix}four-fifths {
+        width: 80%;
+    }
 
     /**
      * Sixths
      */
-    #{$prefix}one-sixth         { width:16.666%; }
-    #{$prefix}two-sixths        { @extend #{$prefix}one-third; }
-    #{$prefix}three-sixths      { @extend #{$prefix}one-half; }
-    #{$prefix}four-sixths       { @extend #{$prefix}two-thirds; }
-    #{$prefix}five-sixths       { width:83.333%; }
+    #{$prefix}one-sixth {
+        width: 16.666%;
+    }
 
+    #{$prefix}two-sixths {
+        @extend #{$prefix}one-third;
+    }
+
+    #{$prefix}three-sixths {
+        @extend #{$prefix}one-half;
+    }
+
+    #{$prefix}four-sixths {
+        @extend #{$prefix}two-thirds;
+    }
+
+    #{$prefix}five-sixths {
+        width: 83.333%;
+    }
 
     /**
      * Eighths
      */
-    #{$prefix}one-eighth        { width:12.5%; }
-    #{$prefix}two-eighths       { @extend #{$prefix}one-quarter; }
-    #{$prefix}three-eighths     { width:37.5%; }
-    #{$prefix}four-eighths      { @extend #{$prefix}one-half; }
-    #{$prefix}five-eighths      { width:62.5%; }
-    #{$prefix}six-eighths       { @extend #{$prefix}three-quarters; }
-    #{$prefix}seven-eighths     { width:87.5%; }
+    #{$prefix}one-eighth {
+        width: 12.5%;
+    }
 
+    #{$prefix}two-eighths {
+        @extend #{$prefix}one-quarter;
+    }
+
+    #{$prefix}three-eighths {
+        width: 37.5%;
+    }
+
+    #{$prefix}four-eighths {
+        @extend #{$prefix}one-half;
+    }
+
+    #{$prefix}five-eighths {
+        width: 62.5%;
+    }
+
+    #{$prefix}six-eighths {
+        @extend #{$prefix}three-quarters;
+    }
+
+    #{$prefix}seven-eighths {
+        width: 87.5%;
+    }
 
     /**
      * Tenths
      */
-    #{$prefix}one-tenth         { width:10%; }
-    #{$prefix}two-tenths        { @extend #{$prefix}one-fifth; }
-    #{$prefix}three-tenths      { width:30%; }
-    #{$prefix}four-tenths       { @extend #{$prefix}two-fifths; }
-    #{$prefix}five-tenths       { @extend #{$prefix}one-half; }
-    #{$prefix}six-tenths        { @extend #{$prefix}three-fifths; }
-    #{$prefix}seven-tenths      { width:70%; }
-    #{$prefix}eight-tenths      { @extend #{$prefix}four-fifths; }
-    #{$prefix}nine-tenths       { width:90%; }
+    #{$prefix}one-tenth {
+        width: 10%;
+    }
 
+    #{$prefix}two-tenths {
+        @extend #{$prefix}one-fifth;
+    }
+
+    #{$prefix}three-tenths {
+        width: 30%;
+    }
+
+    #{$prefix}four-tenths {
+        @extend #{$prefix}two-fifths;
+    }
+
+    #{$prefix}five-tenths {
+        @extend #{$prefix}one-half;
+    }
+
+    #{$prefix}six-tenths {
+        @extend #{$prefix}three-fifths;
+    }
+
+    #{$prefix}seven-tenths {
+        width: 70%;
+    }
+
+    #{$prefix}eight-tenths {
+        @extend #{$prefix}four-fifths;
+    }
+
+    #{$prefix}nine-tenths {
+        width: 90%;
+    }
 
     /**
      * Twelfths
      */
-    #{$prefix}one-twelfth       { width:8.333%; }
-    #{$prefix}two-twelfths      { @extend #{$prefix}one-sixth; }
-    #{$prefix}three-twelfths    { @extend #{$prefix}one-quarter; }
-    #{$prefix}four-twelfths     { @extend #{$prefix}one-third; }
-    #{$prefix}five-twelfths     { width:41.666% }
-    #{$prefix}six-twelfths      { @extend #{$prefix}one-half; }
-    #{$prefix}seven-twelfths    { width:58.333%; }
-    #{$prefix}eight-twelfths    { @extend #{$prefix}two-thirds; }
-    #{$prefix}nine-twelfths     { @extend #{$prefix}three-quarters; }
-    #{$prefix}ten-twelfths      { @extend #{$prefix}five-sixths; }
-    #{$prefix}eleven-twelfths   { width:91.666%; }
-}
+    #{$prefix}one-twelfth {
+        width: 8.333%;
+    }
 
+    #{$prefix}two-twelfths {
+        @extend #{$prefix}one-sixth;
+    }
+
+    #{$prefix}three-twelfths {
+        @extend #{$prefix}one-quarter;
+    }
+
+    #{$prefix}four-twelfths {
+        @extend #{$prefix}one-third;
+    }
+
+    #{$prefix}five-twelfths {
+        width: 41.666%;
+    }
+
+    #{$prefix}six-twelfths {
+        @extend #{$prefix}one-half;
+    }
+
+    #{$prefix}seven-twelfths {
+        width: 58.333%;
+    }
+
+    #{$prefix}eight-twelfths {
+        @extend #{$prefix}two-thirds;
+    }
+
+    #{$prefix}nine-twelfths {
+        @extend #{$prefix}three-quarters;
+    }
+
+    #{$prefix}ten-twelfths {
+        @extend #{$prefix}five-sixths;
+    }
+
+    #{$prefix}eleven-twelfths {
+        width: 91.666%;
+    }
+}
 
 // Generate regular sizes
 @include device-type;
@@ -330,6 +436,6 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
 // Generate responsive sizes
 @each $name in $breakpoint-has-widths {
     @include grid-media-query($name) {
-       @include device-type('#{$name}--');
+        @include device-type("#{$name}--");
     }
 }
