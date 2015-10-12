@@ -6,7 +6,3 @@ A little project for building front-end templates with html, scss, js, svg and g
 Please only use as a base. 
 
 [andy-bell.co.uk](http://andy-bell.co.uk)
-
-##A Note On Ruby Sass
-
-Install Sass [from here](http://sass-lang.com/install) first.
