@@ -6,18 +6,10 @@
 $breakpoints: "palm" $breakpoint--palm, "lap" $breakpoint--lap, "portable" $breakpoint--portable, "desk" $breakpoint--desk !default;
 
 /**
- * Define which namespaced breakpoints you would like to generate for each of
- * widths, push and pull. This is handy if you only need pull on, say, desk, or
- * you only need a new width breakpoint at mobile sizes. It allows you to only
- * compile as much CSS as you need. All are turned on by default, but you can
- * add and remove breakpoints at will.
- *
- * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
- * have been set to ‘true’.
+ * Define breakpoint keys for generation of keyword based sizes 
+ * such as %desk--one-third etc.
  */
-$breakpoint-has-widths: "palm", "lap", "portable", "desk" !default;
-$breakpoint-has-push: "palm", "lap", "portable", "desk" !default;
-$breakpoint-has-pull: "palm", "lap", "portable", "desk" !default;
+$breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
 
 /*------------------------------------*\
     $MIXINS
@@ -214,8 +206,7 @@ $breakpoint-has-pull: "palm", "lap", "portable", "desk" !default;
             flex-direction: column;
 
             %grid__inner {
-                -webkit-flex: 1;
-                flex: auto;
+                flex: 1 1;
             }
         }
     }
@@ -434,8 +425,8 @@ $breakpoint-has-pull: "palm", "lap", "portable", "desk" !default;
 @include device-type;
 
 // Generate responsive sizes
-@each $name in $breakpoint-has-widths {
-    @include grid-media-query($name) {
-        @include device-type("#{$name}--");
+@each $size-key in $breakpoint-size-keys {
+    @include grid-media-query($size-key) {
+        @include device-type("#{$size-key}--");
     }
 }

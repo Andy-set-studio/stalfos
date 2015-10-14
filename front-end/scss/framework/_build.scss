@@ -1,3 +1,4 @@
+/*☹ Force @charset "UTF-8"; generation*/
 /*------------------------------------*\
     VARS
 \*------------------------------------*/
@@ -25,9 +26,10 @@
 @import "mixins/no-js";
 @import "mixins/placeholder";
 @import "mixins/ellipsis";
+@import "mixins/ellipsis-multiline";
 
 /*------------------------------------*\
     BASE
 \*------------------------------------*/
-@import "base/reset";
 @import "base/grid";
+@import "base/table";
