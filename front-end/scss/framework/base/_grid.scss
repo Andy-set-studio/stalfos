@@ -6,7 +6,7 @@
 $breakpoints: "palm" $breakpoint--palm, "lap" $breakpoint--lap, "portable" $breakpoint--portable, "desk" $breakpoint--desk !default;
 
 /**
- * Define breakpoint keys for generation of keyword based sizes 
+ * Define breakpoint keys for generation of keyword based sizes
  * such as %desk--one-third etc.
  */
 $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
@@ -142,15 +142,19 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
  * Align grid cells vertically (`%grid--middle` or `%grid--bottom` or `%grid--top`). Extends
  * `%grid`.
  */
-%grid--middle {
-    align-items: center;
+ %grid--middle {
+     align-items: center;
 
-    @include ie("lt-ie10") {
-        > * {
-            vertical-align: middle;
-        }
-    }
-}
+     > * {
+         display: flex;
+     }
+
+     @include ie("lt-ie10") {
+         > * {
+             vertical-align: middle;
+         }
+     }
+ }
 
 %grid--bottom {
     align-items: flex-end;
