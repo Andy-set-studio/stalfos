@@ -15,8 +15,8 @@
     HELPERS
 \*------------------------------------*/
 
-@import "helpers/z-index"; 
-@import "helpers/flex-wrapper"; 
+@import "helpers/z-index";
+@import "helpers/flex-wrapper";
 
 
 /*------------------------------------*\
@@ -50,7 +50,7 @@ img {
 }
 
 .clear {
-	
+
 	&:after,
 	&:before {
 		content: "";
@@ -62,6 +62,41 @@ img {
 .is-hidden {
 	display: none;
 }
+	.is-hidden--palm {
+		@include media-query("palm") {
+			display: none;
+		}
+	}
+
+	.is-hidden--portable {
+		@include media-query("portable") {
+			display: none;
+		}
+	}
+
+	.is-hidden--portable-and-up {
+		@include media-query("portable-and-up") {
+			display: none;
+		}
+	}
+
+	.is-hidden--lap {
+		@include media-query("lap") {
+			display: none;
+		}
+	}
+
+	.is-hidden--portable-and-up {
+		@include media-query("lap-and-up") {
+			display: none;
+		}
+	}
+
+	.is-hidden--desk {
+		@include media-query("desk") {
+			display: none;
+		}
+	}
 
 .is-visible {
 	display: block !important;
@@ -73,8 +108,8 @@ img {
 
 .is-hidden--text {
 	position: absolute !important;
-	height: 1px; 
-	width: 1px; 
+	height: 1px;
+	width: 1px;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
 }
@@ -103,8 +138,8 @@ img {
     LAYOUTS
 \*------------------------------------*/
 
-@import "layouts/site-head"; 
-@import "layouts/site-foot"; 
+@import "layouts/site-head";
+@import "layouts/site-foot";
 
 /*------------------------------------*\
     ANIMATIONS
