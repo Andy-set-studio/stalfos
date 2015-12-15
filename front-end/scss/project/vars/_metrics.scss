@@ -6,20 +6,20 @@ $gutter--mini: ($gutter / 2);
 $gutter--midi: ($gutter  + ($gutter / 2));
 $gutter--double: ($gutter * 2);
 $gutter--treble: ($gutter * 3);
+$site-max-width: 1000px;
+$site-min-width: (320px - $gutter--double);
 $radius: 4px;
 $radius--mini: ($radius / 2);
 $radius--midi: ($radius  + ($radius / 2));
 $radius--double: ($radius * 2);
-$radius--treble: ($radius * 2);
-$site-max-width: 1000px;
-$site-min-width: (320px - $gutter--double);
-
+$radius--treble: ($radius * 3);
 
 /*------------------------------------*\
     BREAKPOINTS
 \*------------------------------------*/
 $breakpoint--palm: "(max-width: 683px)";
 $breakpoint--portable: "(max-width: 999px)";
+$breakpoint--portable-and-up: "(min-width: 400px)";
 $breakpoint--lap: "(min-width: 684px) and (max-width: 999px)";
 $breakpoint--desk: "(min-width: 1000px)";
 $breakpoint--desk--wide: "(min-width: 1300px)";
