@@ -37,12 +37,16 @@ var SVG_PATH = 'svg',
 	IMAGE_PATH = 'images',
 	FONT_PATH = 'fonts',
 	WEB_PATH = '../.public',
-	DATA_FILE = 'data.json',
+	WEB_CSS_PATH = WEB_PATH + '/css',
+	WEB_SCRIPT_PATH = WEB_PATH + '/scripts',
+	WEB_IMAGE_PATH = WEB_PATH + '/images',
+	WEB_FONT_PATH = WEB_PATH + '/fonts',
 	WEBSITE_PATH = '../htdocs',
 	WEBSITE_CSS_PATH = WEBSITE_PATH + '/css',
 	WEBSITE_SCRIPT_PATH = WEBSITE_PATH + '/scripts',
 	WEBSITE_IMAGE_PATH = WEBSITE_PATH + '/images',
-	WEBSITE_FONT_PATH = WEBSITE_PATH + '/fonts';
+	WEBSITE_FONT_PATH = WEBSITE_PATH + '/fonts',
+	DATA_FILE = 'data.json';
 
 
 
@@ -94,6 +98,12 @@ gulp.task('process-sass', function () {
 				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
+});
+
+// Process Modernizr build
+gulp.task('process-modernizr', function() {
+	gulp.src()
+
 });
 
 // Process JavaScript libs
@@ -167,26 +177,26 @@ gulp.task('livereload', function () {
 
 // Copy assets from the WEB_PATH to the set website asset paths
 gulp.task('website-assets', function() {
-	
+
 	// Image files
 	var websiteImages = gulp.src([IMAGE_PATH + '/**/*'])
 							.pipe(gulp.dest(WEBSITE_IMAGE_PATH));
-	
-	// CSS files			
+
+	// CSS files
 	var websiteCSS = gulp.src([WEB_PATH + '/css/**/*'])
 							.pipe(gulp.dest(WEBSITE_CSS_PATH));
-				
-	// Script files			
+
+	// Script files
 	var websiteScripts = gulp.src([WEB_PATH + '/scripts/**/*'])
 							.pipe(gulp.dest(WEBSITE_SCRIPT_PATH));
-							
-	// Font files			
+
+	// Font files
 	var websiteFonts = gulp.src([WEB_PATH + '/fonts/**/*'])
 							.pipe(gulp.dest(WEBSITE_FONT_PATH));
-					
-	// Merge the mini tasks		
+
+	// Merge the mini tasks
 	return merge(websiteImages, websiteCSS, websiteScripts, websiteFonts);
-	
+
 });
 
 // Global serve task. This task basically does everything and should be
@@ -225,9 +235,9 @@ gulp.task('serve', ['clean-web', 'process-svg', 'process-templates', 'process-sa
 // Global website task. This task should be run once you have finished with static templates and you are moving on to implementation.
 // Set the various 'WEBSITE' paths at the top and run this task. All the watching and processing will happen much like 'gulp serve'.
 gulp.task('website', ['clean-web', 'process-svg', 'process-sass', 'process-scripts', 'process-images', 'process-fonts'], function() {
-	
+
 	gulp.start('website-assets');
-	
+
 	// Watch for changes with SVG
 	watch([SVG_PATH + '/*.svg'], function() { runSequence(['process-svg'], function() { gulp.start('website-assets'); }); });
 
@@ -236,13 +246,13 @@ gulp.task('website', ['clean-web', 'process-svg', 'process-sass', 'process-scrip
 
 	// Watch for changes with images
 	watch([IMAGE_PATH + '/**/*'], function() { runSequence(['process-images'], function() { gulp.start('website-assets'); }); });
-	
+
 	// Watch for changes with fonts
 	watch([FONT_PATH + '/**/*'], function() { runSequence(['process-fonts'], function() { gulp.start('website-assets'); }); });
-	
+
 	// Watch for changes with scripts
 	watch([SCRIPT_PATH + '/**/*.js'], function() { runSequence(['process-scripts'], function() { gulp.start('website-assets'); }); });
-	
+
 });
 
 gulp.task('default', function() {
