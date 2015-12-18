@@ -52,16 +52,15 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
     margin: #{-$gutter} 0 0 #{-$gutter};
     padding: 0;
 
-    @include ie("lt-ie10") {
+    @include feature-fail("no-flexbox") {
         letter-spacing: -0.32em;
         list-style: none;
     }
 
-
     > * {
         padding: $gutter 0 0 $gutter;
 
-        @include ie("lt-ie10") {
+        @include feature-fail("no-flexbox") {
             display: inline-block;
             vertical-align: top;
             letter-spacing: normal;
@@ -84,7 +83,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
 %grid--rev {
     flex-direction: row-reverse;
 
-    @include ie("lt-ie10") {
+    @include feature-fail("no-flexbox") {
         direction: rtl;
         text-align: left;
 
@@ -113,7 +112,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
 %grid--right {
     justify-content: flex-end;
 
-    @include ie("lt-ie10") {
+    @include feature-fail("no-flexbox") {
         text-align: right;
 
         > * {
@@ -129,7 +128,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
 %grid--center {
     justify-content: center;
 
-    @include ie("lt-ie10") {
+    @include feature-fail("no-flexbox") {
         text-align: center;
 
         > * {
@@ -149,7 +148,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
          display: flex;
      }
 
-     @include ie("lt-ie10") {
+     @include feature-fail("no-flexbox") {
          > * {
              vertical-align: middle;
          }
@@ -159,7 +158,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
 %grid--bottom {
     align-items: flex-end;
 
-    @include ie("lt-ie10") {
+    @include feature-fail("no-flexbox") {
         > * {
             vertical-align: bottom;
         }
@@ -169,7 +168,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
 %grid--top {
     align-items: flex-start;
 
-    @include ie("lt-ie10") {
+    @include feature-fail("no-flexbox") {
         > * {
             vertical-align: top;
         }
