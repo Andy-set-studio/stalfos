@@ -1,7 +1,12 @@
-html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dd, header, nav, article, section, 
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dd, header, nav, article, section,
 aside, figure, figcaption, footer, dl, dd, dt {
 	margin: 0px;
 	padding: 0px;
+}
+
+html {
+	// Hide persistent scrollbar in IE (10/11) and Edge
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 ul, ol {
@@ -16,7 +21,7 @@ img {
 
 a {
 	text-decoration: none;
-	
+
 	&:hover,
 	&:focus {
 		text-decoration: underline;
@@ -24,14 +29,14 @@ a {
 }
 
 // Firefox input fix
-input::-moz-focus-inner { 
+input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
 
 
-// Box sizing border box FTW! 
-*, *:before, *:after { 
+// Box sizing border box FTW!
+*, *:before, *:after {
 	box-sizing: border-box;
 }
 
@@ -40,5 +45,5 @@ input::-moz-focus-inner {
 .lt-ie9 {
 	header, nav, article, section, aside, figure, figcaption, footer, main {
 		display: block;
-	} 
+	}
 }
