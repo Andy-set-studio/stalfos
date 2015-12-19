@@ -93,9 +93,9 @@ gulp.task('process-sass', function () {
 				.pipe(plumber())
 				.pipe(sourcemaps.init())
 				.pipe(sass().on('error', sass.logError))
+				.pipe(sourcemaps.write('.'))
 				.pipe(autoprefixer())
 				.pipe(minifyCss())
-				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
 });
@@ -137,8 +137,8 @@ gulp.task('process-scripts', function() {
 				.pipe(plumber())
 				.pipe(sourcemaps.init())
 				.pipe(concat('app.js'))
-				.pipe(uglify())
 				.pipe(sourcemaps.write('.'))
+				.pipe(uglify())
 				.pipe(gulp.dest(WEB_PATH + '/scripts'))
 				.pipe(notify("Scripts Compiled :)"));
 });
