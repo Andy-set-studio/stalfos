@@ -28,6 +28,6 @@
     "gulp-watch": "^4.1.1",
     "gulp-wrap": "^0.11.0",
     "merge-stream": "^1.0.0",
-    "gulp-run-sequence": "^0.3.2"
+    "run-sequence": "^1.1.5"
   }
 }
