@@ -244,19 +244,19 @@ gulp.task('watch', function() {
 	runSequence('clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
 
 		// Watch for changes with SVG
-		watch([SVG_PATH + '/*.svg'], function() { runSequence(['process-svg'], function() { gulp.start('website-assets'); }); });
+		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', function() { gulp.start('website-assets'); }); });
 
 		// Watch for changes with sass
-		watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { runSequence(['process-sass'], function() { gulp.start('website-assets'); }); });
+		watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { runSequence('process-sass', function() { gulp.start('website-assets'); }); });
 
 		// Watch for changes with images
-		watch([IMAGE_PATH + '/**/*'], function() { runSequence(['process-images'], function() { gulp.start('website-assets'); }); });
+		watch([IMAGE_PATH + '/**/*'], function() { runSequence('process-images', function() { gulp.start('website-assets'); }); });
 
 		// Watch for changes with fonts
-		watch([FONT_PATH + '/**/*'], function() { runSequence(['process-fonts'], function() { gulp.start('website-assets'); }); });
+		watch([FONT_PATH + '/**/*'], function() { runSequence('process-fonts', function() { gulp.start('website-assets'); }); });
 
 		// Watch for changes with scripts
-		watch([SCRIPT_PATH + '/**/*.js'], function() { runSequence(['process-scripts'], function() { gulp.start('website-assets'); }); });
+		watch([SCRIPT_PATH + '/**/*.js'], function() { runSequence('process-scripts', function() { gulp.start('website-assets'); }); });
 
 	});
 
