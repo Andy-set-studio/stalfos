@@ -56,7 +56,7 @@ var SVG_PATH = 'svg',
 
 // Clean the web path out
 gulp.task('clean-web', function(cb) {
-	del([ WEB_PATH + '/*' ], {force: true}, function() {
+	del([WEB_PATH], {force: true}, function() {
 		cb();
 	});
 });
