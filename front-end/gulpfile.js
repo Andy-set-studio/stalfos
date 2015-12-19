@@ -93,17 +93,14 @@ gulp.task('process-sass', function () {
 				.pipe(plumber())
 				.pipe(sourcemaps.init())
 				.pipe(sass().on('error', sass.logError))
-				.pipe(sourcemaps.write('.'))
-				.pipe(autoprefixer())
+				.pipe(autoprefixer({
+					browsers: ['last 2 versions'],
+					cascade: false
+				}))
 				.pipe(minifyCss())
+				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'))
 				.pipe(notify("Sass Compiled :)"));
-});
-
-// Process Modernizr build
-gulp.task('process-modernizr', function() {
-	gulp.src()
-
 });
 
 // Process JavaScript libs
@@ -137,8 +134,8 @@ gulp.task('process-scripts', function() {
 				.pipe(plumber())
 				.pipe(sourcemaps.init())
 				.pipe(concat('app.js'))
-				.pipe(sourcemaps.write('.'))
 				.pipe(uglify())
+				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/scripts'))
 				.pipe(notify("Scripts Compiled :)"));
 });
