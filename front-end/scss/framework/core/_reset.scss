@@ -9,6 +9,10 @@ html {
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+body {
+	text-rendering: optimizeLegibility;
+}
+
 ul, ol {
 	list-style: none;
 }
