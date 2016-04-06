@@ -45,72 +45,7 @@ img {
 	}
 }
 
-.is-hidden {
-	display: none;
-}
-	.is-hidden--palm {
-		@include media-query("palm") {
-			display: none;
-		}
-	}
 
-	.is-hidden--portable {
-		@include media-query("portable") {
-			display: none;
-		}
-	}
-
-	.is-hidden--portable-and-up {
-		@include media-query("portable-and-up") {
-			display: none;
-		}
-	}
-
-	.is-hidden--lap {
-		@include media-query("lap") {
-			display: none;
-		}
-	}
-
-	.is-hidden--portable-and-up {
-		@include media-query("lap-and-up") {
-			display: none;
-		}
-	}
-
-	.is-hidden--desk {
-		@include media-query("desk") {
-			display: none;
-		}
-	}
-
-.is-visible {
-	display: block !important;
-}
-
-.is-muted {
-	opacity: 0.5;
-}
-
-.is-hidden--text {
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
-}
-
-.is-hidden--palm {
-	@include media-query("palm") {
-		display: none !important;
-	}
-}
-
-.no-print {
-	@include print() {
-		display: none;
-	}
-}
 
 
 /*------------------------------------*\
