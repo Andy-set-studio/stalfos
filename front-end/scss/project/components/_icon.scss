@@ -1,9 +1,8 @@
 .icon {
-	display: inline-block;
-	position: relative;
 
-	&__primary, 
-	&__secondary {
-		//fill: $white;
+	@include mode("global") {
+		display: inline-block;
+		position: relative;
 	}
+	
 }
