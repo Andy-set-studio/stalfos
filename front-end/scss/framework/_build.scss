@@ -28,8 +28,10 @@
 @import "mixins/ellipsis";
 @import "mixins/ellipsis-multiline";
 @import "mixins/feature-fail";
+@import "mixins/mode";
 
 /*------------------------------------*\
     CORE
 \*------------------------------------*/
+@import "core/display";
 @import "core/grid";
