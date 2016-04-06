@@ -2,21 +2,7 @@
     IMPORT FRAMEWORK
 \*------------------------------------*/
 @import "../framework/build";
-
-
-/*------------------------------------*\
-    MIXINS
-\*------------------------------------*/
-
-//@import "mixins/mixin-name"; // Add a line for each mixin
-
-
-/*------------------------------------*\
-    HELPERS
-\*------------------------------------*/
-
-@import "helpers/z-index";
-@import "helpers/flex-wrapper";
+@import "../framework/core/reset";
 
 
 /*------------------------------------*\
@@ -128,25 +114,21 @@ img {
 
 
 /*------------------------------------*\
-    COMPONENTS
+    DECLARATIONS
 \*------------------------------------*/
-
-@import "components/icon";
-
+$output-mode: "global";
 
 /*------------------------------------*\
-    LAYOUTS
+    IMPORTS
 \*------------------------------------*/
+@import "imports/mixins";
+@import "imports/helpers";
+@import "imports/components";
+@import "imports/layouts";
+@import "imports/third-party";
 
-@import "layouts/site-head";
-@import "layouts/site-foot";
-
-/*------------------------------------*\
-    ANIMATIONS
-\*------------------------------------*/
-
-//@import "animations/animation-name"; // Add a line for animation
-
+// Z-index rules
+@import "z-index";
 
 // Import the shame
 @import "shame";
