@@ -4,7 +4,7 @@
 	position: relative;
 	-webkit-appearance: none;
 
-	@include hover() {
+	@include hover(true) {
 		outline: none;
 	}
 }

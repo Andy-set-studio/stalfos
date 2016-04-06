@@ -6,7 +6,6 @@
 @import "../project/vars/generic";
 @import "../project/vars/metrics";
 @import "../project/vars/typography";
-@import "../project/vars/transition";
 
 /*------------------------------------*\
     MIXINS
@@ -22,11 +21,9 @@
 @import "mixins/form-field";
 @import "mixins/selection";
 @import "mixins/triangle";
-@import "mixins/transition";
 @import "mixins/no-js";
 @import "mixins/placeholder";
 @import "mixins/ellipsis";
-@import "mixins/ellipsis-multiline";
 @import "mixins/feature-fail";
 @import "mixins/mode";
 
