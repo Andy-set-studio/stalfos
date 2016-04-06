@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    MODE
+    
+    This simple mixin allows you to fence css into particular sections.
+    For example: you may have an admin area. The admin area uses the global
+    styles but also has its own. You'd create a new file in your 'project'
+    directory called 'admin.scss'. In there you would set '$mode: "admin"'. 
+
+    Within your components etc. you would then do the following: 
+
+    .a-css-class {
+    	
+    	// This stuff will only render in admin.css
+    	@include mode("admin") {
+			background: red;
+    	}
+    }
+\*------------------------------------*/
+@mixin mode($mode) {
+	@if($output-mode == $mode) {
+		@content;
+	}
+}
