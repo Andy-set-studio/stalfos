@@ -1,0 +1,23 @@
+.chunk {
+	display: block;
+
+	&:not([class*="chunk--"]) {
+		padding: $gutter 0;
+	}
+
+	&--mini {
+		padding: $gutter--mini 0;
+	}
+
+	&--midi {
+		padding: $gutter--midi 0;
+	}
+
+	&--double {
+		padding: $gutter--double 0;
+	}
+
+	&--treble {
+		padding: $gutter--treble 0;
+	}
+}
