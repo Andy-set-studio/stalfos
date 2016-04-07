@@ -1,1 +1,5 @@
-{}
+{
+	"project_settings": {
+		"support_legacy_ie": false
+	}
+}
