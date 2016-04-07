@@ -28,7 +28,7 @@
 	}
 	
 	// If class name is generated, run the css
-	@if($class-name != "") {
+	@if($class-name != "" and $mode == "legacy") {
 		
 		#{$class-name} & {
 			@content;
