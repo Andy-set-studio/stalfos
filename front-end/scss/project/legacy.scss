@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    MODE TEMPLATE
+
+
+    This template can be used to create a new 
+    mode. It builds the core framework and gives 
+    access to all imports such as components.
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+    IMPORT FRAMEWORK
+\*------------------------------------*/
+@import "../framework/build";
+@import "../framework/core/legacy-reset";
+
+/*------------------------------------*\
+    DECLARATIONS
+\*------------------------------------*/
+$output-mode: "legacy";
+
+/*------------------------------------*\
+    IMPORTS
+\*------------------------------------*/
+@import "imports/mixins";
+@import "imports/helpers"; 
+@import "imports/components";
+@import "imports/layouts";
+@import "imports/third-party";

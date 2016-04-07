@@ -1,0 +1,6 @@
+// Legacy browsers need HTML5 elements to display as block
+.lt-ie9 {
+	header, nav, article, section, aside, figure, figcaption, footer, main {
+		display: block;
+	}
+}
