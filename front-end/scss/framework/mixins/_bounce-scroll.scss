@@ -1,3 +1,9 @@
+/*------------------------------------*\
+    BOUNCE SCROLL
+    
+    A little helper to get 'bouncy' scroll areas on iOS    
+\*------------------------------------*/
+
 @mixin bounce-scroll() {
 	overflow-x: hidden;
 	overflow-y: auto;

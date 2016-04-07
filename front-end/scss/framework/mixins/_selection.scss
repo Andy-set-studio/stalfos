@@ -1,3 +1,8 @@
+/*------------------------------------*\
+    SELECTION
+    
+    A useful little mixin for styling text selection.   
+\*------------------------------------*/
 @mixin selection($background, $color) {
 
 	::-moz-selection { 

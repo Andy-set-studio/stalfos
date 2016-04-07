@@ -3,7 +3,6 @@
     
     This little mixin will help style those pesky placeholders    
 \*------------------------------------*/
-
 @mixin placeholder($color) {
 	&::-webkit-input-placeholder {
 	   color: $color;

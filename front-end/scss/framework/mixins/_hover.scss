@@ -1,3 +1,9 @@
+/*------------------------------------*\
+    HOVER
+    
+    A useful little mixin to help generate better hover / focus etc. states.
+    This also has an 'include-active' flag which will help account for active states too.  
+\*------------------------------------*/
 @mixin hover($include-active: false) {
 	
 	@if($include-active) {

@@ -11,21 +11,20 @@
     MIXINS
 \*------------------------------------*/
 @import "mixins/bounce-scroll";
-@import "mixins/font-size";
-@import "mixins/ie";
-@import "mixins/media-query";
-@import "mixins/print";
-@import "mixins/word-wrap";
-@import "mixins/hover";
 @import "mixins/button";
-@import "mixins/form-field";
-@import "mixins/selection";
-@import "mixins/triangle";
-@import "mixins/no-js";
-@import "mixins/placeholder";
 @import "mixins/ellipsis";
 @import "mixins/feature-fail";
+@import "mixins/font-size";
+@import "mixins/form-field";
+@import "mixins/hover";
+@import "mixins/ie";
+@import "mixins/media-query";
 @import "mixins/mode";
+@import "mixins/no-js";
+@import "mixins/placeholder";
+@import "mixins/print";
+@import "mixins/selection";
+@import "mixins/word-wrap";
 
 /*------------------------------------*\
     CORE

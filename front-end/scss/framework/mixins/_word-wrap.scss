@@ -1,3 +1,9 @@
+/*------------------------------------*\
+    WORD WRAP
+    
+    Useful little mixin for breaking words. 
+    Really useful for email links.
+\*------------------------------------*/
 @mixin word-wrap() {
 	word-break: break-word;
 	-webkit-hyphens: auto;
