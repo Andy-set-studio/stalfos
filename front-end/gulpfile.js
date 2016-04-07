@@ -21,8 +21,8 @@ var gulp = require('gulp'),
 	data = require('gulp-data'),
 	fs = require('fs'),
 	merge = require('merge-stream'),
-	runSequence = require('run-sequence').use(gulp);
-
+	runSequence = require('run-sequence').use(gulp),
+	prettify = require('gulp-prettify');
 
 
 /*------------------------------------*\
@@ -83,6 +83,7 @@ gulp.task('process-templates', function() {
 					return JSON.parse(contents);
 				}))
 				.pipe(nunjucksRender())
+				.pipe(prettify({indent_size: 4}))
 				.pipe(gulp.dest(WEB_PATH));
 });
 
