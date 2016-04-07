@@ -2,6 +2,9 @@
 	
 	@include mode("global") {
 
+		&__heading {
+			@extend %is-hidden--text;
+		}
 	}
 	
 }
