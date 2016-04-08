@@ -1,0 +1,160 @@
+// ----
+// Lifted straight from http://www.sassmeister.com/gist/f48e5e34d329eaf44e37
+// ----
+
+// =========================================================================
+//
+//  QUANTITY QUERIES FOR SASS
+//  -------------------------
+//  Indrek Paas @indrekpaas
+//
+//  Inspired by Heydon Pickering's Quantity Queries for CSS
+//  http://alistapart.com/article/quantity-queries-for-css
+//
+//  21.01.2016 Update `_quantity__to-number` helper function
+//  09.11.2015 Add 'odd/even' argument support
+//  03.10.2015 Remove redundant 'query' from mixin name
+//  04.08.2015 Add 'at-least/at-most' support
+//  13.03.2015 Initial release
+//
+// =========================================================================
+
+@mixin quantity($arg) {
+    // Exactly N
+    @if type-of($arg) == "number" {
+        &:nth-last-child(#{$arg}):first-child,
+        &:nth-last-child(#{$arg}):first-child ~ & {
+            @content;
+        }
+    }
+
+    // At least N and at most N
+    @else if type-of($arg) == "list" {
+        &:nth-last-child(n+#{nth($arg, 1)}):nth-last-child(-n+#{nth($arg, 2)}):first-child, 
+        &:nth-last-child(n+#{nth($arg, 1)}):nth-last-child(-n+#{nth($arg, 2)}):first-child ~ & {
+            @content;
+        }
+    }
+
+    @else if type-of($arg) == "string" {
+        // Odd/even
+        @if $arg == "odd" or $arg == "even" {
+            &:nth-last-child(#{$arg}):first-child,
+            &:nth-last-child(#{$arg}):first-child ~ & {
+                @content;
+            }
+        }
+
+        // Less than...
+        @else if str-slice($arg, 1, 1) == "<" {
+            // Less than or equal to N
+            @if str-slice($arg, 2, 2) == "=" {
+                $arg: str-slice($arg, 3);
+                &:nth-last-child(-n+#{$arg}):first-child,
+                &:nth-last-child(-n+#{$arg}):first-child ~ & {
+                    @content;
+                }
+            }
+
+            // Less than N
+            @else {
+                $arg: _quantity__to-number(str-slice($arg, 2));
+                &:nth-last-child(-n+#{$arg - 1}):first-child,
+                &:nth-last-child(-n+#{$arg - 1}):first-child ~ & {
+                    @content;
+                }
+            }
+        }
+
+        // More than...
+        @else if str-slice($arg, 1, 1) == ">" {
+            // More than or equal to N
+            @if str-slice($arg, 2, 2) == "=" {
+                $arg: str-slice($arg, 3);
+                &:nth-last-child(n+#{$arg}),
+                &:nth-last-child(n+#{$arg}) ~ & {
+                    @content;
+                }
+            }
+
+            // More than N
+            @else {
+                $arg: _quantity__to-number(str-slice($arg, 2));
+                &:nth-last-child(n+#{$arg + 1}),
+                &:nth-last-child(n+#{$arg + 1}) ~ & {
+                    @content;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// Casts a string into a number (integer only)
+// @access private
+// @param {String} $value - Value to be parsed
+// @return {Number}
+// @author @HugoGiraudel - Simplified by @kaelig to only convert unsigned integers
+// @link http://hugogiraudel.com/2014/01/15/sass-string-to-number/
+@function _quantity__to-number($value) {
+    $result: 0;
+    $digits: 0;
+    $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+
+    @for $i from 1 through str-length($value) {
+        $character: str-slice($value, $i, $i);
+
+        @if not map-get($numbers, $character) {
+            @return false;
+        }
+
+        @if ($digits == 0) {
+            $result: $result * 10 + map-get($numbers, $character);
+        } @else {
+            $digits: $digits * 10;
+            $result: $result + map-get($numbers, $character) / $digits;
+        }
+    }
+
+    @return $result;
+}
+
+
+
+
+div {
+
+    @include quantity(8) {
+        /* Exactly 8 */
+    }
+
+    @include quantity(8 12) {
+        /* At least 8 and at most 12 */
+    }
+    
+    @include quantity(odd) {
+        /* Odd quantity */
+    }
+    
+    @include quantity(even) {
+        /* Even quantity*/
+    }
+
+    @include quantity("<8") {
+        /* Less than 8 */
+    }
+
+    @include quantity("<=8") {
+        /* Less than or equal to 8 */
+    }
+
+    @include quantity(">8") {
+        /* More than 8 */
+    }
+
+    @include quantity(">=8") {
+        /* More than or equal to 8 */
+    }
+}
