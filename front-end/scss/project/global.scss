@@ -49,6 +49,38 @@ a[href^="mailto"] {
 	}
 }
 
+/*------------------------------------*\
+    PRINT MEDIA QUERIES
+
+    Print media query keys as a sudo of body.
+    This will allow JS to accurately determine
+    what breakpoint we're at rather than doing 
+    nasty sniffs 👍
+\*------------------------------------*/
+body {
+    &:before {
+        display: none;
+        content: "palm";
+
+        @include media-query("portable-and-up") {
+            content: "portable-and-up";
+        }
+
+        @include media-query("lap-and-up") {
+            content: "lap-and-up";
+        }
+
+        @include media-query("desk") {
+            content: "desk";
+        }
+
+        @include media-query("desk-wide") {
+            content: "desk-wide";
+        }
+    }
+}
+
+
 
 /*------------------------------------*\
     DECLARATIONS

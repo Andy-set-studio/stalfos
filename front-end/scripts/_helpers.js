@@ -172,4 +172,15 @@
 
 		}
 	});
+
+	/*------------------------------------*\
+        GET BREAKPOINT
+
+		Returns the current CSS breakpoint as defined in global.scss
+	\*------------------------------------*/
+	$.extend({
+		getBreakpoint: function() {
+			return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
+		}
+	});
 }($));
