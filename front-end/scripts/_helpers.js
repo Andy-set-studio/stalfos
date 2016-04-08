@@ -20,22 +20,6 @@
 	}
 
 
-	/*------------------------------------*\
-	    DATE
-	    
-	    Simple date helpers
-
-	\*------------------------------------*/
-	$.extend({
-		date: {
-			getYear: function() {
-				var date = new Date();
-
-				return date.getFullYear();
-			}
-		}
-	});
-
     /*------------------------------------*\
         PARSE SETTINGS
         
@@ -131,6 +115,92 @@
 			
 		}
 	});
+
+    /*------------------------------------*\
+        AJAX HTML
+
+        A wrapper to ajaxRequest for simple HTML getting
+
+        EXAMPLE
+
+        $.ajaxHtml('http://google.com', function(data) {
+			// do stuff
+		});
+
+    \*------------------------------------*/
+	$.extend({
+		ajaxHtml: function(url, callback) {
+			$.ajaxRequest({
+				dataType: "text/html",
+				url: url,
+				callback: callback
+			});
+		}
+	});
+
+
+    /*------------------------------------*\
+        QUERY STRING
+
+        A helper to work with query strings
+
+        toJson: take the current query string and return it as json
+        fromJson: takes a json object and converts into a query string
+
+    \*------------------------------------*/
+    $.extend({
+    	queryString: {
+
+    		toJson: function(ignoreKeys) {
+				var response = {},
+					data = window.location.href.toString().toLowerCase(),
+					splitData = [];
+
+				// Return empty object if undefined
+				if(typeof(data) == 'undefined') {
+					return {};
+				}
+
+				// Return empty object if empty
+				if(data.length == 0) {
+					return {};
+				}
+
+				// Set empty array if ignore keys not set
+				if(typeof(ignoreKeys) == 'undefined') {
+					ignoreKeys = [];
+				}
+
+				// Split query string into array
+				splitData = data.split('?')[1].split('&');
+
+				// Loop and create key value pairs
+				for (var i = 0, l = splitData.length; i < l; i++) {
+				    var param = splitData[i].split('=');
+				    response[param[0]] = param[1];
+				}
+
+				// Check ignore keys length
+				if(ignoreKeys.length > 0) {
+
+					// Loop each one and delete if exists
+					$.each(ignoreKeys, function(i, val) {
+
+						if(response.hasOwnProperty(val)) {
+							delete response[val];
+						}
+					});
+
+				}
+
+				return response;
+    		},
+
+    		fromJson: function(data) {
+    			return '?' + $.param(data).replace('?', '&');
+    		}
+    	}
+    });
 	
 	
     /*------------------------------------*\
@@ -183,4 +253,53 @@
 			return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
 		}
 	});
+
+    /*------------------------------------*\
+        CHANGE EVENT
+
+        A helper to return the correct 'change' event for an element
+
+        EXAMPLE
+
+        var event = $('.item').changeEvent();
+
+    \*------------------------------------*/
+    $.fn.changeEvent = function() {
+
+    	var elem = $(this),
+    		response = 'change';
+
+			// Work out what the change event will be, based on input type
+			switch(elem.prop('tagName').toString().toLowerCase()) {
+				case 'input':
+
+					if(elem.attr('type') != 'checkbox' && elem.attr('type') != 'radio') {
+						response = 'input';
+					}
+
+					break;
+			}
+
+		return response;
+    };
 }($));
+
+// TAKEN FROM David Walsh blog - http://davidwalsh.name/javascript-debounce-function
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
