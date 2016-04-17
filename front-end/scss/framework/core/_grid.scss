@@ -82,6 +82,7 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
  */
 %grid--rev {
     flex-direction: row-reverse;
+    justify-content: flex-end;
 
     @include feature-fail("no-flexbox") {
         direction: rtl;
