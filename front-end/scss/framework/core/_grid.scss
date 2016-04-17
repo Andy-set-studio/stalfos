@@ -216,6 +216,16 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
     }
 }
 
+/**
+ * Put space between (ideally two) buttons so they stay away from each other.
+ * Great alternative to floating right like the old days
+ */
+ 
+%grid--split {
+    justify-content: space-between;
+}
+
+
 /*------------------------------------*\
     $WIDTHS
 \*------------------------------------*/
