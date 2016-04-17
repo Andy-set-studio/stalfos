@@ -23,7 +23,7 @@ img {
 	max-width: 100%;
 }
 
-a {
+a:not([class]) {
 	text-decoration: none;
 
 	&:hover,
