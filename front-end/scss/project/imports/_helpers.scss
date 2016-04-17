@@ -1,1 +1,3 @@
-@import "../helpers/flex-wrapper";
+@include mode($output-mode) {
+	@import "../helpers/flex-wrapper";
+}
