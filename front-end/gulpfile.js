@@ -10,7 +10,6 @@ var gulp = require('gulp'),
 	nunjucksRender = require('gulp-nunjucks-render'),
 	del = require('del'),
 	sass = require('gulp-sass'),
-	notify = require("gulp-notify"),
 	connect = require('gulp-connect'),
 	plumber = require('gulp-plumber'),
 	concat = require('gulp-concat'),
@@ -100,8 +99,7 @@ gulp.task('process-sass', function () {
 				}))
 				.pipe(minifyCss())
 				.pipe(sourcemaps.write('.'))
-				.pipe(gulp.dest(WEB_PATH + '/css'))
-				.pipe(notify("Sass Compiled :)"));
+				.pipe(gulp.dest(WEB_PATH + '/css'));
 });
 
 // Process JavaScript libs
@@ -137,8 +135,7 @@ gulp.task('process-scripts', function() {
 				.pipe(concat('app.js'))
 				.pipe(uglify())
 				.pipe(sourcemaps.write('.'))
-				.pipe(gulp.dest(WEB_PATH + '/scripts'))
-				.pipe(notify("Scripts Compiled :)"));
+				.pipe(gulp.dest(WEB_PATH + '/scripts'));
 });
 
 // Process images
