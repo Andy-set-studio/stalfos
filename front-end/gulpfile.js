@@ -4,9 +4,9 @@
 
 var gulp = require('gulp'),
 	wrap = require('gulp-wrap'),
-	filesToJson = require('gulp-files-to-json'),
 	watch = require('gulp-watch'),
 	svgmin = require('gulp-svgmin'),
+	svgSymbols = require('gulp-svg-symbols'),
 	nunjucksRender = require('gulp-nunjucks-render'),
 	del = require('del'),
 	sass = require('gulp-sass'),
@@ -34,6 +34,7 @@ var SVG_PATH = 'svg',
 	SCSS_ROOT_PATH = 'scss',
 	SCSS_PATH = SCSS_ROOT_PATH + '/project',
 	IMAGE_PATH = 'images',
+	SVG_SYMBOL_PATH = IMAGE_PATH + '/icons',
 	FONT_PATH = 'fonts',
 	WEB_PATH = '.public',
 	WEB_CSS_PATH = WEB_PATH + '/css',
@@ -60,14 +61,19 @@ gulp.task('clean-web', function(cb) {
 	});
 });
 
-// Find all SVG and smash into a js file
+// Find all SVG and smash into a symbols file
 gulp.task('process-svg', function() {
 
 	return gulp.src(SVG_PATH + '/*.svg')
 				.pipe(svgmin())
-				.pipe(filesToJson('_site-icons.js'))
-				.pipe(wrap('var site_icons = <%= (contents) %>' + ';'))
-				.pipe(gulp.dest(SCRIPT_PATH));
+			    .pipe(svgSymbols())
+			    .pipe(gulp.dest(SVG_SYMBOL_PATH));
+});
+
+// Clean up unese
+gulp.task('clean-svg-output-mess', function() {
+
+	del([SVG_SYMBOL_PATH + '/*.css'], {force: true}, function() {});
 });
 
 // Process all the nunjucks templates
@@ -194,15 +200,16 @@ gulp.task('website-assets', function() {
 
 });
 
+
 // Global serve task. This task basically does everything and should be
 // called to run your webserver
 gulp.task('serve', function() {
 
 	// Run build then set watch targets in the callback
-	runSequence('clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', function() {
+	runSequence('clean-web', 'process-svg', 'clean-svg-output-mess', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', function() {
 
 		// Watch for changes with SVG
-		watch([SVG_PATH + '/*.svg'], function() { gulp.start('process-svg'); });
+		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', 'clean-svg-output-mess', function(){}) });
 
 		// Watch for changes with templates
 		watch([TEMPLATE_PATH + '/**/*.html'], function() { gulp.start('process-templates'); });
@@ -236,10 +243,10 @@ gulp.task('serve', function() {
 gulp.task('watch', function() {
 
 	// Run build then set watch targets in the callback
-	runSequence('clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
+	runSequence('clean-web', 'process-svg', 'clean-svg-output-mess', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
 
 		// Watch for changes with SVG
-		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', function() { gulp.start('website-assets'); }); });
+		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', 'clean-svg-output-mess', function() { gulp.start('website-assets'); }); });
 
 		// Watch for changes with sass
 		watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { runSequence('process-sass', function() { gulp.start('website-assets'); }); });
@@ -256,7 +263,6 @@ gulp.task('watch', function() {
 	});
 
 });
-
 gulp.task('default', function() {
 
 });

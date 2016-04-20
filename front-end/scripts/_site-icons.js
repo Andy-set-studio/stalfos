@@ -1,1 +1,0 @@
-var site_icons = {"dummy":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 40 35\" class=\"icon\"><path class=\"icon__primary\" d=\"M20 .528L0 34.973h12.392L20 21.87l7.608 13.103H40L20 .528\"/></svg>"};
