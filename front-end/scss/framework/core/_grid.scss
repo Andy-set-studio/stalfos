@@ -145,10 +145,6 @@ $breakpoint-size-keys: "palm", "lap", "portable", "desk" !default;
  %grid--middle {
      align-items: center;
 
-     > * {
-         display: flex;
-     }
-
      @include feature-fail("no-flexbox") {
          > * {
              vertical-align: middle;
