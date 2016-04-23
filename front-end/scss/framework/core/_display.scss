@@ -1,39 +1,39 @@
 %is-hidden {
-	display: none;
+	display: none !important;
 }
 	%is-hidden--palm {
 		@include media-query("palm") {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	%is-hidden--portable {
 		@include media-query("portable") {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	%is-hidden--portable-and-up {
 		@include media-query("portable-and-up") {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	%is-hidden--lap {
 		@include media-query("lap") {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	%is-hidden--desk {
 		@include media-query("desk") {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	%is-hidden--desk-wide {
 		@include media-query("desk-wide") {
-			display: none;
+			display: none !important;
 		}
 	}
 
@@ -42,19 +42,19 @@
 }
 
 %is-muted {
-	opacity: 0.5;
+	opacity: 0.5 !important;
 }
 
 %is-hidden--text {
 	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden !important;
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
 %no-print {
 	@include print() {
-		display: none;
+		display: none !important;
 	}
 }
