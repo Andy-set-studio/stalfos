@@ -17,7 +17,7 @@ var app = (function($) {
 	var init = function() {
 		
 		// Find any module placeholders 
-		var modulePlaceholders = $("[data-module]");
+		var modulePlaceholders = $('[data-module]');
 		
 		if(modulePlaceholders.any()) {
 			
@@ -25,13 +25,13 @@ var app = (function($) {
 			modulePlaceholders.each(function() {
 				
 				var elem = $(this),
-					modules = elem.attr("data-module");
+					modules = elem.attr('data-module');
 				
 				// If any modules found	
 				if(modules) {
 					
 					// Split on the comma 
-					modules = modules.split(",");
+					modules = modules.split(',');
 					
 					// Loop each module key
 					$.each(modules, function(i, module) {
@@ -40,7 +40,7 @@ var app = (function($) {
 						switch(module) {
 							
 							// This is an example. Delete when you add your own cases.
-							case "example1":
+							case 'example1':
 								
 								// Run code here 
 								break;
@@ -65,7 +65,7 @@ var app = (function($) {
 		}
 		
 		// Delete this line. This is just for letting you know that everything is fine on first load.
-		console.log("All is hunky dory");
+		console.log('All is hunky dory');
 	};
 	
 	return {
