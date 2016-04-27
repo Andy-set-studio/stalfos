@@ -123,38 +123,39 @@
 
 
 
+// Example
 
-div {
+// div {
 
-    @include quantity(8) {
-        /* Exactly 8 */
-    }
+//     @include quantity(8) {
+//         /* Exactly 8 */
+//     }
 
-    @include quantity(8 12) {
-        /* At least 8 and at most 12 */
-    }
+//     @include quantity(8 12) {
+//         /* At least 8 and at most 12 */
+//     }
     
-    @include quantity(odd) {
-        /* Odd quantity */
-    }
+//     @include quantity(odd) {
+//         /* Odd quantity */
+//     }
     
-    @include quantity(even) {
-        /* Even quantity*/
-    }
+//     @include quantity(even) {
+//         /* Even quantity*/
+//     }
 
-    @include quantity("<8") {
-        /* Less than 8 */
-    }
+//     @include quantity("<8") {
+//         /* Less than 8 */
+//     }
 
-    @include quantity("<=8") {
-        /* Less than or equal to 8 */
-    }
+//     @include quantity("<=8") {
+//         /* Less than or equal to 8 */
+//     }
 
-    @include quantity(">8") {
-        /* More than 8 */
-    }
+//     @include quantity(">8") {
+//         /* More than 8 */
+//     }
 
-    @include quantity(">=8") {
-        /* More than or equal to 8 */
-    }
-}
+//     @include quantity(">=8") {
+//         /* More than or equal to 8 */
+//     }
+// }
