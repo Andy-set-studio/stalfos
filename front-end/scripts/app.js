@@ -51,18 +51,6 @@ var app = (function($) {
 				}
 			});
 		}
-
-		// Run the icons module if it exists and there are site icons
-		if(typeof(site_icons) != 'undefined') {
-
-			var targets = $('[data-icon]');
-
-			if(targets.any()) {
-				targets.each(function() {
-					$(this).icon();
-				});
-			}
-		}
 		
 		// Delete this line. This is just for letting you know that everything is fine on first load.
 		console.log('All is hunky dory');

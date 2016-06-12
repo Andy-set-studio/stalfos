@@ -23,15 +23,6 @@ img {
 	max-width: 100%;
 }
 
-a:not([class]) {
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
-}
-
 // Firefox input fix
 input::-moz-focus-inner {
 	border: 0;
