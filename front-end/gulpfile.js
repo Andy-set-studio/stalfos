@@ -126,7 +126,6 @@ gulp.task('process-script-libs', function() {
 gulp.task('process-scripts', function() {
 
 	var sources = [
-		SCRIPT_PATH + '/_site-icons.js',
 		SCRIPT_PATH + '/_helpers.js',
 		SCRIPT_PATH + '/modules/*.js',
 		SCRIPT_PATH + '/app.js'
