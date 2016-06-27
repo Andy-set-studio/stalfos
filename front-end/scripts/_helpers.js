@@ -48,7 +48,7 @@
                 response = $.parseJSON(elem.attr("data-settings"));
             }
             catch (ex) {
-                $.log("Check input data. Message: " + ex.message);
+                console.log("Check input data. Message: " + ex.message);
                 return {};
             }
         }
