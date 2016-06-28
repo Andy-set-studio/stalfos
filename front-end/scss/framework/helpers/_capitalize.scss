@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    CAPITALIZE
+
+    Capitalize is supported languages. Set to English initially.
+\*------------------------------------*/
+%capitalize {
+    html[lang*="en-"] &,
+    html[lang="en"] & {
+        text-transform: capitalize;
+    }
+}
