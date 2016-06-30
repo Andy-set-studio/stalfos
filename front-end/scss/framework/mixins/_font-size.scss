@@ -28,7 +28,7 @@
     
 \*------------------------------------*/
 
-@mixin font-size($size, $calculate-line-height:false, $important: false, $line-height-ratio: $base-line-height-ratio) {
+@mixin font-size($size, $calculate-line-height: false, $important: false, $line-height-ratio: $base-line-height-ratio) {
 	
 	@if($important == true) {
 		
