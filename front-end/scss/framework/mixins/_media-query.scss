@@ -31,12 +31,12 @@
 		$calculated-breakpoint: $breakpoint--lap;
 	}
 
-	@if($alias == "desk") {
-		$calculated-breakpoint: $breakpoint--desk;
-	}
-
 	@if($alias == "lap-and-up") {
 		$calculated-breakpoint: $breakpoint--lap-and-up;
+	}
+
+	@if($alias == "desk") {
+		$calculated-breakpoint: $breakpoint--desk;
 	}
 
 	@if($alias == "desk-wide") {
