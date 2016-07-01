@@ -7,7 +7,7 @@
 
 	@if $is-parent == true {
 
-		.no-js {
+		&.no-js {
 			@content;
 		}
 	}
