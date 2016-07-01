@@ -3,9 +3,9 @@
 
     A simple mixin that will allow consistent no JS related styles 
 \*------------------------------------*/
-@mixin no-js($selector: "&") {
+@mixin no-js($is-parent: false) {
 
-	@if $selector == parent {
+	@if $is-parent == true {
 
 		.no-js {
 			@content;
