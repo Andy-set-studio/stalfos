@@ -1,0 +1,159 @@
+.grid {
+
+	@include mode("global") {
+
+		/*------------------------------------*\
+		    GRID WRAPPER
+		\*------------------------------------*/
+
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: flex-start;
+	    flex-wrap: wrap;
+	    margin: #{-$gutter} 0 0 #{-$gutter};
+	    padding: 0;
+
+	    @include feature-fail("no-flexbox") {
+	        letter-spacing: -0.32em;
+	        list-style: none;
+	    }
+
+	    // Direct children will be grid items by default
+	    > * {
+	        padding: $gutter 0 0 $gutter;
+
+	        @include feature-fail("no-flexbox") {
+	            display: inline-block;
+	            vertical-align: top;
+	            letter-spacing: normal;
+	            word-spacing: normal;
+	        }
+	    }
+
+		/*------------------------------------*\
+		    GRID MODIFIERS
+		\*------------------------------------*/
+
+		&--rev {
+		    flex-direction: row-reverse;
+		    justify-content: flex-end;
+
+		    @include feature-fail("no-flexbox") {
+		        direction: rtl;
+		        text-align: left;
+
+		        > * {
+		            direction: ltr;
+		            text-align: left;
+		        }
+		    }
+		}
+
+		// Remove margins and gutters
+		&--full {
+		    margin: 0;
+
+		    > * {
+		        padding: 0;
+		    }
+		}
+
+		// Halve the gutter width
+		&--narrow {
+		    margin: #{-($gutter / 2)} 0 0 #{-($gutter / 2)};
+
+		    > * {
+		        padding: #{$gutter / 2} 0 0 #{$gutter / 2};
+		    }
+		}
+
+		// Double the gutter width
+		&--wide {
+		    margin: #{-($gutter * 2)} 0 0 #{-($gutter * 2)};
+
+		    > * {
+		        padding: #{$gutter * 2} 0 0 #{$gutter * 2};
+		    }
+		}
+
+		// Right align items
+		&--right {
+		    justify-content: flex-end;
+
+		    @include feature-fail("no-flexbox") {
+		        text-align: right;
+
+		        > * {
+		            text-align: left;
+		        }
+		    }
+		}
+
+		// Center align items
+		&--center {
+		    justify-content: center;
+
+		    @include feature-fail("no-flexbox") {
+		        text-align: center;
+
+		        > * {
+		            text-align: left;
+		        }
+		    }
+		}
+
+		// Vertically center align items
+		&--middle {
+			align-items: center;
+
+			@include feature-fail("no-flexbox") {
+				> * {
+					vertical-align: middle;
+				}
+			}
+		}
+
+		// Vertically align items at the bottom
+		&--bottom {
+		    align-items: flex-end;
+
+		    @include feature-fail("no-flexbox") {
+		        > * {
+		            vertical-align: bottom;
+		        }
+		    }
+		}
+
+		// Vertically align items at the top
+		&--top {
+		    align-items: flex-start;
+
+		    @include feature-fail("no-flexbox") {
+		        > * {
+		            vertical-align: top;
+		        }
+		    }
+		}
+
+		// Level heights. Will level the inner child element of your grid item 
+		&--level-heights {
+
+		    @include media-query("lap-and-up") {
+
+		        > * {
+		            display: flex;
+		            flex-direction: column;
+
+		            > * {
+		                flex: 1 1;
+		            }
+		        }
+		    }
+		}
+
+        // Make grid items split between each other
+        &--split {
+            justify-content: space-between;
+        }
+	}
+}
