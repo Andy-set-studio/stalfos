@@ -1,0 +1,210 @@
+.size {
+
+	@include mode("global") {
+
+		@mixin size-render($size) {
+		    /**
+		     * Whole
+		     */
+		    #{$size}one-whole {
+		        width: 100%;
+		    }
+
+		    /**
+		     * Halves
+		     */
+		    #{$size}one-half {
+		        width: 50%;
+		    }
+
+		    /**
+		     * Thirds
+		     */
+		    #{$size}one-third {
+		        width: 33.333%;
+		    }
+
+		    #{$size}two-thirds {
+		        width: 66.666%;
+		    }
+
+		    /**
+		     * Quarters
+		     */
+		    #{$size}one-quarter {
+		        width: 25%;
+		    }
+
+		    #{$size}two-quarters {
+		        // Use one-half
+		    }
+
+		    #{$size}three-quarters {
+		        width: 75%;
+		    }
+
+		    /**
+		     * Fifths
+		     */
+		    #{$size}one-fifth {
+		        width: 20%;
+		    }
+
+		    #{$size}two-fifths {
+		        width: 40%;
+		    }
+
+		    #{$size}three-fifths {
+		        width: 60%;
+		    }
+
+		    #{$size}four-fifths {
+		        width: 80%;
+		    }
+
+		    /**
+		     * Sixths
+		     */
+		    #{$size}one-sixth {
+		        width: 16.666%;
+		    }
+
+		    #{$size}two-sixths {
+		        // Use one-third
+		    }
+
+		    #{$size}three-sixths {
+		       // Use one-half
+		    }
+
+		    #{$size}four-sixths {
+		        // Use two-thirds
+		    }
+
+		    #{$size}five-sixths {
+		        width: 83.333%;
+		    }
+
+		    /**
+		     * Eighths
+		     */
+		    #{$size}one-eighth {
+		        width: 12.5%;
+		    }
+
+		    #{$size}two-eighths {
+		        // Use one-quarter
+		    }
+
+		    #{$size}three-eighths {
+		        width: 37.5%;
+		    }
+
+		    #{$size}four-eighths {
+		        // Use one-half
+		    }
+
+		    #{$size}five-eighths {
+		        width: 62.5%;
+		    }
+
+		    #{$size}six-eighths {
+		        // Use three-quarters
+		    }
+
+		    #{$size}seven-eighths {
+		        width: 87.5%;
+		    }
+
+		    /**
+		     * Tenths
+		     */
+		    #{$size}one-tenth {
+		        width: 10%;
+		    }
+
+		    #{$size}three-tenths {
+		        width: 30%;
+		    }
+
+		    #{$size}seven-tenths {
+		        width: 70%;
+		    }
+
+		    #{$size}eight-tenths {
+		        // Use four-fifths
+		    }
+
+		    #{$size}nine-tenths {
+		        width: 90%;
+		    }
+
+		    /**
+		     * Twelfths
+		     */
+		    #{$size}one-twelfth {
+		        width: 8.333%;
+		    }
+
+		    #{$size}two-twelfths {
+		        // Use one-sixth
+		    }
+
+		    #{$size}three-twelfths {
+		        // Use one-quarter
+		    }
+
+		    #{$size}four-twelfths {
+		        // Use one-third
+		    }
+
+		    #{$size}five-twelfths {
+		        width: 41.666%;
+		    }
+
+		    #{$size}six-twelfths {
+		        // Use one-half
+		    }
+
+		    #{$size}seven-twelfths {
+		        width: 58.333%;
+		    }
+
+		    #{$size}eight-twelfths {
+		        // Use two-thirds
+		    }
+
+		    #{$size}nine-twelfths {
+		        // Use three-quarters
+		    }
+
+		    #{$size}ten-twelfths {
+		        // Use five-sixths
+		    }
+
+		    #{$size}eleven-twelfths {
+		        width: 91.666%;
+		    }
+		}
+
+
+
+		@each $size in $size--available-breakpoints {
+
+			// Include media query if size isn't blank
+			@if(str-length($size) > 0) {
+
+				@include media-query($size) {
+					@include size-render(#{"&--" + $size + "--"});
+				}
+			}
+
+			// Render static sizes if blank
+			@else {
+				@include size-render(#{"&--"});
+			}
+
+		}
+
+	}
+}

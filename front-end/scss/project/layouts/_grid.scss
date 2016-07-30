@@ -28,6 +28,14 @@
 	            letter-spacing: normal;
 	            word-spacing: normal;
 	        }
+
+            // Full width at mobile by default unless a size is set
+            @include media-query("palm") {
+                
+                &:not([class*="size--palm"]) {
+                    width: 100%;
+                }
+            }
 	    }
 
 		/*------------------------------------*\

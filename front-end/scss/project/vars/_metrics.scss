@@ -24,3 +24,11 @@ $breakpoint--lap: "(min-width: 684px) and (max-width: 999px)";
 $breakpoint--lap-and-up: "(min-width: 684px)";
 $breakpoint--desk: "(min-width: 1000px)";
 $breakpoint--desk--wide: "(min-width: 1300px)";
+
+/*------------------------------------*\
+    SIZE SETTINGS
+\*------------------------------------*/
+
+// Determine which breakpoints are available for the size component
+// Leave a blank item to generate a breakpoint free set too
+$size--available-breakpoints: "", "palm", "portable", "lap", "lap-and-up", "desk";
