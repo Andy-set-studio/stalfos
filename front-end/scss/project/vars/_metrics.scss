@@ -31,4 +31,5 @@ $breakpoint--desk--wide: "(min-width: 1300px)";
 
 // Determine which breakpoints are available for the size component
 // Leave a blank item to generate a breakpoint free set too
-$size--available-breakpoints: "", "palm", "portable", "lap", "lap-and-up", "desk";
+// Breakpoints must match those set above ^^
+$size--available-breakpoints: "", "palm", "lap-and-up", "desk";

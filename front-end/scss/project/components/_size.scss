@@ -3,6 +3,7 @@
 	@include mode("global") {
 
 		@mixin size-render($size) {
+
 		    /**
 		     * Whole
 		     */
@@ -36,7 +37,7 @@
 		    }
 
 		    #{$size}two-quarters {
-		        // Use one-half
+		        width: 50%;
 		    }
 
 		    #{$size}three-quarters {
@@ -70,15 +71,15 @@
 		    }
 
 		    #{$size}two-sixths {
-		        // Use one-third
+		        width: 33.333%;
 		    }
 
 		    #{$size}three-sixths {
-		       // Use one-half
+		       width: 50%;
 		    }
 
 		    #{$size}four-sixths {
-		        // Use two-thirds
+		        width: 66.666%;
 		    }
 
 		    #{$size}five-sixths {
@@ -93,7 +94,7 @@
 		    }
 
 		    #{$size}two-eighths {
-		        // Use one-quarter
+		        width: 25%;
 		    }
 
 		    #{$size}three-eighths {
@@ -101,7 +102,7 @@
 		    }
 
 		    #{$size}four-eighths {
-		        // Use one-half
+		        width: 50%;
 		    }
 
 		    #{$size}five-eighths {
@@ -109,7 +110,7 @@
 		    }
 
 		    #{$size}six-eighths {
-		        // Use three-quarters
+		        width: 75%;
 		    }
 
 		    #{$size}seven-eighths {
@@ -132,7 +133,7 @@
 		    }
 
 		    #{$size}eight-tenths {
-		        // Use four-fifths
+		        width: 80%;
 		    }
 
 		    #{$size}nine-tenths {
@@ -147,15 +148,15 @@
 		    }
 
 		    #{$size}two-twelfths {
-		        // Use one-sixth
+		        width: 16.666%;
 		    }
 
 		    #{$size}three-twelfths {
-		        // Use one-quarter
+		        width: 25%;
 		    }
 
 		    #{$size}four-twelfths {
-		        // Use one-third
+		        width: 33.333%;
 		    }
 
 		    #{$size}five-twelfths {
@@ -163,7 +164,7 @@
 		    }
 
 		    #{$size}six-twelfths {
-		        // Use one-half
+		        width: 50%;
 		    }
 
 		    #{$size}seven-twelfths {
@@ -171,15 +172,15 @@
 		    }
 
 		    #{$size}eight-twelfths {
-		        // Use two-thirds
+		        width: 66.666%;
 		    }
 
 		    #{$size}nine-twelfths {
-		        // Use three-quarters
+		        width: 75%;
 		    }
 
 		    #{$size}ten-twelfths {
-		        // Use five-sixths
+		        width: 83.333%;
 		    }
 
 		    #{$size}eleven-twelfths {
