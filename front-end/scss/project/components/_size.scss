@@ -194,7 +194,7 @@
 		@if(str-length($size) > 0) {
 
 			@include media-query($size) {
-				@include size-render(#{"." + $size + "--"});
+				@include size-render(#{"." + $size + "__"});
 			}
 		}
 
