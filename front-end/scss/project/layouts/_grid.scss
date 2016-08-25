@@ -32,7 +32,7 @@
             // Full width at mobile by default unless a size is set
             @include media-query("palm") {
                 
-                &:not([class*="size--palm"]) {
+                &:not([class*="palm"]) {
                     width: 100%;
                 }
             }

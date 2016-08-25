@@ -1,211 +1,208 @@
-.size {
+@include mode("global") {
 
-	@include mode("global") {
+	@mixin size-render($size) {
 
-		@mixin size-render($size) {
+	    /**
+	     * Whole
+	     */
+	    #{$size}one-whole {
+	        width: 100%;
+	    }
 
-		    /**
-		     * Whole
-		     */
-		    #{$size}one-whole {
-		        width: 100%;
-		    }
+	    /**
+	     * Halves
+	     */
+	    #{$size}one-half {
+	        width: 50%;
+	    }
 
-		    /**
-		     * Halves
-		     */
-		    #{$size}one-half {
-		        width: 50%;
-		    }
+	    /**
+	     * Thirds
+	     */
+	    #{$size}one-third {
+	        width: 33.333%;
+	    }
 
-		    /**
-		     * Thirds
-		     */
-		    #{$size}one-third {
-		        width: 33.333%;
-		    }
+	    #{$size}two-thirds {
+	        width: 66.666%;
+	    }
 
-		    #{$size}two-thirds {
-		        width: 66.666%;
-		    }
+	    /**
+	     * Quarters
+	     */
+	    #{$size}one-quarter {
+	        width: 25%;
+	    }
 
-		    /**
-		     * Quarters
-		     */
-		    #{$size}one-quarter {
-		        width: 25%;
-		    }
+	    #{$size}two-quarters {
+	        width: 50%;
+	    }
 
-		    #{$size}two-quarters {
-		        width: 50%;
-		    }
+	    #{$size}three-quarters {
+	        width: 75%;
+	    }
 
-		    #{$size}three-quarters {
-		        width: 75%;
-		    }
+	    /**
+	     * Fifths
+	     */
+	    #{$size}one-fifth {
+	        width: 20%;
+	    }
 
-		    /**
-		     * Fifths
-		     */
-		    #{$size}one-fifth {
-		        width: 20%;
-		    }
+	    #{$size}two-fifths {
+	        width: 40%;
+	    }
 
-		    #{$size}two-fifths {
-		        width: 40%;
-		    }
+	    #{$size}three-fifths {
+	        width: 60%;
+	    }
 
-		    #{$size}three-fifths {
-		        width: 60%;
-		    }
+	    #{$size}four-fifths {
+	        width: 80%;
+	    }
 
-		    #{$size}four-fifths {
-		        width: 80%;
-		    }
+	    /**
+	     * Sixths
+	     */
+	    #{$size}one-sixth {
+	        width: 16.666%;
+	    }
 
-		    /**
-		     * Sixths
-		     */
-		    #{$size}one-sixth {
-		        width: 16.666%;
-		    }
+	    #{$size}two-sixths {
+	        width: 33.333%;
+	    }
 
-		    #{$size}two-sixths {
-		        width: 33.333%;
-		    }
+	    #{$size}three-sixths {
+	       width: 50%;
+	    }
 
-		    #{$size}three-sixths {
-		       width: 50%;
-		    }
+	    #{$size}four-sixths {
+	        width: 66.666%;
+	    }
 
-		    #{$size}four-sixths {
-		        width: 66.666%;
-		    }
+	    #{$size}five-sixths {
+	        width: 83.333%;
+	    }
 
-		    #{$size}five-sixths {
-		        width: 83.333%;
-		    }
+	    /**
+	     * Eighths
+	     */
+	    #{$size}one-eighth {
+	        width: 12.5%;
+	    }
 
-		    /**
-		     * Eighths
-		     */
-		    #{$size}one-eighth {
-		        width: 12.5%;
-		    }
+	    #{$size}two-eighths {
+	        width: 25%;
+	    }
 
-		    #{$size}two-eighths {
-		        width: 25%;
-		    }
+	    #{$size}three-eighths {
+	        width: 37.5%;
+	    }
 
-		    #{$size}three-eighths {
-		        width: 37.5%;
-		    }
+	    #{$size}four-eighths {
+	        width: 50%;
+	    }
 
-		    #{$size}four-eighths {
-		        width: 50%;
-		    }
+	    #{$size}five-eighths {
+	        width: 62.5%;
+	    }
 
-		    #{$size}five-eighths {
-		        width: 62.5%;
-		    }
+	    #{$size}six-eighths {
+	        width: 75%;
+	    }
 
-		    #{$size}six-eighths {
-		        width: 75%;
-		    }
+	    #{$size}seven-eighths {
+	        width: 87.5%;
+	    }
 
-		    #{$size}seven-eighths {
-		        width: 87.5%;
-		    }
+	    /**
+	     * Tenths
+	     */
+	    #{$size}one-tenth {
+	        width: 10%;
+	    }
 
-		    /**
-		     * Tenths
-		     */
-		    #{$size}one-tenth {
-		        width: 10%;
-		    }
+	    #{$size}three-tenths {
+	        width: 30%;
+	    }
 
-		    #{$size}three-tenths {
-		        width: 30%;
-		    }
+	    #{$size}seven-tenths {
+	        width: 70%;
+	    }
 
-		    #{$size}seven-tenths {
-		        width: 70%;
-		    }
+	    #{$size}eight-tenths {
+	        width: 80%;
+	    }
 
-		    #{$size}eight-tenths {
-		        width: 80%;
-		    }
+	    #{$size}nine-tenths {
+	        width: 90%;
+	    }
 
-		    #{$size}nine-tenths {
-		        width: 90%;
-		    }
+	    /**
+	     * Twelfths
+	     */
+	    #{$size}one-twelfth {
+	        width: 8.333%;
+	    }
 
-		    /**
-		     * Twelfths
-		     */
-		    #{$size}one-twelfth {
-		        width: 8.333%;
-		    }
+	    #{$size}two-twelfths {
+	        width: 16.666%;
+	    }
 
-		    #{$size}two-twelfths {
-		        width: 16.666%;
-		    }
+	    #{$size}three-twelfths {
+	        width: 25%;
+	    }
 
-		    #{$size}three-twelfths {
-		        width: 25%;
-		    }
+	    #{$size}four-twelfths {
+	        width: 33.333%;
+	    }
 
-		    #{$size}four-twelfths {
-		        width: 33.333%;
-		    }
+	    #{$size}five-twelfths {
+	        width: 41.666%;
+	    }
 
-		    #{$size}five-twelfths {
-		        width: 41.666%;
-		    }
+	    #{$size}six-twelfths {
+	        width: 50%;
+	    }
 
-		    #{$size}six-twelfths {
-		        width: 50%;
-		    }
+	    #{$size}seven-twelfths {
+	        width: 58.333%;
+	    }
 
-		    #{$size}seven-twelfths {
-		        width: 58.333%;
-		    }
+	    #{$size}eight-twelfths {
+	        width: 66.666%;
+	    }
 
-		    #{$size}eight-twelfths {
-		        width: 66.666%;
-		    }
+	    #{$size}nine-twelfths {
+	        width: 75%;
+	    }
 
-		    #{$size}nine-twelfths {
-		        width: 75%;
-		    }
+	    #{$size}ten-twelfths {
+	        width: 83.333%;
+	    }
 
-		    #{$size}ten-twelfths {
-		        width: 83.333%;
-		    }
+	    #{$size}eleven-twelfths {
+	        width: 91.666%;
+	    }
+	}
 
-		    #{$size}eleven-twelfths {
-		        width: 91.666%;
-		    }
+
+
+	@each $size in $size--available-breakpoints {
+
+		// Include media query if size isn't blank
+		@if(str-length($size) > 0) {
+
+			@include media-query($size) {
+				@include size-render(#{"." + $size + "--"});
+			}
 		}
 
-
-
-		@each $size in $size--available-breakpoints {
-
-			// Include media query if size isn't blank
-			@if(str-length($size) > 0) {
-
-				@include media-query($size) {
-					@include size-render(#{"&--" + $size + "--"});
-				}
-			}
-
-			// Render static sizes if blank
-			@else {
-				@include size-render(#{"&--"});
-			}
-
+		// Render static sizes if blank
+		@else {
+			@include size-render(#{"."});
 		}
 
 	}
+
 }
