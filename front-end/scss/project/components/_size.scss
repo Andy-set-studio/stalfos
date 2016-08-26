@@ -20,18 +20,18 @@
 	     * Thirds
 	     */
 	    #{$size}one-third {
-	        width: 33.333%;
+	        width: percentage(1/3);
 	    }
 
 	    #{$size}two-thirds {
-	        width: 66.666%;
+	        width: percentage(2/3);
 	    }
 
 	    /**
 	     * Quarters
 	     */
 	    #{$size}one-quarter {
-	        width: 25%;
+	        width: percentage(1/4);
 	    }
 
 	    #{$size}two-quarters {
@@ -39,37 +39,19 @@
 	    }
 
 	    #{$size}three-quarters {
-	        width: 75%;
+	        width: percentage(3/4);
 	    }
 
-	    /**
-	     * Fifths
-	     */
-	    #{$size}one-fifth {
-	        width: 20%;
-	    }
-
-	    #{$size}two-fifths {
-	        width: 40%;
-	    }
-
-	    #{$size}three-fifths {
-	        width: 60%;
-	    }
-
-	    #{$size}four-fifths {
-	        width: 80%;
-	    }
 
 	    /**
 	     * Sixths
 	     */
 	    #{$size}one-sixth {
-	        width: 16.666%;
+	        width: percentage(1/6);
 	    }
 
 	    #{$size}two-sixths {
-	        width: 33.333%;
+	        width: percentage(2/6);
 	    }
 
 	    #{$size}three-sixths {
@@ -77,42 +59,11 @@
 	    }
 
 	    #{$size}four-sixths {
-	        width: 66.666%;
+	        width: percentage(4/6);
 	    }
 
 	    #{$size}five-sixths {
-	        width: 83.333%;
-	    }
-
-	    /**
-	     * Eighths
-	     */
-	    #{$size}one-eighth {
-	        width: 12.5%;
-	    }
-
-	    #{$size}two-eighths {
-	        width: 25%;
-	    }
-
-	    #{$size}three-eighths {
-	        width: 37.5%;
-	    }
-
-	    #{$size}four-eighths {
-	        width: 50%;
-	    }
-
-	    #{$size}five-eighths {
-	        width: 62.5%;
-	    }
-
-	    #{$size}six-eighths {
-	        width: 75%;
-	    }
-
-	    #{$size}seven-eighths {
-	        width: 87.5%;
+	        width: percentage(5/6);
 	    }
 
 	    /**
@@ -137,56 +88,7 @@
 	    #{$size}nine-tenths {
 	        width: 90%;
 	    }
-
-	    /**
-	     * Twelfths
-	     */
-	    #{$size}one-twelfth {
-	        width: 8.333%;
-	    }
-
-	    #{$size}two-twelfths {
-	        width: 16.666%;
-	    }
-
-	    #{$size}three-twelfths {
-	        width: 25%;
-	    }
-
-	    #{$size}four-twelfths {
-	        width: 33.333%;
-	    }
-
-	    #{$size}five-twelfths {
-	        width: 41.666%;
-	    }
-
-	    #{$size}six-twelfths {
-	        width: 50%;
-	    }
-
-	    #{$size}seven-twelfths {
-	        width: 58.333%;
-	    }
-
-	    #{$size}eight-twelfths {
-	        width: 66.666%;
-	    }
-
-	    #{$size}nine-twelfths {
-	        width: 75%;
-	    }
-
-	    #{$size}ten-twelfths {
-	        width: 83.333%;
-	    }
-
-	    #{$size}eleven-twelfths {
-	        width: 91.666%;
-	    }
 	}
-
-
 
 	@each $size in $size--available-breakpoints {
 
