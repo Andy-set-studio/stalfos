@@ -2,14 +2,14 @@
     FEATURE FAIL
 
     Use this mixin to write fallback css for bleeding edge features.
-    Target modernizr classes for $feature.
+    Target modernizr classes for $feature. Automatically prefixes "no-" for you.
 
     E.G.
 
     .test-element {
         display: flex;
 
-        @include feauture-fail("no-flexbox") {
+        @include feauture-fail("flexbox") {
             display: table;
         }
     }
@@ -17,7 +17,7 @@
 \*------------------------------------*/
 @mixin feature-fail($feature) {
 
-    #{"html." + $feature} & {
+    #{"html.no-" + $feature} & {
         @content;
     }
 }
