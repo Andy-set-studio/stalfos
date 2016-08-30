@@ -4,8 +4,15 @@
     A little helper to get 'bouncy' scroll areas on iOS    
 \*------------------------------------*/
 
-@mixin bounce-scroll() {
-	overflow-x: hidden;
-	overflow-y: auto;
+@mixin bounce-scroll($direction: "vertical") {
 	-webkit-overflow-scrolling: touch;
+
+	@if($direction == "vertical") {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	@else {
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
 }
