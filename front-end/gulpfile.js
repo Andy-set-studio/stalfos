@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	sourcemaps = require('gulp-sourcemaps'),
-	minifyCss = require('gulp-minify-css'),
+	cleanCSS = require('gulp-clean-css'),
 	autoprefixer = require('gulp-autoprefixer'),
 	data = require('gulp-data'),
 	fs = require('fs'),
@@ -103,7 +103,7 @@ gulp.task('process-sass', function () {
 					browsers: ['last 2 versions'],
 					cascade: false
 				}))
-				.pipe(minifyCss())
+				.pipe(cleanCSS())
 				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest(WEB_PATH + '/css'));
 });
