@@ -12,6 +12,16 @@
     
 \*------------------------------------*/
 var app = (function($) {
+
+	// Global settings
+	var settings = {
+
+		// Typeset module settings
+		typeset: {
+			enabled: true,
+			selectors: 'h1, h2, h3, h4, h5, h6, p, li, dt, dd, blockquote'
+		}
+	};
 	
 	// This method will run when the DOM is ready. 
 	var init = function() {
@@ -52,8 +62,14 @@ var app = (function($) {
 			});
 		}
 		
-		// Delete this line. This is just for letting you know that everything is fine on first load.
-		console.log('All is hunky dory');
+		// If typeset is enabled
+		if(settings.typeset.enabled) {
+
+			// Loop each item and bind it to the module
+			$(settings.typeset.selectors).each(function() {
+				$(this).typeSet();
+			});
+		}
 	};
 	
 	return {
