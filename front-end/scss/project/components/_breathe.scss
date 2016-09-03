@@ -1,0 +1,48 @@
+.breathe {
+	
+	@include mode("global") {
+
+		&:not([class*="--mini"]):not([class*="--midi"]):not([class*="--top"]):not([class*="--bottom"]) {
+			margin: $gutter 0;
+		}
+
+			&--top {
+				margin-top: $gutter;
+			}
+
+			&--bottom {
+				margin-bottom: $gutter;
+			}
+
+
+		&--midi {
+			&:not([class*="--top"]):not([class*="--bottom"]) {
+				margin: $gutter--midi 0;
+			}
+		}
+
+			&--midi-top {
+				margin-top: $gutter--midi;
+			}
+
+			&--midi-bottom {
+				margin-bottom: $gutter--midi;
+			}
+
+
+		&--double {
+			&:not([class*="--top"]):not([class*="--bottom"]) {
+				margin: $gutter--double 0;
+			}
+		}
+
+			&--double-top {
+				margin-top: $gutter--double;
+			}
+
+			&--double-bottom {
+				margin-bottom: $gutter--double;
+			}
+
+	}
+}
