@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    SUDO DECOR
+    
+    Dump the default css for decor based &:before, &:after stuff.
+\*------------------------------------*/
+@mixin sudo-decor() {
+
+	content: "";
+	speak: none;
+}
