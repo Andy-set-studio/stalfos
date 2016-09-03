@@ -5,6 +5,7 @@
 \*------------------------------------*/
 
 @mixin bounce-scroll($direction: "vertical") {
+	
 	-webkit-overflow-scrolling: touch;
 
 	@if($direction == "vertical") {
