@@ -1,10 +1,12 @@
 .icon {
 
 	@include mode("global") {
+
 		display: inline-block;
 		position: relative;
 		width: 32px;
 		height: 32px;
+		speak: none;
 	}
 	
 }
