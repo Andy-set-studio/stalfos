@@ -31,14 +31,6 @@ a[href^="mailto"] {
 	@include word-wrap();
 }
 
-.wrapper {
-	min-width: $site-min-width;
-	max-width: $site-max-width;
-	margin: 0 auto;
-	padding: 0 $gutter;
-	position: relative;
-}
-
 .clear {
 
 	&:after,
