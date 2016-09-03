@@ -4,7 +4,7 @@
 
 		display: block;
 
-		&:not([class*="chunk--"]) {
+		&:not([class*="--mini"]):not([class*="--midi"]):not([class*="--double"]):not([class*="--treble"]) {
 			padding: $gutter 0;
 		}
 
@@ -22,10 +22,6 @@
 
 		&--treble {
 			padding: $gutter--treble 0;
-		}
-
-		& + & {
-			padding-top: 0;
 		}
 
 	}
