@@ -25,6 +25,12 @@
 		}
 	}
 
+	%is-hidden--lap-and-up {
+		@include media-query("lap-and-up") {
+			display: none !important;
+		}
+	}
+
 	%is-hidden--desk {
 		@include media-query("desk") {
 			display: none !important;
