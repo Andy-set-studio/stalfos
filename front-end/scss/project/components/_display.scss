@@ -19,6 +19,10 @@
 			@extend %is-hidden--lap;
 		}
 
+		.is-hidden--lap-and-up {
+			@extend %is-hidden--lap-and-up;
+		}
+
 		.is-hidden--desk {
 			@extend %is-hidden--desk;
 		}
