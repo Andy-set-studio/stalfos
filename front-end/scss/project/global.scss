@@ -52,6 +52,7 @@ a[href^="mailto"] {
 body {
     &:before {
         display: none;
+	speak: none;
         content: "palm";
 
         @include media-query("portable-and-up") {
