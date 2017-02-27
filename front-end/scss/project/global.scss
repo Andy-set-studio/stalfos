@@ -18,6 +18,7 @@ body {
 	font-family: $base-font-family;
 	min-width: $site-min-width;
 	min-height: 100%;
+	-webkit-text-size-adjust: 100%;
 
 	@include font-size($base-font-size, true);
 }
