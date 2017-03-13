@@ -143,22 +143,24 @@
 			}
 		}
 
-		// Level heights. Will level the inner child element of your grid item
-		&--level-heights {
+        // Level heights. Will level the inner child element of your grid item
+        &--level-heights {
 
-			@include media-query("lap-and-up") {
+            @include media-query("lap-and-up") {
 
-				> * {
-					display: flex;
-					flex-direction: column;
+                > * {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: stretch;
+                    align-content: stretch;
 
-					> * {
-						display: block;
-						height: 100%;
-					}
-				}
-			}
-		}
+                    > * {
+                        flex: 1 1;
+                    }
+                }
+            }
+        }
 
 		// Make grid items split between each other
 		&--split {
