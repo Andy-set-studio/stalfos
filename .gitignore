@@ -1,6 +1,7 @@
 *.scssc
 .DS_Store
-front-end/scss/project/.sass-cache/*
-front-end/node_modules
+.sass-cache
+node_modules
 .public
 *.log
+*.lock
