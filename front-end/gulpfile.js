@@ -66,14 +66,10 @@ gulp.task('process-svg', function() {
 
 	return gulp.src(SVG_PATH + '/*.svg')
 				.pipe(svgmin())
-			    .pipe(svgSymbols())
+			    .pipe(svgSymbols({
+					templates: ['default-svg']
+				}))
 			    .pipe(gulp.dest(SVG_SYMBOL_PATH));
-});
-
-// Clean up unese
-gulp.task('clean-svg-output-mess', function() {
-
-	del([SVG_SYMBOL_PATH + '/*.css'], {force: true}, function() {});
 });
 
 // Process all the nunjucks templates
@@ -205,10 +201,10 @@ gulp.task('website-assets', function() {
 gulp.task('serve', function() {
 
 	// Run build then set watch targets in the callback
-	runSequence('clean-web', 'process-svg', 'clean-svg-output-mess', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', function() {
+	runSequence('clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', function() {
 
 		// Watch for changes with SVG
-		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', 'clean-svg-output-mess', function(){}) });
+		watch([SVG_PATH + '/*.svg'], function() { gulp.start('process-svg'); });
 
 		// Watch for changes with templates
 		watch([TEMPLATE_PATH + '/**/*.html'], function() { gulp.start('process-templates'); });
@@ -242,10 +238,10 @@ gulp.task('serve', function() {
 gulp.task('watch', function() {
 
 	// Run build then set watch targets in the callback
-	runSequence('clean-web', 'process-svg', 'clean-svg-output-mess', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
+	runSequence('clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
 
 		// Watch for changes with SVG
-		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', 'clean-svg-output-mess', function() { gulp.start('website-assets'); }); });
+		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', function() { gulp.start('website-assets'); }); });
 
 		// Watch for changes with sass
 		watch([SCSS_ROOT_PATH + '/**/*.scss'], function() { runSequence('process-sass', function() { gulp.start('website-assets'); }); });
