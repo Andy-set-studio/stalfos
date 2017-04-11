@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    MODULES
+	MODULES
 \*------------------------------------*/
 
 var gulp = require('gulp'),
@@ -23,9 +23,8 @@ var gulp = require('gulp'),
 	runSequence = require('run-sequence').use(gulp),
 	prettify = require('gulp-prettify');
 
-
 /*------------------------------------*\
-    GLOBAL VARS
+	GLOBAL VARS
 \*------------------------------------*/
 
 var SVG_PATH = 'svg',
@@ -48,17 +47,14 @@ var SVG_PATH = 'svg',
 	WEBSITE_FONT_PATH = WEBSITE_PATH + '/fonts',
 	DATA_FILE = 'data.json';
 
-
-
 /*------------------------------------*\
-    TASKS
+	TASKS
 \*------------------------------------*/
 
 // Clean the web path out
-gulp.task('clean-web', function(cb) {
-	del([WEB_PATH], {force: true}, function() {
-		cb();
-	});
+gulp.task('clean-web', function() {
+	
+	return del([WEB_PATH], {force: true});
 });
 
 // Find all SVG and smash into a symbols file
@@ -66,10 +62,10 @@ gulp.task('process-svg', function() {
 
 	return gulp.src(SVG_PATH + '/*.svg')
 				.pipe(svgmin())
-			    .pipe(svgSymbols({
+				.pipe(svgSymbols({
 					templates: ['default-svg']
 				}))
-			    .pipe(gulp.dest(SVG_SYMBOL_PATH));
+				.pipe(gulp.dest(SVG_SYMBOL_PATH));
 });
 
 // Process all the nunjucks templates
@@ -157,9 +153,9 @@ gulp.task('process-fonts', function() {
 gulp.task('webserver', function() {
 
 	connect.server({
-	    root: WEB_PATH,
-	    port: 8003,
-	    livereload: true
+		root: WEB_PATH,
+		port: 8003,
+		livereload: true
 	});
 
 });
