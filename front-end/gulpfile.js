@@ -2,26 +2,26 @@
 	MODULES
 \*------------------------------------*/
 
-var gulp = require('gulp'),
-	wrap = require('gulp-wrap'),
-	watch = require('gulp-watch'),
+var autoprefixer = require('gulp-autoprefixer'),
+	cleanCSS = require('gulp-clean-css'),
+	concat = require('gulp-concat'),
+	connect = require('gulp-connect'),
+	data = require('gulp-data'),
+	del = require('del'),
+	fs = require('fs'),
+	gulp = require('gulp'),
+	merge = require('merge-stream'),
+	nunjucksRender = require('gulp-nunjucks-render'),
+	plumber = require('gulp-plumber'),
+	prettify = require('gulp-prettify')
+	runSequence = require('run-sequence').use(gulp),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps'),
 	svgmin = require('gulp-svgmin'),
 	svgSymbols = require('gulp-svg-symbols'),
-	nunjucksRender = require('gulp-nunjucks-render'),
-	del = require('del'),
-	sass = require('gulp-sass'),
-	connect = require('gulp-connect'),
-	plumber = require('gulp-plumber'),
-	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	sourcemaps = require('gulp-sourcemaps'),
-	cleanCSS = require('gulp-clean-css'),
-	autoprefixer = require('gulp-autoprefixer'),
-	data = require('gulp-data'),
-	fs = require('fs'),
-	merge = require('merge-stream'),
-	runSequence = require('run-sequence').use(gulp),
-	prettify = require('gulp-prettify');
+	watch = require('gulp-watch'),
+	wrap = require('gulp-wrap');
 
 /*------------------------------------*\
 	GLOBAL CONSTS
