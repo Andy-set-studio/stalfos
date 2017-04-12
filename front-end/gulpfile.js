@@ -24,7 +24,7 @@ var gulp = require('gulp'),
 	prettify = require('gulp-prettify');
 
 /*------------------------------------*\
-	GLOBAL VARS
+	GLOBAL CONSTS
 \*------------------------------------*/
 
 var SVG_PATH = 'svg',
@@ -73,13 +73,13 @@ gulp.task('process-templates', function() {
 
 	var contents = fs.readFileSync(DATA_FILE);
 
-	nunjucksRender.nunjucks.configure([TEMPLATE_PATH + '/']);
-
 	return gulp.src(TEMPLATE_PATH + '/*.html')
 				.pipe(data(function(file) {
 					return JSON.parse(contents);
 				}))
-				.pipe(nunjucksRender())
+				.pipe(nunjucksRender({
+					path: TEMPLATE_PATH
+				}))
 				.pipe(prettify({indent_size: 4}))
 				.pipe(gulp.dest(WEB_PATH));
 });
@@ -234,7 +234,7 @@ gulp.task('serve', function() {
 gulp.task('watch', function() {
 
 	// Run build then set watch targets in the callback
-	runSequence('clean-web', 'process-svg', 'process-templates', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
+	runSequence('clean-web', 'process-svg', 'process-sass', 'process-scripts', 'process-images', 'process-fonts', 'website-assets', function() {
 
 		// Watch for changes with SVG
 		watch([SVG_PATH + '/*.svg'], function() { runSequence('process-svg', function() { gulp.start('website-assets'); }); });
