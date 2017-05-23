@@ -51,13 +51,13 @@
 	opacity: 0.5 !important;
 }
 
-%is-hidden--text { 
-	position: absolute !important;
-	height: 1px !important;
-	width: 1px !important;
-	overflow: hidden !important;
-	clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
+%is-hidden--text {                                                                                                                            
+	display: block !important;                                                                                                                
+	height: 0px !important;                                                                                                                   
+	width: 0px !important;                                                                                                                    
+	overflow: hidden !important;                                                                                                              
+	clip: rect(1px, 1px, 1px, 1px) !important;                                                                                                
+	visibility: hidden !important;                                                                                                            
 }
 
 %no-print {
