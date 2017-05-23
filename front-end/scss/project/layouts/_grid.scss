@@ -1,147 +1,147 @@
 .grid {
 
-	@include mode("global") {
+    @include mode("global") {
 
-		/*------------------------------------*\
-			GRID WRAPPER
-		\*------------------------------------*/
+        /*------------------------------------*\
+            GRID WRAPPER
+        \*------------------------------------*/
 
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		flex-wrap: wrap;
-		margin: #{-$gutter} 0 0 #{-$gutter};
-		padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: #{-$gutter} 0 0 #{-$gutter};
+        padding: 0;
 
-		.no-flexbox & {
-			letter-spacing: -0.32em;
-			list-style: none;
-		}
+        .no-flexbox & {
+            letter-spacing: -0.32em;
+            list-style: none;
+        }
 
-		// Direct children will be grid items by default
-		> * {
-			padding: $gutter 0 0 $gutter;
+        // Direct children will be grid items by default
+        > * {
+            padding: $gutter 0 0 $gutter;
 
-			.no-flexbox & {
-				display: inline-block;
-				vertical-align: top;
-				letter-spacing: normal;
-				word-spacing: normal;
-			}
+            .no-flexbox & {
+                display: inline-block;
+                vertical-align: top;
+                letter-spacing: normal;
+                word-spacing: normal;
+            }
 
-			// Full width at mobile by default unless a size is set
-			@include media-query("palm") {
+            // Full width at mobile by default unless a size is set
+            @include media-query("palm") {
 
-				&:not([class*="palm"]) {
-					width: 100%;
-				}
-			}
-		}
+                &:not([class*="palm"]) {
+                    width: 100%;
+                }
+            }
+        }
 
-		/*------------------------------------*\
-			GRID MODIFIERS
-		\*------------------------------------*/
+        /*------------------------------------*\
+            GRID MODIFIERS
+        \*------------------------------------*/
 
-		&--rev {
-			flex-direction: row-reverse;
-			justify-content: flex-end;
+        &--rev {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
 
-			.no-flexbox & {
-				direction: rtl;
-				text-align: left;
+            .no-flexbox & {
+                direction: rtl;
+                text-align: left;
 
-				> * {
-					direction: ltr;
-					text-align: left;
-				}
-			}
-		}
+                > * {
+                    direction: ltr;
+                    text-align: left;
+                }
+            }
+        }
 
-		// Remove margins and gutters
-		&--full {
-			margin: 0;
+        // Remove margins and gutters
+        &--full {
+            margin: 0;
 
-			> * {
-				padding: 0;
-			}
-		}
+            > * {
+                padding: 0;
+            }
+        }
 
-		// Halve the gutter width
-		&--narrow {
-			margin: #{-($gutter / 2)} 0 0 #{-($gutter / 2)};
+        // Halve the gutter width
+        &--narrow {
+            margin: #{-($gutter / 2)} 0 0 #{-($gutter / 2)};
 
-			> * {
-				padding: #{$gutter / 2} 0 0 #{$gutter / 2};
-			}
-		}
+            > * {
+                padding: #{$gutter / 2} 0 0 #{$gutter / 2};
+            }
+        }
 
-		// Double the gutter width
-		&--wide {
-			margin: #{-($gutter * 2)} 0 0 #{-($gutter * 2)};
+        // Double the gutter width
+        &--wide {
+            margin: #{-($gutter * 2)} 0 0 #{-($gutter * 2)};
 
-			> * {
-				padding: #{$gutter * 2} 0 0 #{$gutter * 2};
-			}
-		}
+            > * {
+                padding: #{$gutter * 2} 0 0 #{$gutter * 2};
+            }
+        }
 
-		// Right align items
-		&--right {
-			justify-content: flex-end;
+        // Right align items
+        &--right {
+            justify-content: flex-end;
 
-			.no-flexbox & {
-				text-align: right;
+            .no-flexbox & {
+                text-align: right;
 
-				> * {
-					text-align: left;
-				}
-			}
-		}
+                > * {
+                    text-align: left;
+                }
+            }
+        }
 
-		// Center align items
-		&--center {
-			justify-content: center;
+        // Center align items
+        &--center {
+            justify-content: center;
 
-			.no-flexbox & {
-				text-align: center;
+            .no-flexbox & {
+                text-align: center;
 
-				> * {
-					text-align: left;
-				}
-			}
-		}
+                > * {
+                    text-align: left;
+                }
+            }
+        }
 
-		// Vertically center align items
-		&--middle {
-			align-items: center;
+        // Vertically center align items
+        &--middle {
+            align-items: center;
 
-			.no-flexbox & {
-				> * {
-					vertical-align: middle;
-				}
-			}
-		}
+            .no-flexbox & {
+                > * {
+                    vertical-align: middle;
+                }
+            }
+        }
 
-		// Vertically align items at the bottom
-		&--bottom {
-			align-items: flex-end;
+        // Vertically align items at the bottom
+        &--bottom {
+            align-items: flex-end;
 
-			.no-flexbox & {
-				> * {
-					vertical-align: bottom;
-				}
-			}
-		}
+            .no-flexbox & {
+                > * {
+                    vertical-align: bottom;
+                }
+            }
+        }
 
-		// Vertically align items at the top
-		&--top {
-			align-items: flex-start;
+        // Vertically align items at the top
+        &--top {
+            align-items: flex-start;
 
-			.no-flexbox & {
-				> * {
-					vertical-align: top;
-				}
-			}
-		}
+            .no-flexbox & {
+                > * {
+                    vertical-align: top;
+                }
+            }
+        }
 
         // Level heights. Will level the inner child element of your grid item
         &--level-heights {
@@ -162,9 +162,9 @@
             }
         }
 
-		// Make grid items split between each other
-		&--split {
-			justify-content: space-between;
-		}
-	}
+        // Make grid items split between each other
+        &--split {
+            justify-content: space-between;
+        }
+    }
 }

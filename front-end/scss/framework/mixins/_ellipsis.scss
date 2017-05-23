@@ -5,8 +5,8 @@
     gracefully in single line inline / inline-block elements  
 \*------------------------------------*/
 @mixin ellipsis() {
-	position: relative;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

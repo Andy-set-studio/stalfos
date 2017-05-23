@@ -1,49 +1,49 @@
 @include mode("global") {
-	
-	.is-hidden {
-		@extend %is-hidden;
-	}
-		.is-hidden--palm {
-			@extend %is-hidden--palm;
-		}
+    
+    .is-hidden {
+        @extend %is-hidden;
+    }
+        .is-hidden--palm {
+            @extend %is-hidden--palm;
+        }
 
-		.is-hidden--portable {
-			@extend %is-hidden--portable;
-		}
+        .is-hidden--portable {
+            @extend %is-hidden--portable;
+        }
 
-		.is-hidden--portable-and-up {
-			@extend %is-hidden--portable-and-up;
-		}
+        .is-hidden--portable-and-up {
+            @extend %is-hidden--portable-and-up;
+        }
 
-		.is-hidden--lap {
-			@extend %is-hidden--lap;
-		}
+        .is-hidden--lap {
+            @extend %is-hidden--lap;
+        }
 
-		.is-hidden--lap-and-up {
-			@extend %is-hidden--lap-and-up;
-		}
+        .is-hidden--lap-and-up {
+            @extend %is-hidden--lap-and-up;
+        }
 
-		.is-hidden--desk {
-			@extend %is-hidden--desk;
-		}
+        .is-hidden--desk {
+            @extend %is-hidden--desk;
+        }
 
-		.is-hidden--desk-wide {
-			@extend %is-hidden--desk-wide;
-		}
+        .is-hidden--desk-wide {
+            @extend %is-hidden--desk-wide;
+        }
 
-	.is-visible {
-		@extend %is-visible;
-	}
+    .is-visible {
+        @extend %is-visible;
+    }
 
-	.is-muted {
-		@extend %is-muted;
-	}
+    .is-muted {
+        @extend %is-muted;
+    }
 
-	.is-hidden--text {
-		@extend %is-hidden--text;
-	}
+    .is-hidden--text {
+        @extend %is-hidden--text;
+    }
 
-	.no-print {
-		@extend %no-print;
-	}
+    .no-print {
+        @extend %no-print;
+    }
 }

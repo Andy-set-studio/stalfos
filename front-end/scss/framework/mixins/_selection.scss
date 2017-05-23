@@ -5,13 +5,13 @@
 \*------------------------------------*/
 @mixin selection($background, $color) {
 
-	::-moz-selection { 
-		background: $background; 
-		color: $color;
-	}
-	
-	::selection { 
-		background: $background; 
-		color: $color;
-	}
+    ::-moz-selection { 
+        background: $background; 
+        color: $color;
+    }
+    
+    ::selection { 
+        background: $background; 
+        color: $color;
+    }
 }

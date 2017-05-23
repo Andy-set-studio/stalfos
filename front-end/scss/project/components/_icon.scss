@@ -1,13 +1,13 @@
 .icon {
 
-	@include mode("global") {
+    @include mode("global") {
 
-		display: inline-block;
-		vertical-align: middle;
-		position: relative;
-		width: 32px;
-		height: 32px;
-		speak: none;
-	}
-	
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        speak: none;
+    }
+    
 }

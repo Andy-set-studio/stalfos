@@ -5,8 +5,8 @@
     Really useful for email links.
 \*------------------------------------*/
 @mixin word-wrap() {
-	word-break: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }

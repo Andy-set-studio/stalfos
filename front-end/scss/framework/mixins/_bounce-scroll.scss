@@ -5,15 +5,15 @@
 \*------------------------------------*/
 
 @mixin bounce-scroll($direction: "vertical") {
-	
-	-webkit-overflow-scrolling: touch;
+    
+    -webkit-overflow-scrolling: touch;
 
-	@if($direction == "vertical") {
-		overflow-x: hidden;
-		overflow-y: auto;
-	}
-	@else {
-		overflow-x: auto;
-		overflow-y: hidden;
-	}
+    @if($direction == "vertical") {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    @else {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 }

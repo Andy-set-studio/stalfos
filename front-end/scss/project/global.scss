@@ -9,37 +9,37 @@
     ADD SOME GLOBAL STYLES
 \*------------------------------------*/
 html {
-	width: 100%;
-	height: 100%;
-	font-size: $base-font-size;
+    width: 100%;
+    height: 100%;
+    font-size: $base-font-size;
 }
 
 body {
-	font-family: $base-font-family;
-	min-width: $site-min-width;
-	min-height: 100%;
-	-webkit-text-size-adjust: 100%;
+    font-family: $base-font-family;
+    min-width: $site-min-width;
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
 
-	@include font-size($base-font-size, true);
+    @include font-size($base-font-size, true);
 }
 
 img {
-	display: block;
-	max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 a[href^="mailto"] {
-	@include word-wrap();
+    @include word-wrap();
 }
 
 .clear {
 
-	&:after,
-	&:before {
-		content: "";
-		clear: both;
-		display: block;
-	}
+    &:after,
+    &:before {
+        content: "";
+        clear: both;
+        display: block;
+    }
 }
 
 /*------------------------------------*\
@@ -51,9 +51,10 @@ a[href^="mailto"] {
     nasty sniffs 👍
 \*------------------------------------*/
 body {
+
     &:before {
         display: none;
-	speak: none;
+        speak: none;
         content: "palm";
 
         @include media-query("portable-and-up") {
@@ -73,8 +74,6 @@ body {
         }
     }
 }
-
-
 
 /*------------------------------------*\
     DECLARATIONS

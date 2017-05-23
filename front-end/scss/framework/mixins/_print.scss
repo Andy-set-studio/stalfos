@@ -8,17 +8,17 @@
     Usage example: 
     
     body {
-    	color: #f3f3f3;
+        color: #f3f3f3;
     
-		@include print {
-			color: #000000;
-		}
+        @include print {
+            color: #000000;
+        }
     }
 \*------------------------------------*/
 @mixin print {
 
-	@media print {
-		@content;
-	}
-	
+    @media print {
+        @content;
+    }
+    
 }

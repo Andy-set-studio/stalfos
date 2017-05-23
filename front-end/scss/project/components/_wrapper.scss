@@ -1,29 +1,27 @@
 .wrapper {
 
-	@include mode("global") {
+    @include mode("global") {
 
-		min-width: $site-min-width;
-		max-width: $site-max-width;
-		margin: 0 auto;
-		position: relative;
+        min-width: $site-min-width;
+        max-width: $site-max-width;
+        margin: 0 auto;
+        position: relative;
 
-		// Only add padding if not flush
-		&:not([class*="wrapper--flush"]) {
-			padding: 0 $gutter;
-		}
+        // Only add padding if not flush
+        &:not([class*="wrapper--flush"]) {
+            padding: 0 $gutter;
+        }
 
-		// Extra padding at lap and up to make it narrow
-		&--narrow {
+        // Extra padding at lap and up to make it narrow
+        &--narrow {
 
-			@include media-query("lap-and-up") {
+            @include media-query("lap-and-up") {
 
-				// Still check this element hasn't got the flush modifier
-				&:not([class*="wrapper--flush"]) {
-					padding: 0 $gutter--treble;
-				}
-			}
-		}
-
-	}
-
+                // Still check this element hasn't got the flush modifier
+                &:not([class*="wrapper--flush"]) {
+                    padding: 0 $gutter--treble;
+                }
+            }
+        }
+    }
 }

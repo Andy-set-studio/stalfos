@@ -1,61 +1,61 @@
 .breathe {
-	
-	@include mode("global") {
+    
+    @include mode("global") {
 
-		&:not([class*="--mini"]):not([class*="--midi"]):not([class*="--top"]):not([class*="--bottom"]) {
-			margin: $gutter 0;
-		}
+        &:not([class*="--mini"]):not([class*="--midi"]):not([class*="--top"]):not([class*="--bottom"]) {
+            margin: $gutter 0;
+        }
 
-			&--top {
-				margin-top: $gutter;
-			}
+            &--top {
+                margin-top: $gutter;
+            }
 
-			&--bottom {
-				margin-bottom: $gutter;
-			}
+            &--bottom {
+                margin-bottom: $gutter;
+            }
 
-		&--mini {
-			&:not([class*="--top"]):not([class*="--bottom"]) {
-				margin: $gutter--mini 0;
-			}
-		}
+        &--mini {
+            &:not([class*="--top"]):not([class*="--bottom"]) {
+                margin: $gutter--mini 0;
+            }
+        }
 
-			&--mini-top {
-				margin-top: $gutter--mini;
-			}
+            &--mini-top {
+                margin-top: $gutter--mini;
+            }
 
-			&--mini-bottom {
-				margin-bottom: $gutter--mini;
-			}
+            &--mini-bottom {
+                margin-bottom: $gutter--mini;
+            }
 
-		&--midi {
-			&:not([class*="--top"]):not([class*="--bottom"]) {
-				margin: $gutter--midi 0;
-			}
-		}
+        &--midi {
+            &:not([class*="--top"]):not([class*="--bottom"]) {
+                margin: $gutter--midi 0;
+            }
+        }
 
-			&--midi-top {
-				margin-top: $gutter--midi;
-			}
+            &--midi-top {
+                margin-top: $gutter--midi;
+            }
 
-			&--midi-bottom {
-				margin-bottom: $gutter--midi;
-			}
+            &--midi-bottom {
+                margin-bottom: $gutter--midi;
+            }
 
 
-		&--double {
-			&:not([class*="--top"]):not([class*="--bottom"]) {
-				margin: $gutter--double 0;
-			}
-		}
+        &--double {
+            &:not([class*="--top"]):not([class*="--bottom"]) {
+                margin: $gutter--double 0;
+            }
+        }
 
-			&--double-top {
-				margin-top: $gutter--double;
-			}
+            &--double-top {
+                margin-top: $gutter--double;
+            }
 
-			&--double-bottom {
-				margin-bottom: $gutter--double;
-			}
+            &--double-bottom {
+                margin-bottom: $gutter--double;
+            }
 
-	}
+    }
 }

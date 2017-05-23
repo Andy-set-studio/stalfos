@@ -5,23 +5,21 @@
     This also has an 'include-active' flag which will help account for active states too.  
 \*------------------------------------*/
 @mixin hover($include-active: false) {
-	
-	@if($include-active) {
-		
-		&:target,
-		&:active,
-		&:hover,
-		&:focus,
-		&.is-active {
-			@content;
-		}
-	}
-	@else {
+    
+    @if($include-active) {
+        
+        &:active,
+        &:hover,
+        &:focus,
+        &.is-active {
+            @content;
+        }
+    }
+    @else {
 
-		&:target,
-		&:focus,
-		&:hover {
-			@content;
-		}
-	}
+        &:focus,
+        &:hover {
+            @content;
+        }
+    }
 } 

@@ -16,39 +16,39 @@
     
     body {
     
-    	@include font-size(16px, true);
+        @include font-size(16px, true);
     }
     
     Without line-height: 
     
     body {
-    	
-    	@include font-size(16px);
+        
+        @include font-size(16px);
     }
     
 \*------------------------------------*/
 
 @mixin font-size($size, $calculate-line-height: false, $important: false, $line-height-ratio: $base-line-height-ratio) {
-	
-	@if($important == true) {
-		
-		font-size: $size !important;
-		font-size: ($size / $base-font-size)#{"rem"} !important;
-		
-		@if($calculate-line-height == true) {
-			line-height: ($size * $line-height-ratio) !important;
-			line-height: (($size / $base-font-size) * $line-height-ratio)#{"rem"} !important;
-		}
-	}
-	@else {
-		
-		font-size: $size;
-		font-size: ($size / $base-font-size)#{"rem"};
-		
-		@if($calculate-line-height == true) {
-			line-height: ($size * $line-height-ratio);
-			line-height: (($size / $base-font-size) * $line-height-ratio)#{"rem"};
-		}
-	}
+    
+    @if($important == true) {
+        
+        font-size: $size !important;
+        font-size: ($size / $base-font-size)#{"rem"} !important;
+        
+        @if($calculate-line-height == true) {
+            line-height: ($size * $line-height-ratio) !important;
+            line-height: (($size / $base-font-size) * $line-height-ratio)#{"rem"} !important;
+        }
+    }
+    @else {
+        
+        font-size: $size;
+        font-size: ($size / $base-font-size)#{"rem"};
+        
+        @if($calculate-line-height == true) {
+            line-height: ($size * $line-height-ratio);
+            line-height: (($size / $base-font-size) * $line-height-ratio)#{"rem"};
+        }
+    }
 
 }

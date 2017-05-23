@@ -1,15 +1,15 @@
 %flex-wrapper {
-	display: flex;
+    display: flex;
 }
 
 %flex-wrapper--column {
-	@extend %flex-wrapper;
+    @extend %flex-wrapper;
 
-	flex-direction: column;
+    flex-direction: column;
 }
 
 %flex-wrapper--row {
-	@extend %flex-wrapper;
-	
-	flex-direction: row;
+    @extend %flex-wrapper;
+    
+    flex-direction: row;
 }

@@ -4,23 +4,23 @@
     This little mixin will help style those pesky placeholders    
 \*------------------------------------*/
 @mixin placeholder($color) {
-	&::-webkit-input-placeholder {
-	   color: $color;
-	   opacity: 1;
-	}
+    &::-webkit-input-placeholder {
+       color: $color;
+       opacity: 1;
+    }
 
-	&:-moz-placeholder { 
-	   color: $color;  
-	   opacity: 1;
-	}
+    &:-moz-placeholder { 
+       color: $color;  
+       opacity: 1;
+    }
 
-	&::-moz-placeholder {  
-	   color: $color;  
-	   opacity: 1;
-	}
+    &::-moz-placeholder {  
+       color: $color;  
+       opacity: 1;
+    }
 
-	&:-ms-input-placeholder {  
-	   color: $color;  
-	   opacity: 1;
-	}
+    &:-ms-input-placeholder {  
+       color: $color;  
+       opacity: 1;
+    }
 }

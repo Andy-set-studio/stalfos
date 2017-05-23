@@ -6,57 +6,57 @@
     For example. If you want to make the body background magenta on mobile only:
 
     body {
-	    @include media-query(palm) {
-	    	background: magenta;
-	    }
+        @include media-query(palm) {
+            background: magenta;
+        }
     }
 \*------------------------------------*/
 @mixin media-query($alias, $screen-only:true) {
 
-	$calculated-breakpoint: "";
+    $calculated-breakpoint: "";
 
-	@if($alias == "palm") {
-		$calculated-breakpoint: $breakpoint--palm;
-	}
+    @if($alias == "palm") {
+        $calculated-breakpoint: $breakpoint--palm;
+    }
 
-	@if($alias == "portable") {
-		$calculated-breakpoint: $breakpoint--portable;
-	}
+    @if($alias == "portable") {
+        $calculated-breakpoint: $breakpoint--portable;
+    }
 
     @if($alias == "portable-and-up") {
-		$calculated-breakpoint: $breakpoint--portable-and-up;
-	}
+        $calculated-breakpoint: $breakpoint--portable-and-up;
+    }
 
-	@if($alias == "lap") {
-		$calculated-breakpoint: $breakpoint--lap;
-	}
+    @if($alias == "lap") {
+        $calculated-breakpoint: $breakpoint--lap;
+    }
 
-	@if($alias == "lap-and-up") {
-		$calculated-breakpoint: $breakpoint--lap-and-up;
-	}
+    @if($alias == "lap-and-up") {
+        $calculated-breakpoint: $breakpoint--lap-and-up;
+    }
 
-	@if($alias == "desk") {
-		$calculated-breakpoint: $breakpoint--desk;
-	}
+    @if($alias == "desk") {
+        $calculated-breakpoint: $breakpoint--desk;
+    }
 
-	@if($alias == "desk-wide") {
-		$calculated-breakpoint: $breakpoint--desk--wide;
-	}
+    @if($alias == "desk-wide") {
+        $calculated-breakpoint: $breakpoint--desk--wide;
+    }
 
-	@if($calculated-breakpoint != "") {
+    @if($calculated-breakpoint != "") {
 
-		@if($screen-only == true) {
-			@media screen and #{$calculated-breakpoint} {
-				@content;
-			}
-		}
-		@else {
-			@media all and #{$calculated-breakpoint} {
-				@content;
-			}
-		}
+        @if($screen-only == true) {
+            @media screen and #{$calculated-breakpoint} {
+                @content;
+            }
+        }
+        @else {
+            @media all and #{$calculated-breakpoint} {
+                @content;
+            }
+        }
 
 
-	}
+    }
 
 }

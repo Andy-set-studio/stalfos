@@ -1,122 +1,120 @@
 @include mode("global") {
 
-	@mixin size-render($size) {
+    @mixin size-render($size) {
 
-		/**
-		 * Whole
-		 */
-		#{$size}one-whole {
-			width: 100%;
-		}
+        /**
+         * Whole
+         */
+        #{$size}one-whole {
+            width: 100%;
+        }
 
-		/**
-		 * Halves
-		 */
-		#{$size}one-half {
-			width: 50%;
-		}
+        /**
+         * Halves
+         */
+        #{$size}one-half {
+            width: 50%;
+        }
 
-		/**
-		 * Thirds
-		 */
-		#{$size}one-third {
-			width: percentage(1/3);
-		}
+        /**
+         * Thirds
+         */
+        #{$size}one-third {
+            width: percentage(1/3);
+        }
 
-		#{$size}two-thirds {
-			width: percentage(2/3);
-		}
+        #{$size}two-thirds {
+            width: percentage(2/3);
+        }
 
-		/**
-		 * Quarters
-		 */
-		#{$size}one-quarter {
-			width: percentage(1/4);
-		}
+        /**
+         * Quarters
+         */
+        #{$size}one-quarter {
+            width: percentage(1/4);
+        }
 
-		#{$size}two-quarters {
-			width: 50%;
-		}
+        #{$size}two-quarters {
+            width: 50%;
+        }
 
-		#{$size}three-quarters {
-			width: percentage(3/4);
-		}
+        #{$size}three-quarters {
+            width: percentage(3/4);
+        }
 
 
-		/**
-		 * Sixths
-		 */
-		#{$size}one-sixth {
-			width: percentage(1/6);
-		}
+        /**
+         * Sixths
+         */
+        #{$size}one-sixth {
+            width: percentage(1/6);
+        }
 
-		#{$size}two-sixths {
-			width: percentage(2/6);
-		}
+        #{$size}two-sixths {
+            width: percentage(2/6);
+        }
 
-		#{$size}three-sixths {
-		   width: 50%;
-		}
+        #{$size}three-sixths {
+           width: 50%;
+        }
 
-		#{$size}four-sixths {
-			width: percentage(4/6);
-		}
+        #{$size}four-sixths {
+            width: percentage(4/6);
+        }
 
-		#{$size}five-sixths {
-			width: percentage(5/6);
-		}
+        #{$size}five-sixths {
+            width: percentage(5/6);
+        }
 
-		/**
-		 * Tenths
-		 */
-		#{$size}one-tenth {
-			width: 10%;
-		}
-		
-		#{$size}two-tenths {
-			width: 20%;
-		}
+        /**
+         * Tenths
+         */
+        #{$size}one-tenth {
+            width: 10%;
+        }
+        
+        #{$size}two-tenths {
+            width: 20%;
+        }
 
-		#{$size}three-tenths {
-			width: 30%;
-		}
+        #{$size}three-tenths {
+            width: 30%;
+        }
 
-		#{$size}four-tenths {
-			width: 40%;
-		}
+        #{$size}four-tenths {
+            width: 40%;
+        }
 
-		#{$size}six-tenths {
-			width: 60%;
-		}
+        #{$size}six-tenths {
+            width: 60%;
+        }
 
-		#{$size}seven-tenths {
-			width: 70%;
-		}
+        #{$size}seven-tenths {
+            width: 70%;
+        }
 
-		#{$size}eight-tenths {
-			width: 80%;
-		}
+        #{$size}eight-tenths {
+            width: 80%;
+        }
 
-		#{$size}nine-tenths {
-			width: 90%;
-		}
-	}
+        #{$size}nine-tenths {
+            width: 90%;
+        }
+    }
 
-	@each $size in $size--available-breakpoints {
+    @each $size in $size--available-breakpoints {
 
-		// Include media query if size isn't blank
-		@if(str-length($size) > 0) {
+        // Include media query if size isn't blank
+        @if(str-length($size) > 0) {
 
-			@include media-query($size) {
-				@include size-render(#{"." + $size + "__"});
-			}
-		}
+            @include media-query($size) {
+                @include size-render(#{"." + $size + "__"});
+            }
+        }
 
-		// Render static sizes if blank
-		@else {
-			@include size-render(#{"."});
-		}
-
-	}
-
+        // Render static sizes if blank
+        @else {
+            @include size-render(#{"."});
+        }
+    }
 }

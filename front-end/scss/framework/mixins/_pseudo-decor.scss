@@ -5,8 +5,8 @@
 \*------------------------------------*/
 @mixin pseudo-decor() {
 
-	content: "";
-	speak: none;
+    content: "";
+    speak: none;
 }
 
 
@@ -14,6 +14,6 @@
 // be using the old, incorrect spelling
 @mixin sudo-decor() {
 
-	@warn "'sudo-decor' is deprecated. Use 'pseudo-decor' instead.";
-	@include pseudo-decor();
+    @warn "'sudo-decor' is deprecated. Use 'pseudo-decor' instead.";
+    @include pseudo-decor();
 }

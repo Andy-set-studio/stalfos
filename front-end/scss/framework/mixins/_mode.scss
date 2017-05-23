@@ -9,15 +9,15 @@
     Within your components etc. you would then do the following: 
 
     .a-css-class {
-    	
-    	// This stuff will only render in admin.css
-    	@include mode("admin") {
-			background: red;
-    	}
+        
+        // This stuff will only render in admin.css
+        @include mode("admin") {
+            background: red;
+        }
     }
 \*------------------------------------*/
 @mixin mode($mode) {
-	@if($output-mode == $mode) {
-		@content;
-	}
+    @if($output-mode == $mode) {
+        @content;
+    }
 }

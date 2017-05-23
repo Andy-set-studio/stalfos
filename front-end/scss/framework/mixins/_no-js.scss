@@ -5,16 +5,16 @@
 \*------------------------------------*/
 @mixin no-js($is-parent: false) {
 
-	@if $is-parent == true {
+    @if $is-parent == true {
 
-		&.no-js {
-			@content;
-		}
-	}
-	@else {
+        &.no-js {
+            @content;
+        }
+    }
+    @else {
 
-		.no-js & {
-			@content;
-		}
-	}
+        .no-js & {
+            @content;
+        }
+    }
 }
