@@ -1,6 +1,7 @@
 /*------------------------------------*\
     MODULES
 \*------------------------------------*/
+import TypeSet from './modules/typeset';
 import Sample from './modules/sample';
 
 /*------------------------------------*\
