@@ -1,82 +1,30 @@
 /*------------------------------------*\
-    CENTRAL APP MASTER 
-    
-    This file includes the module placeholders system that allows modular 
-    binding of custom methods / plugins etc. 
-    
-    EXAMPLE
-    
-    <div data-module="example1,example2"></div> 
-    
-    The above would meet two conditions in the below switch statement.
-    
+    MODULES
 \*------------------------------------*/
-var app = (function($) {
+import TypeSet from './modules/typeset';
+import Sample from './modules/sample';
 
-    // Global settings
-    var settings = {
-
-        // Typeset module settings
-        typeset: {
-            enabled: true,
-            selectors: 'h1, h2, h3, h4, h5, h6, p, li, dt, dd, blockquote'
-        }
-    };
+/*------------------------------------*\
+    APP DELEGATE
+\*------------------------------------*/
+const app = {
     
-    // This method will run when the DOM is ready. 
-    var init = function() {
+    init() {
         
-        // Find any module placeholders 
-        var modulePlaceholders = $('[data-module]');
-        
-        if(modulePlaceholders.any()) {
-            
-            // Loop each placeholder
-            modulePlaceholders.each(function() {
-                
-                var elem = $(this),
-                    modules = elem.attr('data-module');
-                
-                // If any modules found 
-                if(modules) {
-                    
-                    // Split on the comma 
-                    modules = modules.split(',');
-                    
-                    // Loop each module key
-                    $.each(modules, function(i, module) {
-                        
-                        // Run switch to bind each module to each key
-                        switch(module) {
-                            
-                            // This is an example. Delete when you add your own cases.
-                            case 'example1':
-                                
-                                // Run code here 
-                                break;
-                            
-                        }
-                        
-                    });
-                }
-            });
-        }
-        
-        // If typeset is enabled
-        if(settings.typeset.enabled) {
+        // Run Sample module
+        let sampleInstance = new Sample();
 
-            // Loop each item and bind it to the module
-            $(settings.typeset.selectors).each(function() {
-                $(this).typeSet();
-            });
-        }
-    };
-    
-    return {
-        init: init
+        sampleInstance.load();
+
+        // Remove the no-js class
+        document.documentElement.classList.remove('no-js');
+
+        let typesetInstance = new TypeSet();
+
+        // Run the initial typeset on the whole rendered document
+        typesetInstance.init(document.body);
     }
-    
-}(window.$));
+};
 
-// RUN!!
+// Launch
 app.init();
