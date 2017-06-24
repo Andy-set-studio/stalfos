@@ -1,0 +1,54 @@
+// Define directions with their margin direction
+$flow__directions: (
+    ("horizontal", "left"), 
+    ("vertical", "top")
+);
+
+// Set as either padding or margin
+$flow__property: "padding";
+
+.flow {
+    
+    @include mode("global") {
+       
+        // Loop each option
+        @each $direction in $flow__directions {
+            
+            // Build a class up
+            &-#{ nth($direction, 1) } {
+                
+                // By default use $rhythm as it is
+                &:not([class*="--mini"]):not([class*="--double"]):not([class*="--treble"]) {
+                    
+                    > * + * {
+                        padding-#{ nth($direction, 2) }: $rhythm;
+                    }
+                }
+
+                // Halve it
+                &--mini {
+                    
+                    > * + * {
+                        padding-#{ nth($direction, 2) }: $rhythm--mini;
+                    }
+                }
+
+                // Double it
+                &--double {
+                    
+                    > * + * {
+                        padding-#{ nth($direction, 2) }: $rhythm--double;
+                    }
+                }
+
+                // Treble it
+                &--treble {
+                    
+                    > * + * {
+                        padding-#{ nth($direction, 2) }: $rhythm--double;
+                    }
+                }
+            }
+        }
+    }
+}
