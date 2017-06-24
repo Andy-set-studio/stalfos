@@ -29,7 +29,7 @@ $flow__property: "margin";
                 &--mini {
                     
                     > * + * {
-                        #{ flow__property }-#{ nth($direction, 2) }: $rhythm--mini;
+                        #{ $flow__property }-#{ nth($direction, 2) }: $rhythm--mini;
                     }
                 }
 
@@ -37,7 +37,7 @@ $flow__property: "margin";
                 &--double {
                     
                     > * + * {
-                        #{ flow__property }-#{ nth($direction, 2) }: $rhythm--double;
+                        #{ $flow__property }-#{ nth($direction, 2) }: $rhythm--double;
                     }
                 }
 
@@ -45,7 +45,7 @@ $flow__property: "margin";
                 &--treble {
                     
                     > * + * {
-                        #{ flow__property }-#{ nth($direction, 2) }: $rhythm--double;
+                        #{ $flow__property }-#{ nth($direction, 2) }: $rhythm--double;
                     }
                 }
             }
