@@ -5,7 +5,7 @@ $flow__directions: (
 );
 
 // Set as either padding or margin
-$flow__property: "padding";
+$flow__property: "margin";
 
 .flow {
     
@@ -21,7 +21,7 @@ $flow__property: "padding";
                 &:not([class*="--mini"]):not([class*="--double"]):not([class*="--treble"]) {
                     
                     > * + * {
-                        padding-#{ nth($direction, 2) }: $rhythm;
+                        #{ $flow__property }-#{ nth($direction, 2) }: $rhythm;
                     }
                 }
 
@@ -29,7 +29,7 @@ $flow__property: "padding";
                 &--mini {
                     
                     > * + * {
-                        padding-#{ nth($direction, 2) }: $rhythm--mini;
+                        #{ flow__property }-#{ nth($direction, 2) }: $rhythm--mini;
                     }
                 }
 
@@ -37,7 +37,7 @@ $flow__property: "padding";
                 &--double {
                     
                     > * + * {
-                        padding-#{ nth($direction, 2) }: $rhythm--double;
+                        #{ flow__property }-#{ nth($direction, 2) }: $rhythm--double;
                     }
                 }
 
@@ -45,7 +45,7 @@ $flow__property: "padding";
                 &--treble {
                     
                     > * + * {
-                        padding-#{ nth($direction, 2) }: $rhythm--double;
+                        #{ flow__property }-#{ nth($direction, 2) }: $rhythm--double;
                     }
                 }
             }
