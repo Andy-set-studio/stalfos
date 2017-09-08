@@ -100,6 +100,53 @@
         #{$size}nine-tenths {
             width: 90%;
         }
+
+        /**
+         * Twelfths
+         */
+        #{$size}one-twelfths {
+            width: percentage(1/12);
+        }
+        
+        #{$size}two-twelfths {
+            width: percentage(2/12);
+        }
+
+        #{$size}three-twelfths {
+            width: percentage(3/12);
+        }
+
+        #{$size}four-twelfths {
+            width: percentage(4/12);
+        }
+
+        #{$size}five-twelfths {
+            width: percentage(5/12);
+        }
+
+        #{$size}six-twelfths {
+            width: percentage(6/12);
+        }
+
+        #{$size}seven-twelfths {
+            width: percentage(7/12);
+        }
+
+        #{$size}eight-twelfths {
+            width: percentage(8/12);
+        }
+
+        #{$size}nine-twelfths {
+            width: percentage(9/12);
+        }
+
+        #{$size}ten-twelfths {
+            width: percentage(10/12);
+        }
+
+        #{$size}eleven-twelfths {
+            width: percentage(11/12);
+        }
     }
 
     @each $size in $size--available-breakpoints {
