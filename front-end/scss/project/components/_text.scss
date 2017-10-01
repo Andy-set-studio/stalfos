@@ -1,0 +1,17 @@
+.text {
+
+    @include mode("global") {
+
+        &:not([class*="--right"]):not([class*="--center"]) {
+            text-align: left;
+        }
+
+        &--align-right {
+            text-align: right;
+        }
+
+        &--align-center {
+            text-align: center;
+        }
+    }
+}
