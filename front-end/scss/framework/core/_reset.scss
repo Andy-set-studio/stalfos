@@ -29,6 +29,12 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
+// Normalise form field line-height in webkit browsers
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+select::-webkit-input-placeholder {
+    line-height: normal;
+}
 
 // Box sizing border box FTW!
 *, *:before, *:after {
