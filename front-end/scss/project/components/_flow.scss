@@ -33,6 +33,14 @@ $flow__property: "margin";
                     }
                 }
 
+                // Halve it
+                &--midi {
+                    
+                    > * + * {
+                        #{ $flow__property }-#{ nth($direction, 2) }: $rhythm--midi;
+                    }
+                }
+
                 // Double it
                 &--double {
                     
