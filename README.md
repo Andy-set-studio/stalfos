@@ -1,3 +1,7 @@
+>❗️❗️❗️ This repository is no longer maintained. Thanks to everyone for your help. It means a lot! ❗️❗️❗️
+
+---
+
 ## About
 
 Stalfos is an open-source, skeletal front-end development starter kit. It provides you with a solid starting-point for working with HTML, Sass and JavaScript. It also provides tools for working with images, fonts and SVG.
