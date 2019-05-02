@@ -1,0 +1,35 @@
+$stalfos-config: (
+  'text': (
+    'items': (
+      '400': 1rem,
+      '500': 1.5rem,
+      '600': 2rem,
+      '700': 2.5rem,
+      '800': 3rem,
+      '900': 5rem
+    ),
+    'output': 'responsive',
+    'property': 'font-size'
+  ),
+  'weight': (
+    'items': (
+      'regular': '400',
+      'bold': '700'
+    ),
+    'output': 'standard',
+    'property': 'font-weight'
+  ),
+  'width': (
+    'items': (
+      'full': '100%',
+      'half': '50%'
+    ),
+    'output': 'standard',
+    'property': 'width'
+  ),
+  'breakpoints': (
+    'sm': '(min-width: 20em)',
+    'md': '(min-width: 30em)',
+    'lg': '(min-width: 50em)'
+  )
+) !default;

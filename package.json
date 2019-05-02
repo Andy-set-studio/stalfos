@@ -4,7 +4,8 @@
   "description": "A skeletal collection of Sass helpers with a handy CSS utility class generator",
   "main": "front-end/gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:process": "sass src/global.scss dist/global.css",
+    "start": "npm run sass:process && npm run sass:process -- --watch"
   },
   "repository": {
     "type": "git",
