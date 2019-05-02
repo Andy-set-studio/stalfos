@@ -1,7 +1,7 @@
 {
   "name": "stalfos",
-  "version": "1.4.0",
-  "description": ">❗️❗️❗️ This repository is no longer maintained. Thanks to everyone for your help. It means a lot! ❗️❗️❗️",
+  "version": "2.0.0",
+  "description": "A skeletal collection of Sass helpers with a handy CSS utility class generator",
   "main": "front-end/gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/andybelldesign/stalfos/issues"
   },
-  "homepage": "https://github.com/andybelldesign/stalfos#readme"
+  "homepage": "https://github.com/andybelldesign/stalfos#readme",
+  "dependencies": {
+    "sass": "^1.19.0"
+  }
 }
