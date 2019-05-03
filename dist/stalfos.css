@@ -495,5 +495,12 @@
     width: 33.3333333333%;
   }
 }
+/**
+ * MEDIA QUERY MIXIN
+ * Pass in the key of one of your breakpoints set in `$stalfos-config['breakpoints']`
+ * and this mixin will generate the @media query with your configured value.
+ *
+ * @param {string} $key - The key of your configured breakpoint
+ */
 
 /*# sourceMappingURL=stalfos.css.map */

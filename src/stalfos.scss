@@ -1,1 +1,8 @@
 @import 'generator/generator';
+@import 'mixins/mixins';
+
+body {
+  @include media-query('smol') {
+    background: red;
+  }
+}
