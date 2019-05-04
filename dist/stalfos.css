@@ -496,11 +496,29 @@
   }
 }
 /**
+ * BOUNCE SCROLL
+ * An overflow helper that gives you bouncy/intertia overflow scrolling
+ * in WebKit (iOS) browsers.
+ */
+/**
+ * HOVER MIXIN
+ * A mixin that fences hover styles in a media query. You can also wrap a focus style
+ * which is applied outside of the media query. Pointer accuracy is also applied.
+ *
+ * @param {bool} $include-focus - A flag that adds a '&:focus' selector if true. Default: false
+ * @param {string} $pointer-accuracy - The value for the `pointer` media-query. Default: 'fine'
+ */
+/**
  * MEDIA QUERY MIXIN
  * Pass in the key of one of your breakpoints set in `$stalfos-config['breakpoints']`
  * and this mixin will generate the @media query with your configured value.
  *
  * @param {string} $key - The key of your configured breakpoint
  */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 /*# sourceMappingURL=stalfos.css.map */

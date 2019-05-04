@@ -2,7 +2,5 @@
 @import 'mixins/mixins';
 
 body {
-  @include media-query('smol') {
-    background: red;
-  }
+  @include bounce-scroll();
 }
