@@ -496,6 +496,14 @@
   }
 }
 /**
+ * APPLY UTILITY MIXIN
+ * Grab the property and value of one of the $stalfos-config utilities
+ * that the generator will generate a class for. 
+ *
+ * @param {string} $key - The configured utility’s key
+ * @param {string} $value-key - The value key that you are looking for within the utilty
+ */
+/**
  * BOUNCE SCROLL
  * An overflow helper that gives you bouncy/intertia overflow scrolling
  * in WebKit (iOS) browsers.
@@ -516,9 +524,7 @@
  * @param {string} $key - The key of your configured breakpoint
  */
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  margin-top: 2rem;
 }
 
 /*# sourceMappingURL=stalfos.css.map */
