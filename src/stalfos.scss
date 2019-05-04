@@ -4,3 +4,7 @@
 body {
   @include apply-utility('space-top', '700');
 }
+
+input {
+  @include placeholder-color(red);
+}
