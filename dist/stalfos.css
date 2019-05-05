@@ -3,7 +3,7 @@
  * BASE SIZE
  * All calculations are based on this. It’s recommended that
  * you keep it at 1rem because that is the root font size. You
- * can set it to whatever you like and whatever unit you like
+ * can set it to whatever you like and whatever unit you like.
  */
 /**
  * SIZE SCALE
@@ -13,9 +13,14 @@
  * your whole project.
  */
 /**
+ * COLORS
+ * Colors are shared between backgrounds and text by default. 
+ * You can also use them to power borders, fills or shadows, for example.
+ */
+/**
  * CORE CONFIG
  * This powers everything from utility class generation to breakpoints
- * to enabling/disabling pre-built components/utilities
+ * to enabling/disabling pre-built components/utilities.
  */
 /**
  * CYCLE MIXIN
@@ -45,6 +50,22 @@
  * @param {string} $property - The CSS property that this utility affects
  * @param {map} $items - The collection of utility items to generate classes for
  */
+.bg-dark {
+  background: #1a1a1a;
+}
+
+.bg-light {
+  background: #f3f3f3;
+}
+
+.color-dark {
+  color: #1a1a1a;
+}
+
+.color-light {
+  color: #f3f3f3;
+}
+
 .box-block {
   display: block;
 }
@@ -59,6 +80,10 @@
 
 .box-show {
   display: inherit;
+}
+
+.font-base {
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .gap-top-200 {

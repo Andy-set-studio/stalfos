@@ -2,7 +2,7 @@
  * BASE SIZE
  * All calculations are based on this. It’s recommended that
  * you keep it at 1rem because that is the root font size. You
- * can set it to whatever you like and whatever unit you like
+ * can set it to whatever you like and whatever unit you like.
  */
 $stalfos-base-size: 1rem !default;
 
@@ -24,11 +24,31 @@ $stalfos-size-scale: (
 ) !default;
 
 /**
+ * COLORS
+ * Colors are shared between backgrounds and text by default. 
+ * You can also use them to power borders, fills or shadows, for example.
+ */
+$stalfos-colors: (
+  'dark': '#1a1a1a',
+  'light': '#f3f3f3'
+) !default;
+
+/**
  * CORE CONFIG
  * This powers everything from utility class generation to breakpoints
- * to enabling/disabling pre-built components/utilities
+ * to enabling/disabling pre-built components/utilities.
  */
 $stalfos-config: (
+  'bg': (
+    'items': $stalfos-colors,
+    'output': 'standard',
+    'property': 'background'
+  ),
+  'color': (
+    'items': $stalfos-colors,
+    'output': 'standard',
+    'property': 'color'
+  ),
   'box': (
     'items': (
       'block': 'block',
@@ -38,6 +58,13 @@ $stalfos-config: (
     ),
     'output': 'responsive',
     'property': 'display'
+  ),
+  'font': (
+    'items': (
+      'base': 'Helvetica, Arial, sans-serif'
+    ),
+    'output': 'standard',
+    'property': 'font-family'
   ),
   'gap-top': (
     'items': $stalfos-size-scale,
