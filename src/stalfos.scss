@@ -2,7 +2,7 @@
 @import 'mixins/mixins';
 
 body {
-  @include apply-utility('space-top', '700');
+  @include apply-utility('gap-top', '700');
 }
 
 input {

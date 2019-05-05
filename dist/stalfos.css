@@ -1,5 +1,23 @@
 @charset "UTF-8";
 /**
+ * BASE SIZE
+ * All calculations are based on this. It’s recommended that
+ * you keep it at 1rem because that is the root font size. You
+ * can set it to whatever you like and whatever unit you like
+ */
+/**
+ * SIZE SCALE
+ * This is a Major Third scale that powers all the utilities that
+ * it is relevant for (font-size, margin, padding). All items are
+ * calcuated off the base size, so change that and cascade across
+ * your whole project.
+ */
+/**
+ * CORE CONFIG
+ * This powers everything from utility class generation to breakpoints
+ * to enabling/disabling pre-built components/utilities
+ */
+/**
  * CYCLE MIXIN
  * A simple worker that loops every element in the config
  * and pushes it into the collection processor
@@ -35,11 +53,7 @@
   display: flex;
 }
 
-.box-inline-flex {
-  display: inline-flex;
-}
-
-.box-hidden {
+.box-hide {
   display: none;
 }
 
@@ -47,100 +61,228 @@
   display: inherit;
 }
 
-.space-top-200 {
+.gap-top-200 {
   margin-top: 0.65rem;
 }
 
-.space-top-300 {
+.gap-top-300 {
   margin-top: 0.8rem;
 }
 
-.space-top-400 {
+.gap-top-400 {
   margin-top: 1rem;
 }
 
-.space-top-500 {
+.gap-top-500 {
   margin-top: 1.25rem;
 }
 
-.space-top-600 {
+.gap-top-600 {
   margin-top: 1.6rem;
 }
 
-.space-top-700 {
+.gap-top-700 {
   margin-top: 2rem;
 }
 
-.space-right-200 {
+.gap-top-900 {
+  margin-top: 3rem;
+}
+
+.gap-right-200 {
   margin-right: 0.65rem;
 }
 
-.space-right-300 {
+.gap-right-300 {
   margin-right: 0.8rem;
 }
 
-.space-right-400 {
+.gap-right-400 {
   margin-right: 1rem;
 }
 
-.space-right-500 {
+.gap-right-500 {
   margin-right: 1.25rem;
 }
 
-.space-right-600 {
+.gap-right-600 {
   margin-right: 1.6rem;
 }
 
-.space-right-700 {
+.gap-right-700 {
   margin-right: 2rem;
 }
 
-.space-bottom-200 {
+.gap-right-900 {
+  margin-right: 3rem;
+}
+
+.gap-bottom-200 {
   margin-bottom: 0.65rem;
 }
 
-.space-bottom-300 {
+.gap-bottom-300 {
   margin-bottom: 0.8rem;
 }
 
-.space-bottom-400 {
+.gap-bottom-400 {
   margin-bottom: 1rem;
 }
 
-.space-bottom-500 {
+.gap-bottom-500 {
   margin-bottom: 1.25rem;
 }
 
-.space-bottom-600 {
+.gap-bottom-600 {
   margin-bottom: 1.6rem;
 }
 
-.space-bottom-700 {
+.gap-bottom-700 {
   margin-bottom: 2rem;
 }
 
-.space-left-200 {
+.gap-bottom-900 {
+  margin-bottom: 3rem;
+}
+
+.gap-left-200 {
   margin-left: 0.65rem;
 }
 
-.space-left-300 {
+.gap-left-300 {
   margin-left: 0.8rem;
 }
 
-.space-left-400 {
+.gap-left-400 {
   margin-left: 1rem;
 }
 
-.space-left-500 {
+.gap-left-500 {
   margin-left: 1.25rem;
 }
 
-.space-left-600 {
+.gap-left-600 {
   margin-left: 1.6rem;
 }
 
-.space-left-700 {
+.gap-left-700 {
   margin-left: 2rem;
+}
+
+.gap-left-900 {
+  margin-left: 3rem;
+}
+
+.pad-top-200 {
+  padding-top: 0.65rem;
+}
+
+.pad-top-300 {
+  padding-top: 0.8rem;
+}
+
+.pad-top-400 {
+  padding-top: 1rem;
+}
+
+.pad-top-500 {
+  padding-top: 1.25rem;
+}
+
+.pad-top-600 {
+  padding-top: 1.6rem;
+}
+
+.pad-top-700 {
+  padding-top: 2rem;
+}
+
+.pad-top-900 {
+  padding-top: 3rem;
+}
+
+.pad-right-200 {
+  padding-right: 0.65rem;
+}
+
+.pad-right-300 {
+  padding-right: 0.8rem;
+}
+
+.pad-right-400 {
+  padding-right: 1rem;
+}
+
+.pad-right-500 {
+  padding-right: 1.25rem;
+}
+
+.pad-right-600 {
+  padding-right: 1.6rem;
+}
+
+.pad-right-700 {
+  padding-right: 2rem;
+}
+
+.pad-right-900 {
+  padding-right: 3rem;
+}
+
+.pad-bottom-200 {
+  padding-bottom: 0.65rem;
+}
+
+.pad-bottom-300 {
+  padding-bottom: 0.8rem;
+}
+
+.pad-bottom-400 {
+  padding-bottom: 1rem;
+}
+
+.pad-bottom-500 {
+  padding-bottom: 1.25rem;
+}
+
+.pad-bottom-600 {
+  padding-bottom: 1.6rem;
+}
+
+.pad-bottom-700 {
+  padding-bottom: 2rem;
+}
+
+.pad-bottom-900 {
+  padding-bottom: 3rem;
+}
+
+.pad-left-200 {
+  pad-left: 0.65rem;
+}
+
+.pad-left-300 {
+  pad-left: 0.8rem;
+}
+
+.pad-left-400 {
+  pad-left: 1rem;
+}
+
+.pad-left-500 {
+  pad-left: 1.25rem;
+}
+
+.pad-left-600 {
+  pad-left: 1.6rem;
+}
+
+.pad-left-700 {
+  pad-left: 2rem;
+}
+
+.pad-left-900 {
+  pad-left: 3rem;
 }
 
 .stack-400 {
@@ -187,12 +329,12 @@
   font-size: 2rem;
 }
 
-.text-800 {
-  font-size: 2.45rem;
+.text-900 {
+  font-size: 3rem;
 }
 
-.text-900 {
-  font-size: 3.1rem;
+.weight-light {
+  font-weight: 300;
 }
 
 .weight-regular {
@@ -228,11 +370,7 @@
     display: flex;
   }
 
-  .sm\:box-inline-flex {
-    display: inline-flex;
-  }
-
-  .sm\:box-hidden {
+  .sm\:box-hide {
     display: none;
   }
 
@@ -264,12 +402,8 @@
     font-size: 2rem;
   }
 
-  .sm\:text-800 {
-    font-size: 2.45rem;
-  }
-
   .sm\:text-900 {
-    font-size: 3.1rem;
+    font-size: 3rem;
   }
 
   .sm\:width-full {
@@ -297,11 +431,7 @@
     display: flex;
   }
 
-  .md\:box-inline-flex {
-    display: inline-flex;
-  }
-
-  .md\:box-hidden {
+  .md\:box-hide {
     display: none;
   }
 
@@ -333,12 +463,8 @@
     font-size: 2rem;
   }
 
-  .md\:text-800 {
-    font-size: 2.45rem;
-  }
-
   .md\:text-900 {
-    font-size: 3.1rem;
+    font-size: 3rem;
   }
 
   .md\:width-full {
@@ -366,11 +492,7 @@
     display: flex;
   }
 
-  .lg\:box-inline-flex {
-    display: inline-flex;
-  }
-
-  .lg\:box-hidden {
+  .lg\:box-hide {
     display: none;
   }
 
@@ -402,12 +524,8 @@
     font-size: 2rem;
   }
 
-  .lg\:text-800 {
-    font-size: 2.45rem;
-  }
-
   .lg\:text-900 {
-    font-size: 3.1rem;
+    font-size: 3rem;
   }
 
   .lg\:width-full {
@@ -435,11 +553,7 @@
     display: flex;
   }
 
-  .xl\:box-inline-flex {
-    display: inline-flex;
-  }
-
-  .xl\:box-hidden {
+  .xl\:box-hide {
     display: none;
   }
 
@@ -471,12 +585,8 @@
     font-size: 2rem;
   }
 
-  .xl\:text-800 {
-    font-size: 2.45rem;
-  }
-
   .xl\:text-900 {
-    font-size: 3.1rem;
+    font-size: 3rem;
   }
 
   .xl\:width-full {

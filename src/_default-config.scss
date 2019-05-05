@@ -1,62 +1,83 @@
+/**
+ * BASE SIZE
+ * All calculations are based on this. It’s recommended that
+ * you keep it at 1rem because that is the root font size. You
+ * can set it to whatever you like and whatever unit you like
+ */
+$stalfos-base-size: 1rem !default;
+
+/**
+ * SIZE SCALE
+ * This is a Major Third scale that powers all the utilities that
+ * it is relevant for (font-size, margin, padding). All items are
+ * calcuated off the base size, so change that and cascade across
+ * your whole project.
+ */
+$stalfos-size-scale: (
+  '200': $stalfos-base-size * 0.65,
+  '300': $stalfos-base-size * 0.8,
+  '400': $stalfos-base-size,
+  '500': $stalfos-base-size * 1.25,
+  '600': $stalfos-base-size * 1.6,
+  '700': $stalfos-base-size * 2,
+  '900': $stalfos-base-size * 3
+) !default;
+
+/**
+ * CORE CONFIG
+ * This powers everything from utility class generation to breakpoints
+ * to enabling/disabling pre-built components/utilities
+ */
 $stalfos-config: (
   'box': (
     'items': (
       'block': 'block',
       'flex': 'flex',
-      'inline-flex': 'inline-flex',
-      'hidden': 'none',
+      'hide': 'none',
       'show': 'inherit'
     ),
     'output': 'responsive',
     'property': 'display'
   ),
-  'space-top': (
-    'items': (
-      '200': 0.65rem,
-      '300': 0.8rem,
-      '400': 1rem,
-      '500': 1.25rem,
-      '600': 1.6rem,
-      '700': 2rem
-    ),
+  'gap-top': (
+    'items': $stalfos-size-scale,
     'output': 'standard',
     'property': 'margin-top'
   ),
-  'space-right': (
-    'items': (
-      '200': 0.65rem,
-      '300': 0.8rem,
-      '400': 1rem,
-      '500': 1.25rem,
-      '600': 1.6rem,
-      '700': 2rem
-    ),
+  'gap-right': (
+    'items': $stalfos-size-scale,
     'output': 'standard',
     'property': 'margin-right'
   ),
-  'space-bottom': (
-    'items': (
-      '200': 0.65rem,
-      '300': 0.8rem,
-      '400': 1rem,
-      '500': 1.25rem,
-      '600': 1.6rem,
-      '700': 2rem
-    ),
+  'gap-bottom': (
+    'items': $stalfos-size-scale,
     'output': 'standard',
     'property': 'margin-bottom'
   ),
-  'space-left': (
-    'items': (
-      '200': 0.65rem,
-      '300': 0.8rem,
-      '400': 1rem,
-      '500': 1.25rem,
-      '600': 1.6rem,
-      '700': 2rem
-    ),
+  'gap-left': (
+    'items': $stalfos-size-scale,
     'output': 'standard',
     'property': 'margin-left'
+  ),
+  'pad-top': (
+    'items': $stalfos-size-scale,
+    'output': 'standard',
+    'property': 'padding-top'
+  ),
+  'pad-right': (
+    'items': $stalfos-size-scale,
+    'output': 'standard',
+    'property': 'padding-right'
+  ),
+  'pad-bottom': (
+    'items': $stalfos-size-scale,
+    'output': 'standard',
+    'property': 'padding-bottom'
+  ),
+  'pad-left': (
+    'items': $stalfos-size-scale,
+    'output': 'standard',
+    'property': 'pad-left'
   ),
   'stack': (
     'items': (
@@ -70,21 +91,13 @@ $stalfos-config: (
     'property': 'z-index'
   ),
   'text': (
-    'items': (
-      '200': 0.65rem,
-      '300': 0.8rem,
-      '400': 1rem,
-      '500': 1.25rem,
-      '600': 1.6rem,
-      '700': 2rem,
-      '800': 2.45rem,
-      '900': 3.1rem
-    ),
+    'items': $stalfos-size-scale,
     'output': 'responsive',
     'property': 'font-size'
   ),
   'weight': (
     'items': (
+      'light': '300',
       'regular': '400',
       'bold': '700'
     ),
