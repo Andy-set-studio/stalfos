@@ -1,10 +1,2 @@
 @import 'generator/generator';
 @import 'mixins/mixins';
-
-body {
-  @include apply-utility('gap-top', '700');
-}
-
-input {
-  @include placeholder-color(red);
-}

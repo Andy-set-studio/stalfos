@@ -639,23 +639,5 @@
  *
  * @param {string} $color - The color (hex,rgb(a),hsl(a) that you want the placeholder to be
  */
-body {
-  margin-top: 2rem;
-}
-
-input::-webkit-input-placeholder {
-  color: red;
-}
-input:-moz-placeholder {
-  color: red;
-  opacity: 1;
-}
-input::-moz-placeholder {
-  color: red;
-  opacity: 1;
-}
-input:-ms-input-placeholder {
-  color: red;
-}
 
 /*# sourceMappingURL=stalfos.css.map */
