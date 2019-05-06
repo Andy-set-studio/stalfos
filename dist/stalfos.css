@@ -683,6 +683,23 @@
 }
 
 /**
+ * FLOW UTILITY
+ * Add space between sibling elements in a (default selector) .sf-flow parent. 
+ * The default space value is 1em which will be the font-size of the element that
+ * has the margin-top applied to it. The `flow-space` custom property means that the 
+ * cascade can be utilised if needed. 
+ * Block and prefix can be configured below.
+ */
+.sf-flow {
+  --flow-space: 1em;
+}
+
+.sf-flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
+/**
  * WRAPPER UTILITY
  * A handy container util that sets a max-width and centers itself, using auto margin.
  * You can configure the max width, gutter, class prefix and even the block name.
