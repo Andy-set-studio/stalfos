@@ -13,7 +13,7 @@ $stalfos-utility-wrapper__prefix: $stalfos-util-prefix !default;
 $stalfos-utility-wrapper__block: 'wrapper';
 
 // Block starts if enabled in your `$stalfos-config`
-@if ($stalfos-utility-wrapper__enabled == true) {
+@if ($stalfos-utility-wrapper__enabled == 'on') {
   #{ '.' + $stalfos-utility-wrapper__prefix + $stalfos-utility-wrapper__block } {
     max-width: $stalfos-utility-wrapper__max-width;
     margin-left: auto;

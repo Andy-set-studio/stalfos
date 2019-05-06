@@ -156,9 +156,9 @@ $stalfos-config: (
     'xl': '(min-width: 75em)'
   ),
   'utilities': (
-    'reset': true,
-    'icon': true,
-    'flow': true,
-    'wrapper': true
+    'reset': 'on',
+    'icon': 'on',
+    'flow': 'on',
+    'wrapper': 'on'
   )
 ) !default;

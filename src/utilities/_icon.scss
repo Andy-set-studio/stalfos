@@ -12,7 +12,7 @@ $stalfos-utility-icon__prefix: $stalfos-util-prefix !default;
 $stalfos-utility-icon__block: 'icon';
 
 // Block starts if enabled in your `$stalfos-config`
-@if ($stalfos-utility-icon__enabled == true) {
+@if ($stalfos-utility-icon__enabled == 'on') {
   #{ '.' + $stalfos-utility-icon__prefix + $stalfos-utility-icon__block } {
     display: inline-block;
     width: 1em;

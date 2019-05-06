@@ -1,4 +1,4 @@
-@if (get-config-value('reset', 'utilities') == true) {
+@if (get-config-value('reset', 'utilities') == 'on') {
   /* Box sizing rules */
   * {
     box-sizing: border-box;
