@@ -14,7 +14,6 @@ $stalfos-base-size: 1rem !default;
  * your whole project.
  */
 $stalfos-size-scale: (
-  '200': $stalfos-base-size * 0.65,
   '300': $stalfos-base-size * 0.8,
   '400': $stalfos-base-size,
   '500': $stalfos-base-size * 1.25,
@@ -116,14 +115,11 @@ $stalfos-config: (
   ),
   'stack': (
     'items': (
-      '100': -20,
-      '200': -10,
       '300': 0,
       '400': 10,
       '500': 20,
       '600': 30,
-      '700': 40,
-      '900': 50
+      '700': 40
     ),
     'output': 'standard',
     'property': 'z-index'
