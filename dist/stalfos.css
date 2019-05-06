@@ -28,6 +28,166 @@
  * This powers everything from utility class generation to breakpoints
  * to enabling/disabling pre-built components/utilities.
  */
+/* Box sizing rules */
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Remove margin and padding from elements */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+dd,
+figure,
+figcaption,
+dl,
+dd,
+dt {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  /* Hide persistent scrollbar in IE (10/11) and Edge */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* Anchor links will transition rather than skip */
+  scroll-behavior: smooth;
+  /* Reset font size to 1rem, in case it has a pixel value */
+  font-size: 1rem;
+  min-height: 100vh;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+}
+
+/* Turn off the recent search in WebKit. */
+::-webkit-search-decoration {
+  display: none;
+}
+
+/* Normalise form field line-height in WebKit */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+select::-webkit-input-placeholder {
+  line-height: normal;
+}
+
+/* Make a search box appear like a text box */
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+}
+
+/* Remove _all_ animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none !important;
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/**
+ * ICON UTILITY
+ * A handy little utility that by default, sets your icons to 1em, width and height. 
+ * This means that the icon will scale with its parent's font size.
+ * You can change the base size, class prefix and block name below.
+ */
+.sf-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+/**
+ * FLOW UTILITY
+ * Add space between sibling elements in a (default selector) .sf-flow parent. 
+ * The default space value is 1em which will be the font-size of the element that
+ * has the margin-top applied to it. The `flow-space` custom property means that the 
+ * cascade can be utilised if needed. 
+ * Block and prefix can be configured below.
+ */
+.sf-flow {
+  --flow-space: 1em;
+}
+
+.sf-flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
+/**
+ * WRAPPER UTILITY
+ * A handy container util that sets a max-width and centers itself, using auto margin.
+ * You can configure the max width, gutter, class prefix and even the block name.
+ * Default selector: '.sf-wrapper'.
+ */
+.sf-wrapper {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+/**
+ * APPLY UTILITY MIXIN
+ * Grab the property and value of one of the $stalfos-config utilities
+ * that the generator will generate a class for. 
+ *
+ * @param {string} $key - The configured utility’s key
+ * @param {string} $value-key - The value key that you are looking for within the utilty
+ */
+/**
+ * BOUNCE SCROLL
+ * An overflow helper that gives you bouncy/intertia overflow scrolling
+ * in WebKit (iOS) browsers.
+ */
+/**
+ * HOVER MIXIN
+ * A mixin that fences hover styles in a media query. You can also wrap a focus style
+ * which is applied outside of the media query. Pointer accuracy is also applied.
+ *
+ * @param {bool} $include-focus - A flag that adds a '&:focus' selector if true. Default: false
+ * @param {string} $pointer-accuracy - The value for the `pointer` media-query. Default: 'fine'
+ */
+/**
+ * MEDIA QUERY MIXIN
+ * Pass in the key of one of your breakpoints set in `$stalfos-config['breakpoints']`
+ * and this mixin will generate the @media query with your configured value.
+ *
+ * @param {string} $key - The key of your configured breakpoint
+ */
+/**
+ * PLACEHOLDER COLOR MIXIN
+ * Apply text color an input’s placeholder attribute
+ *
+ * @param {string} $color - The color (hex,rgb(a),hsl(a) that you want the placeholder to be
+ */
 /**
  * CYCLE MIXIN
  * A simple worker that loops every element in the config
@@ -635,81 +795,6 @@
   .xl\:width-third {
     width: 33.3333333333%;
   }
-}
-/**
- * APPLY UTILITY MIXIN
- * Grab the property and value of one of the $stalfos-config utilities
- * that the generator will generate a class for. 
- *
- * @param {string} $key - The configured utility’s key
- * @param {string} $value-key - The value key that you are looking for within the utilty
- */
-/**
- * BOUNCE SCROLL
- * An overflow helper that gives you bouncy/intertia overflow scrolling
- * in WebKit (iOS) browsers.
- */
-/**
- * HOVER MIXIN
- * A mixin that fences hover styles in a media query. You can also wrap a focus style
- * which is applied outside of the media query. Pointer accuracy is also applied.
- *
- * @param {bool} $include-focus - A flag that adds a '&:focus' selector if true. Default: false
- * @param {string} $pointer-accuracy - The value for the `pointer` media-query. Default: 'fine'
- */
-/**
- * MEDIA QUERY MIXIN
- * Pass in the key of one of your breakpoints set in `$stalfos-config['breakpoints']`
- * and this mixin will generate the @media query with your configured value.
- *
- * @param {string} $key - The key of your configured breakpoint
- */
-/**
- * PLACEHOLDER COLOR MIXIN
- * Apply text color an input’s placeholder attribute
- *
- * @param {string} $color - The color (hex,rgb(a),hsl(a) that you want the placeholder to be
- */
-/**
- * ICON UTILITY
- * A handy little utility that by default, sets your icons to 1em, width and height. 
- * This means that the icon will scale with its parent's font size.
- * You can change the base size, class prefix and block name below.
- */
-.sf-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-}
-
-/**
- * FLOW UTILITY
- * Add space between sibling elements in a (default selector) .sf-flow parent. 
- * The default space value is 1em which will be the font-size of the element that
- * has the margin-top applied to it. The `flow-space` custom property means that the 
- * cascade can be utilised if needed. 
- * Block and prefix can be configured below.
- */
-.sf-flow {
-  --flow-space: 1em;
-}
-
-.sf-flow > * + * {
-  margin-top: 1em;
-  margin-top: var(--flow-space);
-}
-
-/**
- * WRAPPER UTILITY
- * A handy container util that sets a max-width and centers itself, using auto margin.
- * You can configure the max width, gutter, class prefix and even the block name.
- * Default selector: '.sf-wrapper'.
- */
-.sf-wrapper {
-  max-width: 70rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
 }
 
 /*# sourceMappingURL=stalfos.css.map */
