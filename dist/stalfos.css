@@ -476,6 +476,18 @@ img {
   pad-left: 3rem;
 }
 
+.stack-100 {
+  z-index: -20;
+}
+
+.stack-200 {
+  z-index: -10;
+}
+
+.stack-300 {
+  z-index: 0;
+}
+
 .stack-400 {
   z-index: 10;
 }
@@ -732,67 +744,6 @@ img {
   }
 
   .lg\:width-third {
-    width: 33.3333333333%;
-  }
-}
-@media screen and (min-width: 75em) {
-  .xl\:box-block {
-    display: block;
-  }
-
-  .xl\:box-flex {
-    display: flex;
-  }
-
-  .xl\:box-hide {
-    display: none;
-  }
-
-  .xl\:box-show {
-    display: inherit;
-  }
-
-  .xl\:text-200 {
-    font-size: 0.65rem;
-  }
-
-  .xl\:text-300 {
-    font-size: 0.8rem;
-  }
-
-  .xl\:text-400 {
-    font-size: 1rem;
-  }
-
-  .xl\:text-500 {
-    font-size: 1.25rem;
-  }
-
-  .xl\:text-600 {
-    font-size: 1.6rem;
-  }
-
-  .xl\:text-700 {
-    font-size: 2rem;
-  }
-
-  .xl\:text-900 {
-    font-size: 3rem;
-  }
-
-  .xl\:width-full {
-    width: 100%;
-  }
-
-  .xl\:width-half {
-    width: 50%;
-  }
-
-  .xl\:width-quarter {
-    width: 25%;
-  }
-
-  .xl\:width-third {
     width: 33.3333333333%;
   }
 }

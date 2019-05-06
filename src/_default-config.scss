@@ -116,6 +116,9 @@ $stalfos-config: (
   ),
   'stack': (
     'items': (
+      '100': -20,
+      '200': -10,
+      '300': 0,
       '400': 10,
       '500': 20,
       '600': 30,
@@ -152,8 +155,7 @@ $stalfos-config: (
   'breakpoints': (
     'sm': '(min-width: 36em)',
     'md': '(min-width: 48em)',
-    'lg': '(min-width: 62em)',
-    'xl': '(min-width: 75em)'
+    'lg': '(min-width: 62em)'
   ),
   'utilities': (
     'reset': 'on',
