@@ -34,6 +34,14 @@ $stalfos-colors: (
 ) !default;
 
 /**
+ * UTIL PREFIX
+ * All pre-built, framework utilities will have this prefix. 
+ * Example: the wrapper utility is '.sf-wrapper' because the default
+ * prefix is 'sf-'.
+ */
+$stalfos-util-prefix: 'sf-';
+
+/**
  * CORE CONFIG
  * This powers everything from utility class generation to breakpoints
  * to enabling/disabling pre-built components/utilities.
@@ -146,5 +154,8 @@ $stalfos-config: (
     'md': '(min-width: 48em)',
     'lg': '(min-width: 62em)',
     'xl': '(min-width: 75em)'
+  ),
+  'utilities': (
+    'wrapper': true
   )
 ) !default;

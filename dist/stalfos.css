@@ -18,6 +18,12 @@
  * You can also use them to power borders, fills or shadows, for example.
  */
 /**
+ * UTIL PREFIX
+ * All pre-built, framework utilities will have this prefix. 
+ * Example: the wrapper utility is '.sf-wrapper' because the default
+ * prefix is 'sf-'.
+ */
+/**
  * CORE CONFIG
  * This powers everything from utility class generation to breakpoints
  * to enabling/disabling pre-built components/utilities.
@@ -664,5 +670,17 @@
  *
  * @param {string} $color - The color (hex,rgb(a),hsl(a) that you want the placeholder to be
  */
+/**
+ * WRAPPER
+ * A handy container util that sets a max-width and centers itself, using auto margin.
+ * You can configure the max width, gutter, class prefix and even the block name.
+ * Default selector: '.sf-wrapper'.
+ */
+.sf-wrapper {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
 
 /*# sourceMappingURL=stalfos.css.map */

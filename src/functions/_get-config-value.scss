@@ -1,0 +1,9 @@
+@function get-config-value($key, $group) {
+  $group-items: map-get($stalfos-config, $group);
+
+  @if ($group-items) {
+    @return map-get($group-items, $key);
+  }
+
+  @return false;
+}
