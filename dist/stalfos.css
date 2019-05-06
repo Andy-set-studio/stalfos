@@ -671,7 +671,19 @@
  * @param {string} $color - The color (hex,rgb(a),hsl(a) that you want the placeholder to be
  */
 /**
- * WRAPPER
+ * ICON UTILITY
+ * A handy little utility that by default, sets your icons to 1em, width and height. 
+ * This means that the icon will scale with its parent's font size.
+ * You can change the base size, class prefix and block name below.
+ */
+.sf-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+/**
+ * WRAPPER UTILITY
  * A handy container util that sets a max-width and centers itself, using auto margin.
  * You can configure the max width, gutter, class prefix and even the block name.
  * Default selector: '.sf-wrapper'.
