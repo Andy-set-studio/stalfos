@@ -7,7 +7,7 @@
  * @param {string} $key - The color that you want to get 
  */
 @function get-color($key) {
-  $response: unquote(map-get($stalfos-colors, $key));
+  $response: map-get($stalfos-colors, $key);
 
   @if ($response) {
     @return $response;
