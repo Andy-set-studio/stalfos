@@ -6,3 +6,7 @@
 @import 'utilities/utilities';
 @import 'mixins/mixins';
 @import 'generator/generator';
+
+body {
+  background: get-color('dark');
+}

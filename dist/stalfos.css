@@ -36,6 +36,14 @@
  * @param {string{ $group - The group within $stalfos-config where that $key lives
  */
 /**
+ * GET COLOR FUNCTION
+ *
+ * Function tries to match the passed $key with the $stalfos-colors map. Returns null
+ * if it can’t find a match.
+ *
+ * @param {string} $key - The color that you want to get 
+ */
+/**
  * GET SIZE FUNCTION
  *
  * Function tries to match the passed $ratio-key with the $stalfos-size-scale. Returns null
@@ -691,6 +699,9 @@ img {
   .lg\:width-third {
     width: 33.3333333333%;
   }
+}
+body {
+  background: #1a1a1a;
 }
 
 /*# sourceMappingURL=stalfos.css.map */
