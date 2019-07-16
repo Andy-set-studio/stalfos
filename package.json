@@ -2,7 +2,6 @@
   "name": "stalfos",
   "version": "2.0.0",
   "description": "A skeletal collection of Sass helpers with a handy CSS utility class generator",
-  "main": "front-end/gulpfile.js",
   "scripts": {
     "sass:process": "sass stalfos.scss dist/stalfos.css",
     "sass:build": "sass stalfos.scss dist/stalfos.min.css --style=compressed",
