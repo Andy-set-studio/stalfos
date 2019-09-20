@@ -1,12 +1,9 @@
 @if (get-config-value('reset', 'utilities') == 'on') {
   /* Box sizing rules */
-  * {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-  }
-
-  *:before,
-  *:after {
-    box-sizing: inherit;
   }
 
   /* Remove margin and padding from elements */
