@@ -114,6 +114,7 @@ select::-webkit-input-placeholder {
 /* Make images responsive */
 img {
   max-width: 100%;
+  height: auto;
 }
 
 /* Remove _all_ animations and transitions for people that prefer not to see them */
